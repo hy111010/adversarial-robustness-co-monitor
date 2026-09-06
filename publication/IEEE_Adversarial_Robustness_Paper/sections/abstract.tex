@@ -1,0 +1,27 @@
+\begin{abstract}
+Single-step adversarial training is efficient but can abruptly lose robustness
+through catastrophic overfitting (CO). We study an online safety trigger based
+on the cosine consistency of two input gradients obtained within an FGSM
+parameter update. The CIFAR-10 threshold is selected on seeds 17, 23, and 42
+and frozen before held-out evaluation. It detects 7/7 held-out
+CIFAR-10/PreActResNet-18 events within 60 updates. With the threshold unchanged,
+it detects 4/5 CIFAR-10/ResNet-18 events, including 2/5 within 60 updates. After
+one dataset-specific calibration, it detects both observed held-out CIFAR-100
+events; the three CIFAR-100 non-event trajectories contain one alarm episode.
+Eight randomized-FGSM runs at $\epsilon=8/255$ remain stable and produce no
+alarms. At $\epsilon=16/255$, all three stress-test runs naturally collapse;
+the frozen CIFAR-10 detector warns 20--60 updates beforehand, and the tested
+\emph{immediate-replay} ablation raises terminal PGD-10 accuracy from 0 to
+$26.48\pm0.83\%$. In a separate five-seed timing audit, both
+\emph{immediate-switch} and the rollback ablation \emph{immediate-replay}
+start PGD-2 before CO in 5/5 cases, versus 3/5 for
+next-epoch escalation. For immediate-switch, final PGD-10 accuracy is
+$47.05\pm0.74\%$; its $+0.22$-point difference from immediate-replay has a paired 95\%
+interval crossing zero. Immediate switching provides the timing benefit; rollback
+adds no reliable endpoint gain. In controlled reimplementations, GradAlign
+achieves higher robustness, while the proposed policy uses lower measured core
+training time. For the fixed seed-101 immediate-switch checkpoint, full-test PGD-50,
+five-restart PGD-20, and fixed-subset AutoAttack-standard accuracy are 45.52\%,
+45.66\%, and 42.30\%, respectively. Gradient consistency is used as an
+empirical warning signal; conditional PGD-2 supplies the recovery.
+\end{abstract}

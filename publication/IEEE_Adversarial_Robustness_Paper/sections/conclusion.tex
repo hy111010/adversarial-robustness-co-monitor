@@ -1,0 +1,21 @@
+\section{Conclusion}
+We presented a gradient-consistency safety trigger for catastrophic
+overfitting and tested whether its warning arrives soon enough to change
+training. Seven held-out CIFAR-10/PreActResNet-18 events are detected within
+60 updates. Transfer is partial with an unchanged threshold on ResNet-18 and
+requires a separate event-level calibration rule on CIFAR-100. In a randomized-FGSM
+$16/255$ stress test, all three events are detected; the tested immediate-replay
+response raises terminal PGD-10 from zero to $26.48\pm0.83\%$.
+
+For the pre-fixed seed-101 checkpoint of the primary immediate-switch response,
+full-test PGD-50 and five-restart PGD-20 accuracy are 45.52\% and 45.66\%, and
+AutoAttack-standard on the fixed first 1,000 test images gives 42.30\%.
+
+Across five seeds, the detector supplies the warning, PGD-2 restores
+robustness, and immediate-switch determines whether recovery starts in time.
+Immediate-switch and immediate-replay precede CO in 5/5 cases; rollback has no
+reliable final-accuracy advantage. In the controlled
+baselines, GradAlign obtains higher robustness and conditional escalation uses
+less measured core training time. The method is an empirical early-warning
+and conditional-computation mechanism, without a universal prevention claim,
+calibrated time-to-collapse output, or formal robustness guarantee.

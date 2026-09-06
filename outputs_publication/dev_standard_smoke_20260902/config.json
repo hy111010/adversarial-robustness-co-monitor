@@ -1,0 +1,21 @@
+{
+  "data_root": "data",
+  "output_root": "outputs_publication",
+  "run_name": "dev_standard_smoke_20260902",
+  "architecture": "preact_resnet18",
+  "device": "cpu",
+  "seed": 17,
+  "epochs": 1,
+  "batch_size": 4,
+  "workers": 0,
+  "lr": 0.1,
+  "momentum": 0.9,
+  "weight_decay": 0.0005,
+  "val_size": 5000,
+  "limit_train": 4,
+  "limit_val": 4,
+  "resume": false,
+  "resolved_device": "cpu",
+  "torch": "2.11.0+cu128",
+  "method": "standard"
+}

@@ -1,0 +1,7 @@
+无法将值“nan”转换为类型“System.Int32”。错误:“输入字符串的格式不正确。”
+所在位置 E:\人工智能导论论文\publication\run_minimal_independent_completion.ps1:15 字符: 12
++     return ([int]$Last.epoch -eq 30 -and [int]$Last.epoch_completed - ...
++            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) []，ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidCastFromStringToInteger
+ 

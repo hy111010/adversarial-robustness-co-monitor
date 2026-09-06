@@ -1,0 +1,96 @@
+\section{Discussion, Cost, and Limitations}
+\subsection{Causal and Temporal Interpretation}
+The detector supplies a warning, PGD-2 restores robustness, and
+immediate-switch converts the warning into
+timely action so that PGD-2 can begin before CO. Immediate-switch matches
+immediate-replay's 5/5 pre-collapse interventions and differs by only $+0.22$ PGD-10
+points, with a paired interval crossing zero. Restoring the epoch snapshot is
+therefore not required for the observed timing benefit.
+
+Table~\ref{tab:event-audit} reports every matched timing event. High lead time
+is desirable for safety, but a warning far ahead of collapse does not imply
+precise prediction of collapse timing; the monitor acts as a safety trigger
+upon observing geometry degradation. In particular, the 1568- and 1680-update
+leads in seeds 23 and 202 should not be interpreted as calibrated time-to-CO
+forecasts. The saved-trace audit in the Appendix also checks whether the score
+remains above threshold after these early warnings.
+
+\begin{table}[t]
+\centering
+\caption{Event-level timing in optimizer updates}
+\label{tab:event-audit}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{rrrrc}
+\toprule
+Seed & Warn$\to$CO & Immediate-switch & Deferred & Deferred before CO \\
+\midrule
+17  & 40   & 0 & 0   & yes \\
+23  & 1568 & 0 & 212 & yes \\
+42  & 20   & 0 & 232 & no \\
+101 & 60   & 0 & 292 & no \\
+202 & 1680 & 0 & 52  & yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Engineering Cost and Reproducibility}
+The attack-start gradient constructs the FGSM example. The endpoint input
+gradient is obtained from the same parameter-backward pass, without an
+additional forward or backward pass. The monitor retains it only until its
+cosine is reduced to a batch scalar, then stores scalar window history. It does
+not call a validation attack or an extra model evaluation.
+
+The primary immediate-switch response does not require a snapshot. Its 18.74-minute
+measurement is still core training time, not complete end-to-end runtime. The
+immediate-replay control has a separate systems cost: its implementation holds one
+epoch-start copy of model, optimizer, and AMP-scaler state in device memory,
+plus Python, NumPy, PyTorch CPU/CUDA, and loader-generator RNG state. It does
+not write this immediate-replay snapshot to disk. Reported core training time does not
+include snapshot save-restore overhead. It does include abandoned FGSM
+parameter-update time and the replayed PGD-2 epoch. The experiment did not
+instrument snapshot-copy latency or peak memory, so the current measurements
+must not be read as complete end-to-end latency or memory results.
+
+Every detector choice is fixed before its associated held-out evaluation:
+20-update windows, five-window median history, three-window minimum history,
+the event definition, and the 60-update near horizon. Fixed-switch controls
+ignore detector callbacks. Retrospective PGD labels never trigger the proposed
+monitor. Seed-level warning, collapse, PGD-start, accuracy, and timing records
+remain in the saved experiment CSV files; paired intervals use 100,000 resamples.
+
+\subsection{Scope and Limitations}
+The architecture result is partial unchanged-threshold transfer: ResNet-18
+detects 4/5 events but only 2/5 near events. CIFAR-100 is not zero-shot or
+plug-and-play; transfer requires six dataset-specific development trajectories
+to refit the detector operating point using its original event-level
+lexicographic rule. Only one of its three collapse-prone development runs meets
+the CO definition, so the event-level calibration has limited statistical
+stability. As a supplementary check, a window-level audit contains one positive
+next-window label among 2,877 eligible windows. One alarm episode
+occurs across three held-out non-event runs; its unnecessary PGD-2 cost is
+unquantified.
+Event samples for ResNet-18, CIFAR-100, and the
+$16/255$ stress test remain small, as reflected by wide Wilson intervals.
+Transfer evidence is still concentrated in CIFAR datasets and the ResNet
+family; ImageNet and substantially different architectures remain outside the
+current scope.
+
+The primary immediate-switch checkpoint is included in full-test PGD-50 and
+multi-restart PGD, plus the full standard AutoAttack suite on a fixed
+1,000-image subset, but not full-test
+AutoAttack. The subset is identical across compared checkpoints and includes
+APGD-CE, APGD-T, FAB-T, and Square. Agreement among PGD and this supplementary
+evaluation reduces, but does not eliminate, concern about gradient masking.
+The cosine score has empirical and mechanistic support but is neither a
+theoretical certificate nor a necessary or sufficient condition for CO.
+The $16/255$ recovery results use immediate-replay; immediate-switch has not
+been tested in that stress setting. Immediate-replay also has snapshot memory,
+storage-policy, and engineering overhead not characterized for larger models.
+Immediate-switch avoids this snapshot and has both five-seed intervention and
+pre-fixed seed-101 strong evaluations in Tables~\ref{tab:test}--\ref{tab:aa}.
+
+GradAlign has higher mean PGD-10 robustness than the proposed policy, which uses lower
+measured core training time and provides an explicit event log, but the choice
+between them depends on whether the deployment prioritizes peak robustness,
+measured training cost, or auditable failure detection.

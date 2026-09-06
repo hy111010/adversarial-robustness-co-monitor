@@ -1,0 +1,2 @@
+﻿epoch,batch,global_step,lr,window_samples,train_adv_loss,train_adv_acc,free_gradient_cosine,free_gradient_sign_agreement,free_prediction_disagreement,free_attack_loss_gain,free_boundary_fraction,free_delta_linf,control_gradient_participation_ratio,control_gradient_entropy,label_pgd10_acc,label_pgd10_seconds,label_seed,label_batches
+1,1,1,0.0,4,2.728653907775879,0.0,0.00473739905282855,0.497314453125,0.25,0.4919419586658478,0.9486491084098816,0.03137257695198059,0.24057349562644958,0.8839560151100159,0.0,0.03637180000077933,17000001,1

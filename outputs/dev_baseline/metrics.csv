@@ -1,0 +1,2 @@
+﻿epoch,lr,train_loss,train_acc,epoch_seconds,val_clean_acc
+1,0.1,7.282057106494904,0.0966796875,1.140270399977453,0.08984375

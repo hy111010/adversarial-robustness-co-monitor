@@ -1,0 +1,20 @@
+{
+  "standard": {
+    "runs": 3,
+    "collapse_events": 0,
+    "detected_events": 0,
+    "alarm_episodes": 0
+  },
+  "highlr": {
+    "runs": 5,
+    "collapse_events": 0,
+    "detected_events": 0,
+    "alarm_episodes": 0
+  },
+  "eps16": {
+    "runs": 3,
+    "collapse_events": 3,
+    "detected_events": 3,
+    "alarm_episodes": 5
+  }
+}

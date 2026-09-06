@@ -1,0 +1,5 @@
+﻿dataset,architecture,observed_events,detected_before_event,detected_within_60_updates,event_recall,wilson_95_low,wilson_95_high,non_event_runs,false_alarm_episodes,median_first_lead_updates
+CIFAR-10,PreActResNet-18,7,7,7,1.0,0.6456695649333126,1.0,3,0,40
+CIFAR-10,ResNet-18,5,4,2,0.8,0.37553462976252533,0.9637758913675698,3,0,80
+CIFAR-100,PreActResNet-18,2,2,2,1.0,0.34238022750665303,1.0,3,1,40
+"CIFAR-10, eps=16/255",PreActResNet-18,3,3,3,1.0,0.4385029682449546,1.0,0,0,40

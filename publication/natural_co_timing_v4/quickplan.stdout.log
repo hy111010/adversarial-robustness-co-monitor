@@ -1,0 +1,188 @@
+start=v4_natural_highlr_seed101 time=2026-09-05T19:28:47.6232542+08:00
+epoch=001 mode=fgsm_random_uniform clean=0.3538 pgd10=0.2414 trigger=0 abandoned=0 train_s=34.7
+epoch=002 mode=fgsm_random_uniform clean=0.3944 pgd10=0.2539 trigger=0 abandoned=0 train_s=33.8
+epoch=003 mode=fgsm_random_uniform clean=0.4318 pgd10=0.2945 trigger=0 abandoned=0 train_s=33.3
+epoch=004 mode=fgsm_random_uniform clean=0.5218 pgd10=0.2844 trigger=0 abandoned=0 train_s=33.9
+epoch=005 mode=fgsm_random_uniform clean=0.5340 pgd10=0.3008 trigger=0 abandoned=0 train_s=33.9
+epoch=006 mode=fgsm_random_uniform clean=0.5964 pgd10=0.3203 trigger=0 abandoned=0 train_s=33.5
+epoch=007 mode=fgsm_random_uniform clean=0.6182 pgd10=0.3281 trigger=0 abandoned=0 train_s=33.9
+epoch=008 mode=fgsm_random_uniform clean=0.6256 pgd10=0.3477 trigger=0 abandoned=0 train_s=34.5
+epoch=009 mode=fgsm_random_uniform clean=0.6546 pgd10=0.3469 trigger=0 abandoned=0 train_s=34.0
+epoch=010 mode=fgsm_random_uniform clean=0.6440 pgd10=0.3453 trigger=0 abandoned=0 train_s=33.7
+epoch=011 mode=fgsm_random_uniform clean=0.5968 pgd10=0.3344 trigger=0 abandoned=0 train_s=33.7
+epoch=012 mode=fgsm_random_uniform clean=0.6208 pgd10=0.3500 trigger=0 abandoned=0 train_s=34.0
+epoch=013 mode=fgsm_random_uniform clean=0.6144 pgd10=0.3180 trigger=0 abandoned=0 train_s=33.6
+epoch=014 mode=fgsm_random_uniform clean=0.6038 pgd10=0.3414 trigger=0 abandoned=0 train_s=34.5
+epoch=015 mode=fgsm_random_uniform clean=0.6264 pgd10=0.3398 trigger=0 abandoned=0 train_s=34.3
+epoch=016 mode=fgsm_random_uniform clean=0.6286 pgd10=0.3477 trigger=0 abandoned=0 train_s=34.2
+epoch=017 mode=fgsm_random_uniform clean=0.6212 pgd10=0.3414 trigger=0 abandoned=0 train_s=34.3
+epoch=018 mode=fgsm_random_uniform clean=0.6532 pgd10=0.3219 trigger=0 abandoned=0 train_s=33.9
+epoch=019 mode=fgsm_random_uniform clean=0.6328 pgd10=0.3281 trigger=0 abandoned=0 train_s=34.2
+epoch=020 mode=fgsm_random_uniform clean=0.6274 pgd10=0.3641 trigger=0 abandoned=0 train_s=33.8
+epoch=021 mode=fgsm_random_uniform clean=0.7026 pgd10=0.3680 trigger=0 abandoned=0 train_s=33.7
+epoch=022 mode=fgsm_random_uniform clean=0.6862 pgd10=0.3609 trigger=0 abandoned=0 train_s=34.6
+epoch=023 mode=fgsm_random_uniform clean=0.6474 pgd10=0.3672 trigger=0 abandoned=0 train_s=33.3
+epoch=024 mode=fgsm_random_uniform clean=0.7216 pgd10=0.3797 trigger=0 abandoned=0 train_s=33.9
+epoch=025 mode=fgsm_random_uniform clean=0.7364 pgd10=0.3922 trigger=0 abandoned=0 train_s=34.0
+epoch=026 mode=fgsm_random_uniform clean=0.7312 pgd10=0.4273 trigger=0 abandoned=0 train_s=34.2
+epoch=027 mode=fgsm_random_uniform clean=0.7586 pgd10=0.4391 trigger=0 abandoned=0 train_s=34.7
+epoch=028 mode=fgsm_random_uniform clean=0.7826 pgd10=0.4297 trigger=0 abandoned=0 train_s=33.8
+epoch=029 mode=fgsm_random_uniform clean=0.8084 pgd10=0.4547 trigger=0 abandoned=0 train_s=34.0
+epoch=030 mode=fgsm_random_uniform clean=0.8290 pgd10=0.4781 trigger=0 abandoned=0 train_s=33.9
+finish=v4_natural_highlr_seed101 time=2026-09-05T19:56:20.1220588+08:00
+start=v4_natural_highlr_seed202 time=2026-09-05T19:56:20.1250607+08:00
+epoch=001 mode=fgsm_random_uniform clean=0.3610 pgd10=0.2305 trigger=0 abandoned=0 train_s=34.0
+epoch=002 mode=fgsm_random_uniform clean=0.3936 pgd10=0.2492 trigger=0 abandoned=0 train_s=34.1
+epoch=003 mode=fgsm_random_uniform clean=0.4862 pgd10=0.2656 trigger=0 abandoned=0 train_s=33.5
+epoch=004 mode=fgsm_random_uniform clean=0.5378 pgd10=0.2961 trigger=0 abandoned=0 train_s=34.3
+epoch=005 mode=fgsm_random_uniform clean=0.5574 pgd10=0.3203 trigger=0 abandoned=0 train_s=33.9
+epoch=006 mode=fgsm_random_uniform clean=0.5984 pgd10=0.3234 trigger=0 abandoned=0 train_s=33.7
+epoch=007 mode=fgsm_random_uniform clean=0.5934 pgd10=0.3109 trigger=0 abandoned=0 train_s=34.3
+epoch=008 mode=fgsm_random_uniform clean=0.6456 pgd10=0.3398 trigger=0 abandoned=0 train_s=32.2
+epoch=009 mode=fgsm_random_uniform clean=0.6156 pgd10=0.3289 trigger=0 abandoned=0 train_s=32.5
+epoch=010 mode=fgsm_random_uniform clean=0.6264 pgd10=0.3516 trigger=0 abandoned=0 train_s=32.4
+epoch=011 mode=fgsm_random_uniform clean=0.6076 pgd10=0.3289 trigger=0 abandoned=0 train_s=32.8
+epoch=012 mode=fgsm_random_uniform clean=0.6196 pgd10=0.3492 trigger=0 abandoned=0 train_s=33.7
+epoch=013 mode=fgsm_random_uniform clean=0.6216 pgd10=0.3297 trigger=0 abandoned=0 train_s=33.6
+epoch=014 mode=fgsm_random_uniform clean=0.6030 pgd10=0.3219 trigger=0 abandoned=0 train_s=33.7
+epoch=015 mode=fgsm_random_uniform clean=0.6124 pgd10=0.3133 trigger=0 abandoned=0 train_s=33.7
+epoch=016 mode=fgsm_random_uniform clean=0.6216 pgd10=0.3508 trigger=0 abandoned=0 train_s=34.8
+epoch=017 mode=fgsm_random_uniform clean=0.6546 pgd10=0.3344 trigger=0 abandoned=0 train_s=34.1
+epoch=018 mode=fgsm_random_uniform clean=0.6590 pgd10=0.3453 trigger=0 abandoned=0 train_s=34.3
+epoch=019 mode=fgsm_random_uniform clean=0.6694 pgd10=0.3625 trigger=0 abandoned=0 train_s=33.9
+epoch=020 mode=fgsm_random_uniform clean=0.6550 pgd10=0.3445 trigger=0 abandoned=0 train_s=33.8
+epoch=021 mode=fgsm_random_uniform clean=0.6614 pgd10=0.3609 trigger=0 abandoned=0 train_s=33.6
+epoch=022 mode=fgsm_random_uniform clean=0.6736 pgd10=0.3516 trigger=0 abandoned=0 train_s=34.1
+epoch=023 mode=fgsm_random_uniform clean=0.7038 pgd10=0.3898 trigger=0 abandoned=0 train_s=33.3
+epoch=024 mode=fgsm_random_uniform clean=0.7198 pgd10=0.3766 trigger=0 abandoned=0 train_s=34.6
+epoch=025 mode=fgsm_random_uniform clean=0.7220 pgd10=0.4031 trigger=0 abandoned=0 train_s=33.9
+epoch=026 mode=fgsm_random_uniform clean=0.7572 pgd10=0.4148 trigger=0 abandoned=0 train_s=34.0
+epoch=027 mode=fgsm_random_uniform clean=0.7602 pgd10=0.4313 trigger=0 abandoned=0 train_s=33.8
+epoch=028 mode=fgsm_random_uniform clean=0.7760 pgd10=0.4344 trigger=0 abandoned=0 train_s=33.4
+epoch=029 mode=fgsm_random_uniform clean=0.8152 pgd10=0.4453 trigger=0 abandoned=0 train_s=34.0
+epoch=030 mode=fgsm_random_uniform clean=0.8216 pgd10=0.4828 trigger=0 abandoned=0 train_s=34.1
+finish=v4_natural_highlr_seed202 time=2026-09-05T20:23:44.2212814+08:00
+start=v4_natural_highlr_seed303 time=2026-09-05T20:23:44.2242845+08:00
+epoch=001 mode=fgsm_random_uniform clean=0.3388 pgd10=0.2203 trigger=0 abandoned=0 train_s=34.6
+epoch=002 mode=fgsm_random_uniform clean=0.4150 pgd10=0.2656 trigger=0 abandoned=0 train_s=33.9
+epoch=003 mode=fgsm_random_uniform clean=0.4394 pgd10=0.2828 trigger=0 abandoned=0 train_s=33.3
+epoch=004 mode=fgsm_random_uniform clean=0.5462 pgd10=0.2883 trigger=0 abandoned=0 train_s=33.8
+epoch=005 mode=fgsm_random_uniform clean=0.5132 pgd10=0.3055 trigger=0 abandoned=0 train_s=34.0
+epoch=006 mode=fgsm_random_uniform clean=0.5754 pgd10=0.3070 trigger=0 abandoned=0 train_s=33.8
+epoch=007 mode=fgsm_random_uniform clean=0.6134 pgd10=0.3148 trigger=0 abandoned=0 train_s=34.5
+epoch=008 mode=fgsm_random_uniform clean=0.6286 pgd10=0.3266 trigger=0 abandoned=0 train_s=33.5
+epoch=009 mode=fgsm_random_uniform clean=0.5968 pgd10=0.3125 trigger=0 abandoned=0 train_s=34.0
+epoch=010 mode=fgsm_random_uniform clean=0.6386 pgd10=0.3312 trigger=0 abandoned=0 train_s=34.2
+epoch=011 mode=fgsm_random_uniform clean=0.6176 pgd10=0.3164 trigger=0 abandoned=0 train_s=34.1
+epoch=012 mode=fgsm_random_uniform clean=0.6024 pgd10=0.3258 trigger=0 abandoned=0 train_s=34.2
+epoch=013 mode=fgsm_random_uniform clean=0.6028 pgd10=0.3500 trigger=0 abandoned=0 train_s=33.6
+epoch=014 mode=fgsm_random_uniform clean=0.6242 pgd10=0.3375 trigger=0 abandoned=0 train_s=33.8
+epoch=015 mode=fgsm_random_uniform clean=0.6180 pgd10=0.3219 trigger=0 abandoned=0 train_s=33.8
+epoch=016 mode=fgsm_random_uniform clean=0.6366 pgd10=0.3289 trigger=0 abandoned=0 train_s=33.4
+epoch=017 mode=fgsm_random_uniform clean=0.6580 pgd10=0.3531 trigger=0 abandoned=0 train_s=33.8
+epoch=018 mode=fgsm_random_uniform clean=0.6418 pgd10=0.3195 trigger=0 abandoned=0 train_s=33.6
+epoch=019 mode=fgsm_random_uniform clean=0.6492 pgd10=0.3469 trigger=0 abandoned=0 train_s=34.1
+epoch=020 mode=fgsm_random_uniform clean=0.6510 pgd10=0.3453 trigger=0 abandoned=0 train_s=33.9
+epoch=021 mode=fgsm_random_uniform clean=0.6906 pgd10=0.3773 trigger=0 abandoned=0 train_s=34.0
+epoch=022 mode=fgsm_random_uniform clean=0.6924 pgd10=0.3789 trigger=0 abandoned=0 train_s=34.1
+epoch=023 mode=fgsm_random_uniform clean=0.7094 pgd10=0.3875 trigger=0 abandoned=0 train_s=33.7
+epoch=024 mode=fgsm_random_uniform clean=0.7148 pgd10=0.3930 trigger=0 abandoned=0 train_s=33.8
+epoch=025 mode=fgsm_random_uniform clean=0.7422 pgd10=0.4164 trigger=0 abandoned=0 train_s=34.2
+epoch=026 mode=fgsm_random_uniform clean=0.7486 pgd10=0.4414 trigger=0 abandoned=0 train_s=33.5
+epoch=027 mode=fgsm_random_uniform clean=0.7640 pgd10=0.4477 trigger=0 abandoned=0 train_s=34.4
+epoch=028 mode=fgsm_random_uniform clean=0.7910 pgd10=0.4570 trigger=0 abandoned=0 train_s=33.4
+epoch=029 mode=fgsm_random_uniform clean=0.8084 pgd10=0.4625 trigger=0 abandoned=0 train_s=34.2
+epoch=030 mode=fgsm_random_uniform clean=0.8236 pgd10=0.4688 trigger=0 abandoned=0 train_s=33.7
+finish=v4_natural_highlr_seed303 time=2026-09-05T20:51:15.3521527+08:00
+start=v4_natural_highlr_seed404 time=2026-09-05T20:51:15.3551524+08:00
+epoch=001 mode=fgsm_random_uniform clean=0.3372 pgd10=0.2406 trigger=0 abandoned=0 train_s=34.3
+epoch=002 mode=fgsm_random_uniform clean=0.4060 pgd10=0.2367 trigger=0 abandoned=0 train_s=33.9
+epoch=003 mode=fgsm_random_uniform clean=0.5048 pgd10=0.2914 trigger=0 abandoned=0 train_s=33.6
+epoch=004 mode=fgsm_random_uniform clean=0.5126 pgd10=0.3016 trigger=0 abandoned=0 train_s=34.0
+epoch=005 mode=fgsm_random_uniform clean=0.5210 pgd10=0.3164 trigger=0 abandoned=0 train_s=34.0
+epoch=006 mode=fgsm_random_uniform clean=0.5632 pgd10=0.3031 trigger=0 abandoned=0 train_s=33.5
+epoch=007 mode=fgsm_random_uniform clean=0.6022 pgd10=0.3547 trigger=0 abandoned=0 train_s=35.1
+epoch=008 mode=fgsm_random_uniform clean=0.6456 pgd10=0.3477 trigger=0 abandoned=0 train_s=33.4
+epoch=009 mode=fgsm_random_uniform clean=0.6098 pgd10=0.3375 trigger=0 abandoned=0 train_s=33.9
+epoch=010 mode=fgsm_random_uniform clean=0.6008 pgd10=0.3180 trigger=0 abandoned=0 train_s=33.9
+epoch=011 mode=fgsm_random_uniform clean=0.6160 pgd10=0.3187 trigger=0 abandoned=0 train_s=33.6
+epoch=012 mode=fgsm_random_uniform clean=0.6388 pgd10=0.3523 trigger=0 abandoned=0 train_s=34.4
+epoch=013 mode=fgsm_random_uniform clean=0.6304 pgd10=0.3227 trigger=0 abandoned=0 train_s=33.6
+epoch=014 mode=fgsm_random_uniform clean=0.6096 pgd10=0.3375 trigger=0 abandoned=0 train_s=33.8
+epoch=015 mode=fgsm_random_uniform clean=0.5828 pgd10=0.3375 trigger=0 abandoned=0 train_s=34.1
+epoch=016 mode=fgsm_random_uniform clean=0.6194 pgd10=0.3273 trigger=0 abandoned=0 train_s=33.4
+epoch=017 mode=fgsm_random_uniform clean=0.6534 pgd10=0.3617 trigger=0 abandoned=0 train_s=34.3
+epoch=018 mode=fgsm_random_uniform clean=0.6588 pgd10=0.3438 trigger=0 abandoned=0 train_s=33.6
+epoch=019 mode=fgsm_random_uniform clean=0.6506 pgd10=0.3250 trigger=0 abandoned=0 train_s=33.9
+epoch=020 mode=fgsm_random_uniform clean=0.6818 pgd10=0.3781 trigger=0 abandoned=0 train_s=33.6
+epoch=021 mode=fgsm_random_uniform clean=0.6642 pgd10=0.3805 trigger=0 abandoned=0 train_s=33.7
+epoch=022 mode=fgsm_random_uniform clean=0.6924 pgd10=0.3602 trigger=0 abandoned=0 train_s=33.7
+epoch=023 mode=fgsm_random_uniform clean=0.7134 pgd10=0.3984 trigger=0 abandoned=0 train_s=33.8
+epoch=024 mode=fgsm_random_uniform clean=0.7024 pgd10=0.3719 trigger=0 abandoned=0 train_s=34.0
+epoch=025 mode=fgsm_random_uniform clean=0.7314 pgd10=0.3914 trigger=0 abandoned=0 train_s=33.8
+epoch=026 mode=fgsm_random_uniform clean=0.7618 pgd10=0.4242 trigger=0 abandoned=0 train_s=33.7
+epoch=027 mode=fgsm_random_uniform clean=0.7686 pgd10=0.4516 trigger=0 abandoned=0 train_s=33.8
+epoch=028 mode=fgsm_random_uniform clean=0.7890 pgd10=0.4688 trigger=0 abandoned=0 train_s=33.5
+epoch=029 mode=fgsm_random_uniform clean=0.8056 pgd10=0.4711 trigger=0 abandoned=0 train_s=34.8
+epoch=030 mode=fgsm_random_uniform clean=0.8250 pgd10=0.4961 trigger=0 abandoned=0 train_s=33.7
+finish=v4_natural_highlr_seed404 time=2026-09-05T21:18:42.3330341+08:00
+start=v4_natural_highlr_seed505 time=2026-09-05T21:18:42.3390499+08:00
+epoch=001 mode=fgsm_random_uniform clean=0.3554 pgd10=0.2102 trigger=0 abandoned=0 train_s=34.2
+epoch=002 mode=fgsm_random_uniform clean=0.4476 pgd10=0.2672 trigger=0 abandoned=0 train_s=34.0
+epoch=003 mode=fgsm_random_uniform clean=0.4836 pgd10=0.2703 trigger=0 abandoned=0 train_s=33.6
+epoch=004 mode=fgsm_random_uniform clean=0.5146 pgd10=0.3117 trigger=0 abandoned=0 train_s=34.1
+epoch=005 mode=fgsm_random_uniform clean=0.5684 pgd10=0.3234 trigger=0 abandoned=0 train_s=34.4
+epoch=006 mode=fgsm_random_uniform clean=0.6004 pgd10=0.3227 trigger=0 abandoned=0 train_s=34.1
+epoch=007 mode=fgsm_random_uniform clean=0.6044 pgd10=0.3266 trigger=0 abandoned=0 train_s=34.0
+epoch=008 mode=fgsm_random_uniform clean=0.5826 pgd10=0.3070 trigger=0 abandoned=0 train_s=33.5
+epoch=009 mode=fgsm_random_uniform clean=0.6012 pgd10=0.3539 trigger=0 abandoned=0 train_s=34.1
+epoch=010 mode=fgsm_random_uniform clean=0.6012 pgd10=0.3398 trigger=0 abandoned=0 train_s=34.3
+epoch=011 mode=fgsm_random_uniform clean=0.6138 pgd10=0.3352 trigger=0 abandoned=0 train_s=34.0
+epoch=012 mode=fgsm_random_uniform clean=0.6222 pgd10=0.3180 trigger=0 abandoned=0 train_s=33.9
+epoch=013 mode=fgsm_random_uniform clean=0.6272 pgd10=0.3391 trigger=0 abandoned=0 train_s=33.8
+epoch=014 mode=fgsm_random_uniform clean=0.5994 pgd10=0.3156 trigger=0 abandoned=0 train_s=33.8
+epoch=015 mode=fgsm_random_uniform clean=0.6188 pgd10=0.3227 trigger=0 abandoned=0 train_s=34.3
+epoch=016 mode=fgsm_random_uniform clean=0.6186 pgd10=0.3148 trigger=0 abandoned=0 train_s=33.6
+epoch=017 mode=fgsm_random_uniform clean=0.6354 pgd10=0.3359 trigger=0 abandoned=0 train_s=33.9
+epoch=018 mode=fgsm_random_uniform clean=0.5974 pgd10=0.3047 trigger=0 abandoned=0 train_s=33.8
+epoch=019 mode=fgsm_random_uniform clean=0.6374 pgd10=0.3250 trigger=0 abandoned=0 train_s=34.2
+epoch=020 mode=fgsm_random_uniform clean=0.6454 pgd10=0.3461 trigger=0 abandoned=0 train_s=34.4
+epoch=021 mode=fgsm_random_uniform clean=0.6826 pgd10=0.3859 trigger=0 abandoned=0 train_s=33.6
+epoch=022 mode=fgsm_random_uniform clean=0.6752 pgd10=0.3727 trigger=0 abandoned=0 train_s=34.0
+epoch=023 mode=fgsm_random_uniform clean=0.7006 pgd10=0.3680 trigger=0 abandoned=0 train_s=33.6
+epoch=024 mode=fgsm_random_uniform clean=0.6930 pgd10=0.3758 trigger=0 abandoned=0 train_s=34.0
+epoch=025 mode=fgsm_random_uniform clean=0.7176 pgd10=0.3852 trigger=0 abandoned=0 train_s=33.9
+epoch=026 mode=fgsm_random_uniform clean=0.7282 pgd10=0.3961 trigger=0 abandoned=0 train_s=34.1
+epoch=027 mode=fgsm_random_uniform clean=0.7590 pgd10=0.4219 trigger=0 abandoned=0 train_s=34.3
+epoch=028 mode=fgsm_random_uniform clean=0.7772 pgd10=0.4250 trigger=0 abandoned=0 train_s=33.4
+epoch=029 mode=fgsm_random_uniform clean=0.8004 pgd10=0.4617 trigger=0 abandoned=0 train_s=34.1
+epoch=030 mode=fgsm_random_uniform clean=0.8150 pgd10=0.4672 trigger=0 abandoned=0 train_s=34.1
+finish=v4_natural_highlr_seed505 time=2026-09-05T21:46:14.6008667+08:00
+{
+  "standard": {
+    "runs": 3,
+    "collapse_events": 0,
+    "detected_events": 0,
+    "alarm_episodes": 0
+  },
+  "highlr": {
+    "runs": 5,
+    "collapse_events": 0,
+    "detected_events": 0,
+    "alarm_episodes": 0
+  }
+}
+{
+  "standard": {
+    "runs": 3,
+    "collapse_events": 0,
+    "detected_events": 0,
+    "alarm_episodes": 0
+  },
+  "highlr": {
+    "runs": 5,
+    "collapse_events": 0,
+    "detected_events": 0,
+    "alarm_episodes": 0
+  }
+}

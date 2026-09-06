@@ -1,0 +1,35 @@
+clean: accuracy=0.8297, seconds=9.0
+fgsm_8_255: accuracy=0.5312, seconds=11.4
+pgd10_8_255: accuracy=0.4720, seconds=35.6
+pgd20_r1_8_255: accuracy=0.4589, seconds=62.6
+pgd50_r1_8_255: accuracy=0.4546, seconds=141.2
+pgd20_r5_8_255: accuracy=0.4565, seconds=280.0
+setting parameters for standard version
+Created state in outputs_publication\adaptive_rollback_pgd2_holdout_seed101\official_autoattack_1000_state.json
+using standard version including apgd-ce, apgd-t, fab-t, square.
+initial accuracy: 83.80%
+apgd-ce - 1/7 - 61 out of 128 successfully perturbed
+apgd-ce - 2/7 - 57 out of 128 successfully perturbed
+apgd-ce - 3/7 - 72 out of 128 successfully perturbed
+apgd-ce - 4/7 - 51 out of 128 successfully perturbed
+apgd-ce - 5/7 - 59 out of 128 successfully perturbed
+apgd-ce - 6/7 - 54 out of 128 successfully perturbed
+apgd-ce - 7/7 - 32 out of 70 successfully perturbed
+robust accuracy after APGD-CE: 45.20% (total time 24.2 s)
+apgd-t - 1/4 - 9 out of 128 successfully perturbed
+apgd-t - 2/4 - 4 out of 128 successfully perturbed
+apgd-t - 3/4 - 10 out of 128 successfully perturbed
+apgd-t - 4/4 - 3 out of 68 successfully perturbed
+robust accuracy after APGD-T: 42.60% (total time 140.3 s)
+fab-t - 1/4 - 0 out of 128 successfully perturbed
+fab-t - 2/4 - 0 out of 128 successfully perturbed
+fab-t - 3/4 - 0 out of 128 successfully perturbed
+fab-t - 4/4 - 0 out of 42 successfully perturbed
+robust accuracy after FAB-T: 42.60% (total time 374.6 s)
+square - 1/4 - 0 out of 128 successfully perturbed
+square - 2/4 - 0 out of 128 successfully perturbed
+square - 3/4 - 0 out of 128 successfully perturbed
+square - 4/4 - 0 out of 42 successfully perturbed
+robust accuracy after SQUARE: 42.60% (total time 669.1 s)
+max Linf perturbation: 0.03137, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 42.60%

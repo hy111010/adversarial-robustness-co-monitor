@@ -1,0 +1,3 @@
+﻿method,events,intervention_before_collapse_count,intervention_before_collapse_rate,median_warning_to_collapse_updates,median_warning_to_pgd2_start_updates,mean_final_clean_acc,mean_final_pgd10_acc
+immediate_epoch_replay,5,5,1,60,0,0.83136,0.46828125
+deferred_next_epoch,5,3,0.6,60,212,0.83088,0.4671875

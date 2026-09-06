@@ -1,0 +1,141 @@
+\subsection{Immediate-Switch Paired Intervals}
+Table~\ref{tab:no-replay-ci} reports all requested paired bootstrap comparisons
+for the five-seed immediate-switch experiment. Accuracy differences are percentage
+points; ``before CO'' is a difference in proportions. Each interval uses
+100,000 paired resamples of seeds 17, 23, 42, 101, and 202.
+
+\begin{table}[h]
+\centering
+\caption{Immediate-switch minus the matched response: mean difference [95\% CI]}
+\label{tab:no-replay-ci}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrr}
+\toprule
+Metric & Immediate-replay & Next epoch \\
+\midrule
+Before-CO proportion & $0.00[0.00,0.00]$ & $+0.40[0.00,+0.80]$ \\
+Warn$\to$start (updates) & $0.0[0.0,0.0]$ & $-157.6[-252.0,-56.8]$ \\
+Clean (points) & $-0.07[-0.16,0.00]$ & $-0.02[-0.14,+0.08]$ \\
+PGD-10 (points) & $+0.22[-0.22,+0.66]$ & $+0.33[+0.08,+0.66]$ \\
+Core time (min) & $+0.06[-0.18,+0.30]$ & $+0.59[+0.47,+0.71]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Offline Sensitivity Analysis}
+Below we perform offline sensitivity analysis on saved held-out traces, without
+retraining or modifying main-paper frozen parameters. The main protocol remains
+$\tau=0.1663298875$, a 60-update near horizon, and the original CO definition.
+The threshold scan is descriptive and is not used to replace the frozen value.
+It uses the seven held-out CIFAR-10 event trajectories and three separately
+reported randomized-FGSM non-event trajectories.
+
+\subsubsection{Threshold Sensitivity}
+Table~\ref{tab:tau-sensitivity} recomputes warnings from saved cosine traces.
+Event recall, 60-update near recall, and non-event alarms are unchanged from
+0.10 through 0.24. The median first-warning lead changes from 60 to 40 updates
+at thresholds of 0.20 and above. Event and false-alarm counts are stable around
+the frozen threshold; no post-hoc retuning is applied.
+Here ``median first-warning lead'' uses the first active warning anywhere
+before each event. Table~\ref{tab:transfer} instead reports ``median near lead'':
+the earliest active warning restricted to the final 60 updates. At the frozen
+threshold these deliberately different summaries are 60 and 40 updates,
+respectively.
+
+\begin{table}[h]
+\centering
+\caption{Offline threshold sensitivity on saved traces. Lead is the first-warning
+lead; Table~\ref{tab:transfer} reports near lead.}
+\label{tab:tau-sensitivity}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{rrrrr}
+\toprule
+$\tau$ & Recall & Near & Non-event alarms & Median first lead \\
+\midrule
+0.10 & 7/7 & 7/7 & 0 & 60 \\
+0.12 & 7/7 & 7/7 & 0 & 60 \\
+0.14 & 7/7 & 7/7 & 0 & 60 \\
+0.16 & 7/7 & 7/7 & 0 & 60 \\
+0.1663298875 (frozen) & 7/7 & 7/7 & 0 & 60 \\
+0.18 & 7/7 & 7/7 & 0 & 60 \\
+0.20 & 7/7 & 7/7 & 0 & 40 \\
+0.22 & 7/7 & 7/7 & 0 & 40 \\
+0.24 & 7/7 & 7/7 & 0 & 40 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Warning-Horizon Sensitivity}
+At the frozen threshold, Table~\ref{tab:horizon-sensitivity} varies only the
+reporting horizon. Six of seven events have an active warning within 20
+updates, and all seven are covered by 40 updates. The registered 60-update
+horizon is retained in the main paper.
+
+\begin{table}[h]
+\centering
+\caption{Offline warning-horizon sensitivity}
+\label{tab:horizon-sensitivity}
+\scriptsize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{rrrr}
+\toprule
+Horizon (updates) & Near events & Near recall & Non-event alarms \\
+\midrule
+20  & 6/7 & 85.7\% & 0 \\
+40  & 7/7 & 100\% & 0 \\
+60 (frozen) & 7/7 & 100\% & 0 \\
+80  & 7/7 & 100\% & 0 \\
+100 & 7/7 & 100\% & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{CO-Definition Sensitivity}
+The original event requires a drop of at least 0.20 from the previous PGD-10
+peak and accuracy at most 0.10. Table~\ref{tab:event-sensitivity} changes these
+labeling constants only after training. All seven trajectories remain events
+and are detected before the event under every variant. Near recall changes
+because stricter labels place the registered event later or earlier relative
+to saved warning windows; the main definition is unchanged.
+
+\begin{table}[h]
+\centering
+\caption{Offline CO event-definition sensitivity}
+\label{tab:event-sensitivity}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Definition & Drop & Ceiling & Events & Detected & Near \\
+\midrule
+Relaxed & 0.15 & 0.15 & 7 & 7/7 & 7/7 \\
+Original & 0.20 & 0.10 & 7 & 7/7 & 7/7 \\
+Higher ceiling & 0.20 & 0.15 & 7 & 7/7 & 7/7 \\
+Strict & 0.25 & 0.05 & 7 & 7/7 & 5/7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Long-Lead Signal Audit}
+Table~\ref{tab:persistence} checks the two long-lead intervention traces. The
+score is not continuously above threshold: only four post-warning windows are
+active in each case. The first crossing is treated as a safety trigger after
+observed geometry degradation, not as a calibrated estimate of time to collapse.
+
+\begin{table}[h]
+\centering
+\caption{Signal persistence after long-lead warnings}
+\label{tab:persistence}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{rrrrr}
+\toprule
+Seed & Lead & Windows & Active & Longest active run \\
+\midrule
+23  & 1568 & 80 & 4 (5.0\%) & 3 \\
+202 & 1680 & 86 & 4 (4.7\%) & 2 \\
+\bottomrule
+\end{tabular}
+\end{table}

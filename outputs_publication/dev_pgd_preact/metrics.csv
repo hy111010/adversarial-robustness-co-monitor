@@ -1,0 +1,2 @@
+﻿epoch,train_adv_loss,train_adv_acc,epoch_seconds,lr_start,lr_end,val_clean_acc,val_pgd10_acc,monitor_batches
+1,2.6648759841918945,0.02734375,1.0998344999970868,0.1,0.1,0.1171875,0.09375,1

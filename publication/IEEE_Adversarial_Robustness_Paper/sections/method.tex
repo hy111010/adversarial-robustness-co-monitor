@@ -1,0 +1,80 @@
+\section{Method}
+\subsection{Threat Model and Fast Update}
+Let $f_\theta$ be a classifier and $\ell$ cross-entropy loss. Adversarial
+training under an $\ell_\infty$ radius $\epsilon$ approximates
+\begin{equation}
+\min_\theta\;\mathbb{E}_{(x,y)}
+\left[\max_{\|\delta\|_\infty\leq\epsilon}
+\ell(f_\theta(x+\delta),y)\right].
+\end{equation}
+FGSM begins at $x^0$, either $x$ or a random point in the perturbation set,
+and constructs
+\begin{equation}
+g^0=\nabla_{x^0}\ell(f_\theta(x^0),y),\quad
+x^{\rm adv}=\Pi\left(x^0+\alpha\,\mathrm{sign}(g^0)\right),
+\end{equation}
+where $\Pi$ projects onto the valid image and threat set.
+
+\subsection{Attack-Free Gradient-Consistency Score}
+The endpoint input gradient
+$g^1=\nabla_{x^{\rm adv}}\ell(f_\theta(x^{\rm adv}),y)$ is obtained from the
+same parameter-backward pass, without an additional forward or backward pass.
+We retain it and calculate
+\begin{equation}
+c(x)=\frac{\langle g^0,g^1\rangle}
+{\|g^0\|_2\|g^1\|_2}.
+\end{equation}
+FGSM relies on a local first-order approximation. A sharp decrease in the
+cosine between $g^0$ and $g^1$ means that the input gradient rotates along the
+FGSM direction, so the local linear approximation and the representativeness
+of the single-step inner maximizer are degrading. This interpretation agrees
+with prior links between local nonlinearity and CO
+\cite{andriushchenko2020understanding}. We do not claim that the cosine drop is
+a necessary or sufficient condition for CO; it is an empirically validated
+proxy for the local-linearity failure associated with CO.
+
+Batch averages are accumulated over non-overlapping windows of 20 optimizer
+updates to give $c_t$. The monitor adds reductions and trace state, but no
+additional forward or backward pass. In the implementation, $g^0$ constructs
+the FGSM example and $g^1$ is retained from the same parameter-backward pass;
+the monitor calls no additional autograd-gradient operation.
+To remove the slow training trend, it uses
+\begin{equation}
+b_t=\mathrm{median}(c_{t-5},\ldots,c_{t-1}),\qquad s_t=b_t-c_t,
+\end{equation}
+after at least three history windows. A warning occurs when $s_t\geq\tau$.
+For CIFAR-10 calibration, we pool every finite development score, label a
+window positive only when a registered CO event is the next 20-update window,
+scan the unique observed scores, and choose the threshold maximizing Youden's
+$J$ (true-positive rate minus false-positive rate). Seeds 17, 23, and 42 form
+the development set; this yields $\tau=0.1663298875$, which is then frozen.
+CIFAR-100 uses a separate event-level lexicographic rule, detailed
+in Section IV. Offline sensitivity analysis in the Appendix does not alter
+either fitted value or the main protocol.
+
+\subsection{Immediate-Switch Conditional Escalation}
+At the first warning, the primary response retains the completed FGSM update,
+switches the next mini-batch to PGD-2, and uses PGD-2 for all subsequent
+updates. Thus no additional FGSM update intervenes between warning and action,
+and no training state must be restored.
+
+We call this no-replay main response \emph{immediate-switch}. Four matched
+alternatives are evaluated. The rollback ablation, \emph{immediate-replay},
+keeps an in-memory epoch-start snapshot of model, optimizer, mixed-precision
+scaler, Python, NumPy, PyTorch CPU/CUDA, and loader-generator random states.
+At the warning it restores that state and replays the epoch using PGD-2; the
+snapshot is not serialized to disk. The remaining controls retain the current
+FGSM epoch and start PGD-2 at the next epoch, switch at a fixed early or late
+epoch, or use PGD-2 from epoch 1. These controls separate the value of prompt
+action from any effect of restoring the epoch.
+
+\subsection{Event and Warning/Evaluation Protocol}
+On fixed validation data, a CO event requires PGD-10 accuracy to fall at least
+20 percentage points from its previous peak and reach at most 10\%. We report
+whether a warning precedes the first event, whether it occurs within 60
+updates, median lead, and alarm episodes in non-event runs. Validation PGD is
+used for retrospective event labels and for selecting \emph{best\_robust.pt};
+it never triggers the proposed monitor. Thus ``attack-free'' describes the
+online monitor, not an attack-free checkpoint-selection protocol. Recall
+intervals are Wilson 95\% intervals. Accuracy and time comparisons use
+identical seeds and paired bootstrap 95\% intervals with 100,000 resamples.

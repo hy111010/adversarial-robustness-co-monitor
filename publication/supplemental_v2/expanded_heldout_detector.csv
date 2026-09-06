@@ -1,0 +1,8 @@
+﻿seed,collapse_epoch,collapse_step,detected_within_60_updates,lead_updates,false_alarm_episodes,total_warning_windows,total_alarm_episodes,final_pgd10,terminal_below_10pct,folder
+101,21,7160.0,1,60.0,0,5,1,0.003125,1,outputs_publication\dev_collapse_full_zero_eps8_lr03_seed101
+202,18,6204.0,1,40.0,1,11,3,0.0,1,outputs_publication\dev_collapse_full_zero_eps8_lr03_seed202
+303,13,4264.0,1,40.0,0,7,2,0.4859375,0,outputs_publication\v2_collapse_observe_seed303
+404,22,7712.0,1,20.0,0,4,1,0.0,1,outputs_publication\v2_collapse_observe_seed404
+505,20,7040.0,1,52.0,0,4,1,0.0,1,outputs_publication\v2_collapse_observe_seed505
+606,23,7784.0,1,40.0,0,4,1,0.0015625,1,outputs_publication\v2_collapse_observe_seed606
+707,24,8216.0,1,60.0,0,5,1,0.00078125,1,outputs_publication\v2_collapse_observe_seed707

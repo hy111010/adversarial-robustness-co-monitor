@@ -1,0 +1,14 @@
+starting=pgd_monitor_rollback_pgd2_holdout_seed202 at=2026-09-03T15:49:24.1575843+08:00
+epoch=001 mode=fgsm_zero clean=0.3490 pgd10=0.2367 trigger=0 abandoned=0 train_s=38.1
+epoch=002 mode=pgd2_after_warning clean=0.4006 pgd10=0.2437 trigger=1 abandoned=120 train_s=61.2
+epoch=003 mode=pgd2 clean=0.4964 pgd10=0.2570 trigger=0 abandoned=0 train_s=43.2
+epoch=004 mode=pgd2 clean=0.5574 pgd10=0.2859 trigger=0 abandoned=0 train_s=43.6
+epoch=005 mode=pgd2 clean=0.5792 pgd10=0.3195 trigger=0 abandoned=0 train_s=43.3
+epoch=006 mode=pgd2 clean=0.6148 pgd10=0.3211 trigger=0 abandoned=0 train_s=43.7
+epoch=007 mode=pgd2 clean=0.6262 pgd10=0.3164 trigger=0 abandoned=0 train_s=43.8
+epoch=008 mode=pgd2 clean=0.6710 pgd10=0.3375 trigger=0 abandoned=0 train_s=42.9
+epoch=009 mode=pgd2 clean=0.6344 pgd10=0.3102 trigger=0 abandoned=0 train_s=43.3
+epoch=010 mode=pgd2 clean=0.6548 pgd10=0.3391 trigger=0 abandoned=0 train_s=44.0
+epoch=011 mode=pgd2 clean=0.6370 pgd10=0.3195 trigger=0 abandoned=0 train_s=43.2
+epoch=012 mode=pgd2 clean=0.6410 pgd10=0.3359 trigger=0 abandoned=0 train_s=43.2
+epoch=013 mode=pgd2 clean=0.6464 pgd10=0.3266 trigger=0 abandoned=0 train_s=42.9

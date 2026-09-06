@@ -1,0 +1,12 @@
+﻿recipe,seed,random_start,max_lr,epsilon_over_255,fgsm_step_size_over_255,collapse_event,collapse_epoch,collapse_step,detected_before_collapse,first_warning_step,warning_to_collapse_updates,alarm_episodes,final_clean_acc,final_pgd10_acc,folder
+standard,17,1,0.2,8,10,0,,,0,,,0,0.8198,0.4625,outputs_publication\fast_fgsm_rs_preact_seed17
+standard,23,1,0.2,8,10,0,,,0,,,0,0.828,0.478125,outputs_publication\v2_stable_fgsm_rs_observe_seed23
+standard,42,1,0.2,8,10,0,,,0,,,0,0.8364,0.46796875,outputs_publication\v2_stable_fgsm_rs_observe_seed42
+highlr,101,1,0.3,8,10,0,,,0,,,0,0.829,0.478125,outputs_publication\v4_natural_highlr_seed101
+highlr,202,1,0.3,8,10,0,,,0,,,0,0.8216,0.4828125,outputs_publication\v4_natural_highlr_seed202
+highlr,303,1,0.3,8,10,0,,,0,,,0,0.8236,0.46875,outputs_publication\v4_natural_highlr_seed303
+highlr,404,1,0.3,8,10,0,,,0,,,0,0.825,0.49609375,outputs_publication\v4_natural_highlr_seed404
+highlr,505,1,0.3,8,10,0,,,0,,,0,0.815,0.4671875,outputs_publication\v4_natural_highlr_seed505
+eps16,101,1,0.2,16,20,1,8,2524,1,2504,20,2,0.7392,0.0,outputs_publication\v4_natural_eps16_seed101
+eps16,202,1,0.2,16,20,1,9,2876,1,2836,40,2,0.672,0.0,outputs_publication\v4_natural_eps16_seed202
+eps16,303,1,0.2,16,20,1,9,2956,1,2896,60,1,0.7494,0.0,outputs_publication\v4_natural_eps16_seed303

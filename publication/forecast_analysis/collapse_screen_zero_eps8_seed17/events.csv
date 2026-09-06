@@ -1,0 +1,2 @@
+run,input,windows,collapse_detected,collapse_window_index,collapse_global_step
+dev_collapse_screen_zero_eps8_seed17,outputs_publication\dev_collapse_screen_zero_eps8_seed17\batch_metrics.csv,60,False,,

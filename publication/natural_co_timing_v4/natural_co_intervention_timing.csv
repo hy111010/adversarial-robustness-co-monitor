@@ -1,0 +1,4 @@
+﻿recipe,seed,timing,warning_step,unprotected_collapse_step,warning_to_collapse_updates,pgd2_start_step,warning_to_pgd2_start_updates,intervention_before_collapse,final_clean_acc,final_pgd10_acc,folder
+eps16,101,immediate,2504,2524,20,2504,0,1,0.7122,0.25546875,outputs_publication\v4_natural_eps16_immediate_seed101
+eps16,202,immediate,2836,2876,40,2836,0,1,0.7056,0.26796875,outputs_publication\v4_natural_eps16_immediate_seed202
+eps16,303,immediate,2896,2956,60,2896,0,1,0.7136,0.27109375,outputs_publication\v4_natural_eps16_immediate_seed303

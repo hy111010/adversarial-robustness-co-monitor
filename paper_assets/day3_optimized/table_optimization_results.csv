@@ -1,0 +1,4 @@
+version,checkpoint,clean_accuracy,fgsm_8_255_accuracy,pgd10_8_255_accuracy,cumulative_training_minutes
+Original Day 3,best_robust.pt,0.7885,0.4930,0.4439,10.18
+PGD-2 refinement,best_balanced.pt,0.8156,0.5096,0.4467,16.64
+PGD-5 refinement,epoch09.pt,0.8183,0.5208,0.4552,28.77

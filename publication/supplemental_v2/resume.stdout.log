@@ -1,0 +1,181 @@
+skip_complete=v2_collapse_observe_seed303
+skip_complete=v2_collapse_observe_seed404
+skip_complete=v2_collapse_observe_seed505
+skip_complete=v2_collapse_observe_seed606
+skip_complete=v2_collapse_observe_seed707
+skip_complete=v2_stable_fgsm_rs_observe_seed23
+skip_complete=v2_stable_fgsm_rs_observe_seed42
+skip_complete=v2_adaptive_no_rollback_seed17
+skip_complete=v2_adaptive_no_rollback_seed23
+skip_complete=v2_adaptive_no_rollback_seed42
+skip_complete=v2_adaptive_no_rollback_seed101
+skip_complete=v2_adaptive_no_rollback_seed202
+skip_complete=v2_fixed_early13_seed17
+skip_complete=v2_fixed_late21_seed17
+skip_complete=v2_full_pgd2_seed17
+skip_complete=v2_fixed_early13_seed101
+skip_complete=v2_fixed_late21_seed101
+start=v2_full_pgd2_seed101 seed=101 time=2026-09-04T06:10:23.7264229+08:00
+epoch=001 mode=pgd2 clean=0.3644 pgd10=0.2398 trigger=0 abandoned=0 train_s=47.4
+epoch=002 mode=pgd2 clean=0.4054 pgd10=0.2531 trigger=0 abandoned=0 train_s=44.9
+epoch=003 mode=pgd2 clean=0.4658 pgd10=0.2875 trigger=0 abandoned=0 train_s=44.7
+epoch=004 mode=pgd2 clean=0.5330 pgd10=0.2781 trigger=0 abandoned=0 train_s=43.3
+epoch=005 mode=pgd2 clean=0.5512 pgd10=0.3070 trigger=0 abandoned=0 train_s=43.5
+epoch=006 mode=pgd2 clean=0.6212 pgd10=0.3352 trigger=0 abandoned=0 train_s=43.6
+epoch=007 mode=pgd2 clean=0.6376 pgd10=0.3336 trigger=0 abandoned=0 train_s=46.4
+epoch=008 mode=pgd2 clean=0.6452 pgd10=0.3398 trigger=0 abandoned=0 train_s=44.4
+epoch=009 mode=pgd2 clean=0.6694 pgd10=0.3547 trigger=0 abandoned=0 train_s=43.4
+epoch=010 mode=pgd2 clean=0.6646 pgd10=0.3422 trigger=0 abandoned=0 train_s=42.7
+epoch=011 mode=pgd2 clean=0.6242 pgd10=0.3422 trigger=0 abandoned=0 train_s=43.1
+epoch=012 mode=pgd2 clean=0.6420 pgd10=0.3367 trigger=0 abandoned=0 train_s=43.1
+epoch=013 mode=pgd2 clean=0.6380 pgd10=0.3234 trigger=0 abandoned=0 train_s=43.9
+epoch=014 mode=pgd2 clean=0.6076 pgd10=0.3281 trigger=0 abandoned=0 train_s=43.3
+epoch=015 mode=pgd2 clean=0.6476 pgd10=0.3523 trigger=0 abandoned=0 train_s=42.9
+epoch=016 mode=pgd2 clean=0.6526 pgd10=0.3266 trigger=0 abandoned=0 train_s=42.8
+epoch=017 mode=pgd2 clean=0.6326 pgd10=0.3422 trigger=0 abandoned=0 train_s=43.4
+epoch=018 mode=pgd2 clean=0.6840 pgd10=0.3438 trigger=0 abandoned=0 train_s=43.0
+epoch=019 mode=pgd2 clean=0.6652 pgd10=0.3555 trigger=0 abandoned=0 train_s=43.7
+epoch=020 mode=pgd2 clean=0.6650 pgd10=0.3789 trigger=0 abandoned=0 train_s=42.7
+epoch=021 mode=pgd2 clean=0.7008 pgd10=0.3570 trigger=0 abandoned=0 train_s=42.9
+epoch=022 mode=pgd2 clean=0.7172 pgd10=0.3797 trigger=0 abandoned=0 train_s=42.7
+epoch=023 mode=pgd2 clean=0.6892 pgd10=0.3664 trigger=0 abandoned=0 train_s=43.2
+epoch=024 mode=pgd2 clean=0.7408 pgd10=0.3875 trigger=0 abandoned=0 train_s=43.0
+epoch=025 mode=pgd2 clean=0.7590 pgd10=0.3969 trigger=0 abandoned=0 train_s=43.2
+epoch=026 mode=pgd2 clean=0.7528 pgd10=0.4234 trigger=0 abandoned=0 train_s=42.9
+epoch=027 mode=pgd2 clean=0.7770 pgd10=0.4391 trigger=0 abandoned=0 train_s=43.2
+epoch=028 mode=pgd2 clean=0.8026 pgd10=0.4445 trigger=0 abandoned=0 train_s=42.8
+epoch=029 mode=pgd2 clean=0.8316 pgd10=0.4555 trigger=0 abandoned=0 train_s=42.8
+epoch=030 mode=pgd2 clean=0.8404 pgd10=0.4766 trigger=0 abandoned=0 train_s=43.2
+finish=v2_full_pgd2_seed101 time=2026-09-04T06:42:33.7709126+08:00
+start=v2_fixed_early13_seed202 seed=202 time=2026-09-04T06:42:33.7729133+08:00
+epoch=001 mode=fgsm_zero clean=0.3490 pgd10=0.2367 trigger=0 abandoned=0 train_s=32.7
+epoch=002 mode=fgsm_zero clean=0.3854 pgd10=0.2477 trigger=0 abandoned=0 train_s=31.6
+epoch=003 mode=fgsm_zero clean=0.4716 pgd10=0.2844 trigger=0 abandoned=0 train_s=31.4
+epoch=004 mode=fgsm_zero clean=0.5090 pgd10=0.2953 trigger=0 abandoned=0 train_s=32.0
+epoch=005 mode=fgsm_zero clean=0.5122 pgd10=0.3148 trigger=0 abandoned=0 train_s=31.8
+epoch=006 mode=fgsm_zero clean=0.5576 pgd10=0.3359 trigger=0 abandoned=0 train_s=31.9
+epoch=007 mode=fgsm_zero clean=0.5624 pgd10=0.3250 trigger=0 abandoned=0 train_s=31.6
+epoch=008 mode=fgsm_zero clean=0.6116 pgd10=0.3570 trigger=0 abandoned=0 train_s=31.4
+epoch=009 mode=fgsm_zero clean=0.5850 pgd10=0.3430 trigger=0 abandoned=0 train_s=31.5
+epoch=010 mode=fgsm_zero clean=0.5980 pgd10=0.3672 trigger=0 abandoned=0 train_s=31.3
+epoch=011 mode=fgsm_zero clean=0.5838 pgd10=0.3414 trigger=0 abandoned=0 train_s=31.9
+epoch=012 mode=fgsm_zero clean=0.6030 pgd10=0.3602 trigger=0 abandoned=0 train_s=31.6
+epoch=013 mode=pgd2 clean=0.6330 pgd10=0.3305 trigger=1 abandoned=0 train_s=43.0
+epoch=014 mode=pgd2 clean=0.6336 pgd10=0.3242 trigger=0 abandoned=0 train_s=43.9
+epoch=015 mode=pgd2 clean=0.6450 pgd10=0.3336 trigger=0 abandoned=0 train_s=42.9
+epoch=016 mode=pgd2 clean=0.6458 pgd10=0.3523 trigger=0 abandoned=0 train_s=43.2
+epoch=017 mode=pgd2 clean=0.6728 pgd10=0.3250 trigger=0 abandoned=0 train_s=42.9
+epoch=018 mode=pgd2 clean=0.6696 pgd10=0.3422 trigger=0 abandoned=0 train_s=43.3
+epoch=019 mode=pgd2 clean=0.6914 pgd10=0.3352 trigger=0 abandoned=0 train_s=43.2
+epoch=020 mode=pgd2 clean=0.6588 pgd10=0.3258 trigger=0 abandoned=0 train_s=42.8
+epoch=021 mode=pgd2 clean=0.6666 pgd10=0.3656 trigger=0 abandoned=0 train_s=42.8
+epoch=022 mode=pgd2 clean=0.6884 pgd10=0.3492 trigger=0 abandoned=0 train_s=42.8
+epoch=023 mode=pgd2 clean=0.7234 pgd10=0.3953 trigger=0 abandoned=0 train_s=42.7
+epoch=024 mode=pgd2 clean=0.7496 pgd10=0.3836 trigger=0 abandoned=0 train_s=43.2
+epoch=025 mode=pgd2 clean=0.7486 pgd10=0.4008 trigger=0 abandoned=0 train_s=43.2
+epoch=026 mode=pgd2 clean=0.7744 pgd10=0.4055 trigger=0 abandoned=0 train_s=42.8
+epoch=027 mode=pgd2 clean=0.7784 pgd10=0.4211 trigger=0 abandoned=0 train_s=43.0
+epoch=028 mode=pgd2 clean=0.7914 pgd10=0.4227 trigger=0 abandoned=0 train_s=43.3
+epoch=029 mode=pgd2 clean=0.8226 pgd10=0.4422 trigger=0 abandoned=0 train_s=43.6
+epoch=030 mode=pgd2 clean=0.8340 pgd10=0.4633 trigger=0 abandoned=0 train_s=43.1
+finish=v2_fixed_early13_seed202 time=2026-09-04T07:11:53.7426939+08:00
+start=v2_fixed_late21_seed202 seed=202 time=2026-09-04T07:11:53.7456937+08:00
+epoch=001 mode=fgsm_zero clean=0.3490 pgd10=0.2367 trigger=0 abandoned=0 train_s=32.0
+epoch=002 mode=fgsm_zero clean=0.3854 pgd10=0.2477 trigger=0 abandoned=0 train_s=31.2
+epoch=003 mode=fgsm_zero clean=0.4716 pgd10=0.2844 trigger=0 abandoned=0 train_s=31.7
+epoch=004 mode=fgsm_zero clean=0.5090 pgd10=0.2953 trigger=0 abandoned=0 train_s=31.7
+epoch=005 mode=fgsm_zero clean=0.5122 pgd10=0.3148 trigger=0 abandoned=0 train_s=31.5
+epoch=006 mode=fgsm_zero clean=0.5576 pgd10=0.3359 trigger=0 abandoned=0 train_s=31.4
+epoch=007 mode=fgsm_zero clean=0.5624 pgd10=0.3250 trigger=0 abandoned=0 train_s=32.1
+epoch=008 mode=fgsm_zero clean=0.6116 pgd10=0.3570 trigger=0 abandoned=0 train_s=31.7
+epoch=009 mode=fgsm_zero clean=0.5850 pgd10=0.3430 trigger=0 abandoned=0 train_s=31.8
+epoch=010 mode=fgsm_zero clean=0.5980 pgd10=0.3672 trigger=0 abandoned=0 train_s=31.4
+epoch=011 mode=fgsm_zero clean=0.5838 pgd10=0.3414 trigger=0 abandoned=0 train_s=31.5
+epoch=012 mode=fgsm_zero clean=0.6030 pgd10=0.3602 trigger=0 abandoned=0 train_s=31.8
+epoch=013 mode=pgd2_after_warning clean=0.6330 pgd10=0.3305 trigger=1 abandoned=300 train_s=71.8
+epoch=014 mode=pgd2 clean=0.6336 pgd10=0.3242 trigger=0 abandoned=0 train_s=43.2
+epoch=015 mode=pgd2 clean=0.6450 pgd10=0.3336 trigger=0 abandoned=0 train_s=43.0
+epoch=016 mode=pgd2 clean=0.6458 pgd10=0.3523 trigger=0 abandoned=0 train_s=43.0
+epoch=017 mode=pgd2 clean=0.6728 pgd10=0.3250 trigger=0 abandoned=0 train_s=42.6
+epoch=018 mode=pgd2 clean=0.6696 pgd10=0.3422 trigger=0 abandoned=0 train_s=43.0
+epoch=019 mode=pgd2 clean=0.6914 pgd10=0.3352 trigger=0 abandoned=0 train_s=43.1
+epoch=020 mode=pgd2 clean=0.6588 pgd10=0.3258 trigger=0 abandoned=0 train_s=43.0
+epoch=021 mode=pgd2 clean=0.6666 pgd10=0.3656 trigger=0 abandoned=0 train_s=42.7
+epoch=022 mode=pgd2 clean=0.6884 pgd10=0.3492 trigger=0 abandoned=0 train_s=42.7
+epoch=023 mode=pgd2 clean=0.7234 pgd10=0.3953 trigger=0 abandoned=0 train_s=42.8
+epoch=024 mode=pgd2 clean=0.7496 pgd10=0.3836 trigger=0 abandoned=0 train_s=43.2
+epoch=025 mode=pgd2 clean=0.7486 pgd10=0.4008 trigger=0 abandoned=0 train_s=43.1
+epoch=026 mode=pgd2 clean=0.7744 pgd10=0.4055 trigger=0 abandoned=0 train_s=42.8
+epoch=027 mode=pgd2 clean=0.7784 pgd10=0.4211 trigger=0 abandoned=0 train_s=43.1
+epoch=028 mode=pgd2 clean=0.7914 pgd10=0.4227 trigger=0 abandoned=0 train_s=43.2
+epoch=029 mode=pgd2 clean=0.8226 pgd10=0.4422 trigger=0 abandoned=0 train_s=43.0
+epoch=030 mode=pgd2 clean=0.8340 pgd10=0.4633 trigger=0 abandoned=0 train_s=43.0
+finish=v2_fixed_late21_seed202 time=2026-09-04T07:41:37.4866345+08:00
+start=v2_full_pgd2_seed202 seed=202 time=2026-09-04T07:41:37.4876355+08:00
+epoch=001 mode=pgd2 clean=0.3764 pgd10=0.2273 trigger=0 abandoned=0 train_s=43.8
+epoch=002 mode=pgd2 clean=0.4154 pgd10=0.2602 trigger=0 abandoned=0 train_s=42.8
+epoch=003 mode=pgd2 clean=0.5040 pgd10=0.2555 trigger=0 abandoned=0 train_s=43.5
+epoch=004 mode=pgd2 clean=0.5766 pgd10=0.2953 trigger=0 abandoned=0 train_s=42.8
+epoch=005 mode=pgd2 clean=0.5878 pgd10=0.3172 trigger=0 abandoned=0 train_s=42.8
+epoch=006 mode=pgd2 clean=0.6306 pgd10=0.3187 trigger=0 abandoned=0 train_s=43.0
+epoch=007 mode=pgd2 clean=0.6318 pgd10=0.3172 trigger=0 abandoned=0 train_s=43.1
+epoch=008 mode=pgd2 clean=0.6644 pgd10=0.3406 trigger=0 abandoned=0 train_s=42.8
+epoch=009 mode=pgd2 clean=0.6384 pgd10=0.3164 trigger=0 abandoned=0 train_s=42.8
+epoch=010 mode=pgd2 clean=0.6526 pgd10=0.3430 trigger=0 abandoned=0 train_s=42.9
+epoch=011 mode=pgd2 clean=0.6248 pgd10=0.3234 trigger=0 abandoned=0 train_s=43.0
+epoch=012 mode=pgd2 clean=0.6436 pgd10=0.3367 trigger=0 abandoned=0 train_s=43.0
+epoch=013 mode=pgd2 clean=0.6312 pgd10=0.3172 trigger=0 abandoned=0 train_s=43.0
+epoch=014 mode=pgd2 clean=0.6266 pgd10=0.3172 trigger=0 abandoned=0 train_s=43.0
+epoch=015 mode=pgd2 clean=0.6570 pgd10=0.3227 trigger=0 abandoned=0 train_s=43.2
+epoch=016 mode=pgd2 clean=0.6570 pgd10=0.3523 trigger=0 abandoned=0 train_s=42.8
+epoch=017 mode=pgd2 clean=0.6862 pgd10=0.3445 trigger=0 abandoned=0 train_s=43.1
+epoch=018 mode=pgd2 clean=0.6776 pgd10=0.3359 trigger=0 abandoned=0 train_s=43.8
+epoch=019 mode=pgd2 clean=0.6798 pgd10=0.3305 trigger=0 abandoned=0 train_s=43.3
+epoch=020 mode=pgd2 clean=0.6778 pgd10=0.3242 trigger=0 abandoned=0 train_s=42.9
+epoch=021 mode=pgd2 clean=0.6884 pgd10=0.3508 trigger=0 abandoned=0 train_s=43.1
+epoch=022 mode=pgd2 clean=0.6902 pgd10=0.3484 trigger=0 abandoned=0 train_s=43.4
+epoch=023 mode=pgd2 clean=0.7366 pgd10=0.3844 trigger=0 abandoned=0 train_s=43.1
+epoch=024 mode=pgd2 clean=0.7450 pgd10=0.3805 trigger=0 abandoned=0 train_s=43.0
+epoch=025 mode=pgd2 clean=0.7536 pgd10=0.4086 trigger=0 abandoned=0 train_s=42.9
+epoch=026 mode=pgd2 clean=0.7768 pgd10=0.4055 trigger=0 abandoned=0 train_s=43.0
+epoch=027 mode=pgd2 clean=0.7828 pgd10=0.4383 trigger=0 abandoned=0 train_s=42.8
+epoch=028 mode=pgd2 clean=0.7982 pgd10=0.4289 trigger=0 abandoned=0 train_s=42.8
+epoch=029 mode=pgd2 clean=0.8262 pgd10=0.4469 trigger=0 abandoned=0 train_s=43.3
+epoch=030 mode=pgd2 clean=0.8394 pgd10=0.4672 trigger=0 abandoned=0 train_s=43.5
+finish=v2_full_pgd2_seed202 time=2026-09-04T08:13:09.0137613+08:00
+clean: accuracy=0.8257, seconds=9.0
+fgsm_8_255: accuracy=0.5261, seconds=11.6
+pgd10_8_255: accuracy=0.4638, seconds=35.2
+pgd20_r1_8_255: accuracy=0.4510, seconds=61.8
+pgd50_r1_8_255: accuracy=0.4475, seconds=141.0
+pgd20_r5_8_255: accuracy=0.4491, seconds=279.8
+setting parameters for standard version
+Created state in outputs_publication\v2_adaptive_no_rollback_seed101\official_autoattack_1000_state.json
+using standard version including apgd-ce, apgd-t, fab-t, square.
+initial accuracy: 83.90%
+apgd-ce - 1/7 - 64 out of 128 successfully perturbed
+apgd-ce - 2/7 - 59 out of 128 successfully perturbed
+apgd-ce - 3/7 - 70 out of 128 successfully perturbed
+apgd-ce - 4/7 - 52 out of 128 successfully perturbed
+apgd-ce - 5/7 - 60 out of 128 successfully perturbed
+apgd-ce - 6/7 - 56 out of 128 successfully perturbed
+apgd-ce - 7/7 - 34 out of 71 successfully perturbed
+robust accuracy after APGD-CE: 44.40% (total time 23.7 s)
+apgd-t - 1/4 - 6 out of 128 successfully perturbed
+apgd-t - 2/4 - 7 out of 128 successfully perturbed
+apgd-t - 3/4 - 14 out of 128 successfully perturbed
+apgd-t - 4/4 - 4 out of 60 successfully perturbed
+robust accuracy after APGD-T: 41.30% (total time 136.0 s)
+fab-t - 1/4 - 0 out of 128 successfully perturbed
+fab-t - 2/4 - 0 out of 128 successfully perturbed
+fab-t - 3/4 - 0 out of 128 successfully perturbed
+fab-t - 4/4 - 0 out of 29 successfully perturbed
+robust accuracy after FAB-T: 41.30% (total time 366.8 s)
+square - 1/4 - 0 out of 128 successfully perturbed
+square - 2/4 - 0 out of 128 successfully perturbed
+square - 3/4 - 0 out of 128 successfully perturbed
+square - 4/4 - 0 out of 29 successfully perturbed
+robust accuracy after SQUARE: 41.30% (total time 653.6 s)
+max Linf perturbation: 0.03137, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 41.30%
+official AutoAttack-standard: accuracy=0.4130 samples=1000 complete=True seconds=654.2

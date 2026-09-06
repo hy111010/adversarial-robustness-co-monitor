@@ -1,0 +1,11 @@
+﻿seed,method,warning_epoch,warning_step,collapse_epoch_unprotected,collapse_step_unprotected,warning_to_collapse_updates,pgd2_start_step,warning_to_pgd2_start_updates,post_warning_fgsm_updates,collapse_before_pgd2_start,intervention_before_collapse,final_clean_acc,final_pgd10_acc,source
+17,immediate_epoch_replay,17,5984,18,6024,40,5984,0,0,0,1,0.8234,0.4734375,outputs_publication\adaptive_rollback_pgd2_dev_seed17
+17,deferred_next_epoch,17,5984,18,6024,40,5984,0,0,0,1,0.8236,0.4703125,outputs_publication\v2_adaptive_no_rollback_seed17
+23,immediate_epoch_replay,19,6476,23,8044,1568,6476,0,0,0,1,0.8282,0.4734375,outputs_publication\adaptive_rollback_pgd2_dev_seed23
+23,deferred_next_epoch,19,6476,23,8044,1568,6688,212,212,0,1,0.828,0.47265625,outputs_publication\v2_adaptive_no_rollback_seed23
+42,immediate_epoch_replay,19,6456,19,6476,20,6456,0,0,0,1,0.84,0.46171875,outputs_publication\adaptive_rollback_pgd2_dev_seed42
+42,deferred_next_epoch,19,6456,19,6476,20,6688,232,232,1,0,0.8388,0.4484375,outputs_publication\v2_adaptive_no_rollback_seed42
+101,immediate_epoch_replay,21,7100,21,7160,60,7100,0,0,0,1,0.8312,0.46953125,outputs_publication\adaptive_rollback_pgd2_holdout_seed101
+101,deferred_next_epoch,21,7100,21,7160,60,7392,292,292,1,0,0.8312,0.471875,outputs_publication\v2_adaptive_no_rollback_seed101
+202,immediate_epoch_replay,13,4524,18,6204,1680,4524,0,0,0,1,0.834,0.46328125,outputs_publication\adaptive_rollback_pgd2_holdout_seed202
+202,deferred_next_epoch,13,4524,18,6204,1680,4576,52,52,0,1,0.8328,0.47265625,outputs_publication\v2_adaptive_no_rollback_seed202

@@ -1,0 +1,18 @@
+{
+  "data_root": "data",
+  "output_root": "outputs",
+  "run_name": "timing_full_epoch",
+  "device": "auto",
+  "seed": 17,
+  "epochs": 1,
+  "batch_size": 128,
+  "workers": 4,
+  "lr": 0.1,
+  "momentum": 0.9,
+  "weight_decay": 0.0005,
+  "val_size": 5000,
+  "limit_train": null,
+  "limit_val": null,
+  "resolved_device": "cuda",
+  "torch": "2.11.0+cu128"
+}

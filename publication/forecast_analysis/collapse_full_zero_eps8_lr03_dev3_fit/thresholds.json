@@ -1,0 +1,11 @@
+{
+  "free_gradient_cosine": -0.7432514250278472,
+  "free_gradient_sign_agreement": -0.7748250514268875,
+  "free_prediction_disagreement": 0.30703125,
+  "free_attack_loss_gain": -0.3914942203341303,
+  "free_boundary_fraction": 0.899986919760704,
+  "control_gradient_participation_ratio": -0.0397270316258072,
+  "control_gradient_entropy": -0.6824003368616104,
+  "train_adv_loss": -1.5923363149166108,
+  "train_adv_acc": 0.40078125
+}

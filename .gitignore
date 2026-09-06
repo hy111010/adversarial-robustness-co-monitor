@@ -1,0 +1,27 @@
+.venv/
+data/
+tmp/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.matplotlib/
+
+# Model weights are reproducible from saved configurations but total 25+ GB.
+*.pt
+*.pth
+*.ckpt
+
+# Local archives and downloaded datasets/tools.
+*.tar
+*.tar.gz
+*.7z
+
+# LaTeX intermediate files; source, figures, bibliography, and PDFs remain.
+publication/IEEE_Adversarial_Robustness_Paper/*.aux
+publication/IEEE_Adversarial_Robustness_Paper/*.bbl
+publication/IEEE_Adversarial_Robustness_Paper/*.blg
+publication/IEEE_Adversarial_Robustness_Paper/*.fdb_latexmk
+publication/IEEE_Adversarial_Robustness_Paper/*.fls
+publication/IEEE_Adversarial_Robustness_Paper/*.log
+publication/IEEE_Adversarial_Robustness_Paper/*.out
+publication/IEEE_Adversarial_Robustness_Paper/*.synctex.gz

@@ -1,0 +1,67 @@
+starting=adaptive_rollback_pgd2_holdout_seed101 at=2026-09-03T11:45:04.9215350+08:00
+epoch=001 mode=fgsm_zero clean=0.3438 pgd10=0.2375 trigger=0 abandoned=0 train_s=32.6
+epoch=002 mode=fgsm_zero clean=0.3734 pgd10=0.2555 trigger=0 abandoned=0 train_s=31.6
+epoch=003 mode=fgsm_zero clean=0.4194 pgd10=0.2914 trigger=0 abandoned=0 train_s=31.8
+epoch=004 mode=fgsm_zero clean=0.5042 pgd10=0.2945 trigger=0 abandoned=0 train_s=30.7
+epoch=005 mode=fgsm_zero clean=0.5036 pgd10=0.3133 trigger=0 abandoned=0 train_s=31.6
+epoch=006 mode=fgsm_zero clean=0.5454 pgd10=0.3328 trigger=0 abandoned=0 train_s=31.2
+epoch=007 mode=fgsm_zero clean=0.5870 pgd10=0.3523 trigger=0 abandoned=0 train_s=31.2
+epoch=008 mode=fgsm_zero clean=0.5914 pgd10=0.3680 trigger=0 abandoned=0 train_s=31.1
+epoch=009 mode=fgsm_zero clean=0.6196 pgd10=0.3594 trigger=0 abandoned=0 train_s=31.4
+epoch=010 mode=fgsm_zero clean=0.6220 pgd10=0.3594 trigger=0 abandoned=0 train_s=31.2
+epoch=011 mode=fgsm_zero clean=0.5784 pgd10=0.3359 trigger=0 abandoned=0 train_s=30.8
+epoch=012 mode=fgsm_zero clean=0.5818 pgd10=0.3547 trigger=0 abandoned=0 train_s=30.8
+epoch=013 mode=fgsm_zero clean=0.6038 pgd10=0.3461 trigger=0 abandoned=0 train_s=31.1
+epoch=014 mode=fgsm_zero clean=0.5658 pgd10=0.3406 trigger=0 abandoned=0 train_s=31.5
+epoch=015 mode=fgsm_zero clean=0.5708 pgd10=0.3414 trigger=0 abandoned=0 train_s=31.0
+epoch=016 mode=fgsm_zero clean=0.5978 pgd10=0.3617 trigger=0 abandoned=0 train_s=31.4
+epoch=017 mode=fgsm_zero clean=0.6100 pgd10=0.3672 trigger=0 abandoned=0 train_s=30.9
+epoch=018 mode=fgsm_zero clean=0.6160 pgd10=0.3516 trigger=0 abandoned=0 train_s=31.3
+epoch=019 mode=fgsm_zero clean=0.6000 pgd10=0.3664 trigger=0 abandoned=0 train_s=31.9
+epoch=020 mode=fgsm_zero clean=0.6032 pgd10=0.3609 trigger=0 abandoned=0 train_s=31.4
+epoch=021 mode=pgd2_after_warning clean=0.6886 pgd10=0.3508 trigger=1 abandoned=60 train_s=54.1
+epoch=022 mode=pgd2 clean=0.6916 pgd10=0.3742 trigger=0 abandoned=0 train_s=42.7
+epoch=023 mode=pgd2 clean=0.6900 pgd10=0.3797 trigger=0 abandoned=0 train_s=42.6
+epoch=024 mode=pgd2 clean=0.7244 pgd10=0.3867 trigger=0 abandoned=0 train_s=42.6
+epoch=025 mode=pgd2 clean=0.7346 pgd10=0.3789 trigger=0 abandoned=0 train_s=42.9
+epoch=026 mode=pgd2 clean=0.7432 pgd10=0.4234 trigger=0 abandoned=0 train_s=42.9
+epoch=027 mode=pgd2 clean=0.7704 pgd10=0.4352 trigger=0 abandoned=0 train_s=42.7
+epoch=028 mode=pgd2 clean=0.7960 pgd10=0.4336 trigger=0 abandoned=0 train_s=42.7
+epoch=029 mode=pgd2 clean=0.8170 pgd10=0.4625 trigger=0 abandoned=0 train_s=42.5
+epoch=030 mode=pgd2 clean=0.8312 pgd10=0.4695 trigger=0 abandoned=0 train_s=42.8
+starting=adaptive_rollback_pgd2_holdout_seed202 at=2026-09-03T12:12:36.1322430+08:00
+epoch=001 mode=fgsm_zero clean=0.3490 pgd10=0.2367 trigger=0 abandoned=0 train_s=32.3
+epoch=002 mode=fgsm_zero clean=0.3854 pgd10=0.2477 trigger=0 abandoned=0 train_s=31.2
+epoch=003 mode=fgsm_zero clean=0.4716 pgd10=0.2844 trigger=0 abandoned=0 train_s=31.1
+epoch=004 mode=fgsm_zero clean=0.5090 pgd10=0.2953 trigger=0 abandoned=0 train_s=30.8
+epoch=005 mode=fgsm_zero clean=0.5122 pgd10=0.3148 trigger=0 abandoned=0 train_s=31.3
+epoch=006 mode=fgsm_zero clean=0.5576 pgd10=0.3359 trigger=0 abandoned=0 train_s=30.9
+epoch=007 mode=fgsm_zero clean=0.5624 pgd10=0.3250 trigger=0 abandoned=0 train_s=31.4
+epoch=008 mode=fgsm_zero clean=0.6116 pgd10=0.3570 trigger=0 abandoned=0 train_s=31.0
+epoch=009 mode=fgsm_zero clean=0.5850 pgd10=0.3430 trigger=0 abandoned=0 train_s=31.2
+epoch=010 mode=fgsm_zero clean=0.5980 pgd10=0.3672 trigger=0 abandoned=0 train_s=31.8
+epoch=011 mode=fgsm_zero clean=0.5838 pgd10=0.3414 trigger=0 abandoned=0 train_s=31.1
+epoch=012 mode=fgsm_zero clean=0.6030 pgd10=0.3602 trigger=0 abandoned=0 train_s=31.4
+epoch=013 mode=pgd2_after_warning clean=0.6330 pgd10=0.3305 trigger=1 abandoned=300 train_s=70.6
+epoch=014 mode=pgd2 clean=0.6336 pgd10=0.3242 trigger=0 abandoned=0 train_s=42.6
+epoch=015 mode=pgd2 clean=0.6450 pgd10=0.3336 trigger=0 abandoned=0 train_s=42.6
+epoch=016 mode=pgd2 clean=0.6458 pgd10=0.3523 trigger=0 abandoned=0 train_s=42.8
+epoch=017 mode=pgd2 clean=0.6728 pgd10=0.3250 trigger=0 abandoned=0 train_s=42.7
+epoch=018 mode=pgd2 clean=0.6696 pgd10=0.3422 trigger=0 abandoned=0 train_s=42.6
+epoch=019 mode=pgd2 clean=0.6914 pgd10=0.3352 trigger=0 abandoned=0 train_s=42.7
+epoch=020 mode=pgd2 clean=0.6588 pgd10=0.3258 trigger=0 abandoned=0 train_s=42.7
+epoch=021 mode=pgd2 clean=0.6666 pgd10=0.3656 trigger=0 abandoned=0 train_s=43.1
+epoch=022 mode=pgd2 clean=0.6884 pgd10=0.3492 trigger=0 abandoned=0 train_s=42.6
+epoch=023 mode=pgd2 clean=0.7234 pgd10=0.3953 trigger=0 abandoned=0 train_s=42.5
+epoch=024 mode=pgd2 clean=0.7496 pgd10=0.3836 trigger=0 abandoned=0 train_s=42.5
+epoch=025 mode=pgd2 clean=0.7486 pgd10=0.4008 trigger=0 abandoned=0 train_s=42.8
+epoch=026 mode=pgd2 clean=0.7744 pgd10=0.4055 trigger=0 abandoned=0 train_s=42.5
+epoch=027 mode=pgd2 clean=0.7784 pgd10=0.4211 trigger=0 abandoned=0 train_s=42.5
+epoch=028 mode=pgd2 clean=0.7914 pgd10=0.4227 trigger=0 abandoned=0 train_s=42.5
+epoch=029 mode=pgd2 clean=0.8226 pgd10=0.4422 trigger=0 abandoned=0 train_s=42.6
+epoch=030 mode=pgd2 clean=0.8340 pgd10=0.4633 trigger=0 abandoned=0 train_s=42.5
+ seed  triggered trigger_epoch trigger_global_step  abandoned_fgsm_batches  best_epoch  best_clean_acc  best_pgd10_acc  final_clean_acc  final_pgd10_acc  baseline_final_clean_acc  baseline_final_pgd10_acc  intervention_training_seconds                                                      intervention_path                                                            baseline_path
+  101          0          None                None                       0           8          0.5914        0.367969        11.149674              0.0                    0.8276                  0.003125                     626.609071 outputs_publication\adaptive_rollback_pgd2_holdout_seed101\metrics.csv outputs_publication\dev_collapse_full_zero_eps8_lr03_seed101\metrics.csv
+  202          0          None                None                       0          10          0.5980        0.367188        11.253764              0.0                    0.8086                  0.000000                     375.481079 outputs_publication\adaptive_rollback_pgd2_holdout_seed202\metrics.csv outputs_publication\dev_collapse_full_zero_eps8_lr03_seed202\metrics.csv
+output=publication\adaptive_intervention_holdout_summary.csv
+queue_completed=2026-09-03T12:41:50.8385893+08:00

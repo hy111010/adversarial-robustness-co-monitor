@@ -1,0 +1,2 @@
+﻿checkpoint,attack,accuracy,epsilon,step_size,seconds
+epoch09.pt,cw_margin_pgd50_r1_8_255,0.4335,0.03137254901960784,0.00784313725490196,142.46144910005387

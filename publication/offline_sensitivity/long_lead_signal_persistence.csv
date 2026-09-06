@@ -1,0 +1,3 @@
+﻿seed,first_warning_step,registered_co_step,warning_to_co_updates,post_warning_windows,windows_above_threshold,fraction_above_threshold,longest_consecutive_above_threshold_windows
+23,6476.0,8044.0,1568.0,80,4,0.05,3
+202,4524.0,6204.0,1680.0,86,4,0.046511627906976744,2

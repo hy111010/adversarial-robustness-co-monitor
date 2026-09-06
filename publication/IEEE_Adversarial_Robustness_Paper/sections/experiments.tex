@@ -1,0 +1,288 @@
+\section{Experiments}
+\subsection{Setup and Seed Roles}
+The primary setting is CIFAR-10 with PreActResNet-18
+\cite{krizhevsky2009learning,he2016identity}, a deterministic 45,000/5,000
+training/validation split, and $\epsilon=8/255$. All methods use SGD with
+momentum 0.9, weight decay $5\times10^{-4}$, batch size 128, mixed precision,
+30 epochs, and a triangular learning-rate schedule. The collapse-prone recipe
+uses zero-start FGSM, step $8/255$, and peak learning rate 0.3. The ordinary
+FGSM-RS control uses a uniform random start, step $10/255$, and peak learning
+rate 0.2. Recovery uses PGD-2 with step $4/255$.
+
+We keep experimental roles explicit. Detector development uses CIFAR-10 seeds
+17, 23, and 42. Held-out detector evaluation uses seeds 101, 202, 303, 404,
+505, 606, and 707. Intervention ablations and baseline comparisons use the
+matched set 17, 23, 42, 101, and 202. Non-event controls are reported
+separately from event recall. Seeds 17, 23, and 42 are used for threshold
+calibration. They appear in intervention ablations but are not counted toward
+held-out detector-evaluation recall. The five-seed intervention table is a
+matched component ablation rather than an independent held-out intervention
+estimate.
+
+Transfer tests change one factor at a time. CIFAR-10/ResNet-18 uses the
+unchanged CIFAR-10 threshold on event seeds 303--707 and three non-event runs
+at seeds 17, 23, and 42. CIFAR-100 uses PreActResNet-18 and the same 20-update
+windows, five-window median, and three-window minimum history. Saved
+development traces at seeds 17, 23, and 42 set a one-time dataset-specific
+threshold of 0.6332649834303036 before evaluation of held-out event candidates
+101, 202, and 303 and two random-start non-events. A separate CIFAR-10
+threat-budget stress test retains random starts and uses $\epsilon=16/255$,
+FGSM step $20/255$, and peak learning rate 0.2.
+
+The CIFAR-100 calibration uses six development trajectories: one
+collapse-prone and one random-start run for each of seeds 17, 23, and 42. Its
+original fitting code scans unique finite scores and applies a lexicographic
+event-level rule: maximize detected development events, minimize alarm episodes
+on stable development runs, prefer shorter median first-warning lead, and then
+prefer the larger threshold. Only one of the three collapse-prone development
+runs meets the registered CO definition. The fitted threshold is
+0.6332649834303036. This dataset-specific procedure differs from the CIFAR-10
+window-level Youden-$J$ calibration.
+
+\subsection{Held-Out Detection and Transfer}
+The primary held-out CIFAR-10 evaluation contains seven registered events
+spanning epochs 13--24, and none uses a threshold-development seed. The frozen
+monitor is active within 60 updates before all 7/7 events; the median lead of
+the earliest active warning inside that 60-update window is 40 updates. One
+event trajectory also contains an earlier alarm episode. The three ordinary
+FGSM-RS non-event runs contain no alarm episode. On the same event traces, a
+periodic PGD-10 probe every 100 updates detects 6/7 events with a median delay
+of 40 updates after the event and makes a median of 73 PGD calls before
+failure. The 100-update probe is a retrospective detector comparator applied
+to the saved collapse trajectories; it does not alter training. By contrast,
+the controlled FastAdv+ reimplementation probes a fixed 128-image validation
+batch every 20 training updates and uses the observed accuracy drop to trigger
+a transient PGD training block. The two frequencies therefore describe
+different protocols and computational budgets.
+
+Table~\ref{tab:transfer} separates observed events from all non-events. With
+the CIFAR-10 threshold unchanged, ResNet-18 yields 4/5 detected events but only
+2/5 within 60 updates; this is partial unchanged-threshold architecture
+transfer, not complete cross-architecture generalization. On CIFAR-100, two of
+three planned collapse-prone trajectories meet the event definition and both
+are detected after the one-time dataset-specific calibration. The third
+collapse-prone trajectory does not meet the registered CO definition and is
+therefore counted with the two random-start controls: among these three
+non-events there is one alarm episode.
+
+\begin{table*}[t]
+\centering
+\caption{Detector audit. ``Near'' denotes an active warning within 60 updates.
+The last column is the median near-warning lead in updates.}
+\label{tab:transfer}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrrrr}
+\toprule
+Dataset / budget & Architecture & Planned & Events & Detected & Near & Non-event runs / alarm episodes & Median near lead \\
+\midrule
+CIFAR-10, $8/255$ & PreActResNet-18 & 7 & 7 & 7/7 & 7/7 & 3 / 0 & 40 \\
+CIFAR-10, $8/255$ & ResNet-18 & 5 & 5 & 4/5 & 2/5 & 3 / 0 & 50 \\
+CIFAR-100, $8/255$ & PreActResNet-18 & 3 & 2 & 2/2 & 2/2 & 3 / 1 & 40 \\
+CIFAR-10, $16/255$ RS & PreActResNet-18 & 3 & 3 & 3/3 & 3/3 & -- & 40 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.94\textwidth]{transfer_and_timing.png}
+    \caption{Left: event recall across the primary setting, unchanged-threshold
+    architecture transfer, dataset-calibrated transfer, and a threat-budget
+stress test, with Wilson 95\% intervals. Right: immediate-switch and
+    immediate-replay start PGD-2 with zero intervening FGSM updates; next-epoch escalation
+    starts after unprotected CO in two of five matched trajectories.}
+    \label{fig:transfer-timing}
+\end{figure*}
+
+\subsection{Randomized-FGSM Stress Test}
+We first test eight randomized-FGSM runs at $\epsilon=8/255$: three standard
+runs at peak learning rate 0.2 and five runs at 0.3. All eight remain robust,
+and the detector produces zero alarm episodes. The monitor does not intervene
+in this tested standard $8/255$ configuration.
+
+Prior work reports that random starts become less reliable at larger budgets
+\cite{andriushchenko2020understanding}. At $\epsilon=16/255$, all three
+random-start runs meet the CO definition and terminate at 0\% PGD-10. The
+frozen CIFAR-10 detector warns 20, 40, and 60 updates before collapse.
+The intervention logs identify these three runs as the immediate-replay
+ablation, not the immediate-switch main method. Immediate-replay begins PGD-2 before every
+event and finishes at 25.55\%, 26.80\%, and 27.11\% PGD-10. Mean clean and
+PGD-10 accuracy are
+$71.05\pm0.43\%$ and $26.48\pm0.83\%$. This is a threat-budget stress test,
+not cross-dataset evidence.
+
+\subsection{Actionable Lead and Component Controls}
+Table~\ref{tab:timing} distinguishes statistical lead from usable lead. All
+three responses receive the identical first warning. Immediate-switch and
+immediate-replay begin PGD-2 with no intervening FGSM update and act before all
+five matched collapses. Waiting for the epoch boundary adds a median of 212 FGSM updates;
+two collapses occur before PGD-2 starts.
+
+\begin{table*}[t]
+\centering
+\caption{Five-seed warning-to-action audit (mean $\pm$ sample std.).
+Warn$\rightarrow$start counts intervening FGSM optimizer updates.}
+\label{tab:timing}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Response & Before CO & Warn$\rightarrow$start & Clean & PGD-10 & Core min \\
+\midrule
+Immediate-switch (ours) & 5/5 & 0 updates & $83.06\pm0.65$ & $47.05\pm0.74$ & $18.74\pm0.63$ \\
+Immediate-replay (ablation) & 5/5 & 0 updates & $83.14\pm0.62$ & $46.83\pm0.55$ & $18.68\pm0.70$ \\
+Next epoch & 3/5 & 212 updates & $83.09\pm0.57$ & $46.72\pm1.05$ & $18.14\pm0.58$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+All component controls use seeds 17, 23, 42, 101, and 202. Immediate-switch
+differs from immediate-replay by $+0.22$ PGD-10 points (paired bootstrap
+95\% CI $[-0.22,+0.66]$) and $+0.06$ core minutes (CI
+$[-0.18,+0.30]$); the clean difference is $-0.07$ points (CI
+$[-0.16,0.00]$). Neither comparison supports an immediate-replay advantage. Relative
+to waiting for the next epoch, immediate-switch starts PGD-2 157.6 updates earlier on
+average (CI $[-252.0,-56.8]$), covers 5/5 rather than 3/5 events before CO,
+with a proportion difference of $+0.40$ (CI $[0.00,+0.80]$), and differs by
+$+0.33$ PGD-10 points (CI $[+0.08,+0.66]$). Its clean difference is $-0.02$
+points (CI $[-0.14,+0.08]$), while core time increases by 0.59 minutes (CI
+$[+0.47,+0.71]$). The before-CO point estimate favors immediate-switch, but five
+seeds are insufficient to establish a clear proportional advantage. The small
+endpoint difference is secondary to the intervention-timing result. Full PGD-2
+differs from the next-epoch policy by $+0.09$ points (CI
+$[-0.27,+0.42]$) but adds 3.46 core minutes. The detector supplies the
+warning, PGD-2 supplies recovery, and immediate-switch converts warning
+into pre-collapse action; rollback itself is not the active ingredient.
+
+\begin{table}[t]
+\centering
+\caption{Matched five-seed controls (mean $\pm$ sample std.)}
+\label{tab:components}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lrrr}
+\toprule
+Policy & Clean & PGD-10 & Core min \\
+\midrule
+Immediate-switch (ours) & $83.06\pm0.65$ & $47.05\pm0.74$ & $18.74\pm0.63$ \\
+Immediate-replay (ablation) & $83.14\pm0.62$ & $46.83\pm0.55$ & $18.68\pm0.70$ \\
+Next epoch & $83.09\pm0.57$ & $46.72\pm1.05$ & $18.14\pm0.58$ \\
+Fixed epoch 13 & $83.32\pm0.70$ & $46.41\pm0.50$ & $19.37\pm0.21$ \\
+Fixed epoch 21 & $82.35\pm1.12$ & $45.75\pm0.94$ & $17.85\pm0.21$ \\
+PGD-2 from epoch 1 & $83.57\pm1.02$ & $46.81\pm0.90$ & $21.60\pm0.13$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Controlled CO-Mitigation Baselines}
+FastAdv+ and GradAlign are controlled reimplementations rather than claims of
+using official released code. They share the split, architecture, five seeds,
+30-epoch schedule, checkpoint rule, and PGD-10 evaluator. FastAdv+ uses one
+fixed 128-image validation batch, a PGD-10 probe every 20 optimizer updates
+with step $2/255$, a 0.10 drop from the best observed probe accuracy as its
+trigger, and a transient 20-update PGD-10 training block before returning to
+random-start FGSM. GradAlign uses $\lambda=0.2$, a uniform perturbation in
+$[-\epsilon,\epsilon]$ clipped to the image domain, cosine alignment between
+clean and random-point input gradients, and a second-order graph only for the
+random branch. It otherwise uses batch size 128 and the shared SGD, momentum,
+weight decay, and triangular learning-rate schedule.
+
+Table~\ref{tab:baselines} reports measured core parameter-update time.
+FastAdv+'s separately logged online PGD probes add
+$3.14\pm0.00$ minutes, giving $30.41\pm3.53$ measured minutes including
+those probes. Immediate-replay's snapshot save-restore operations were not
+timed, so 18.68 minutes is not a complete end-to-end measurement. GradAlign
+achieves the highest mean PGD-10 accuracy among these 30-epoch methods; the
+proposed policy occupies a lower-robustness, lower-measured-core-cost point.
+
+\begin{table}[t]
+\centering
+\caption{Unified five-seed CO-mitigation baselines}
+\label{tab:baselines}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrr}
+\toprule
+Method & Clean & PGD-10 & Core min \\
+\midrule
+Ours, next epoch & $83.09\pm0.57$ & $46.72\pm1.05$ & $18.14\pm0.58$ \\
+Ours, immediate-switch & $83.06\pm0.65$ & $47.05\pm0.74$ & $18.74\pm0.63$ \\
+FastAdv+ & $81.96\pm0.60$ & $47.09\pm0.71$ & $27.27\pm3.53$ \\
+GradAlign & $79.54\pm0.86$ & $48.31\pm0.81$ & $45.71\pm0.11$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Strong Test-Set Evaluation}
+Table~\ref{tab:test} reports full-test clean and PGD evaluation on all 10,000
+CIFAR-10 test images. Table~\ref{tab:aa} gives a supplementary
+AutoAttack-standard evaluation on
+the first 1,000 examples in the unshuffled official test-set order. AA-1k uses
+the $\ell_\infty$ threat model at $\epsilon=8/255$ and the standard attack
+suite comprising APGD-CE, APGD-T, FAB-T, and Square. The immediate-switch, immediate-replay,
+next-epoch, FastAdv+, and GradAlign checkpoints use seed 101; the FGSM-RS and
+PGD-10 training references use seed 17. In each run,
+\emph{best\_robust.pt} is selected by the highest recorded validation PGD-10
+accuracy, before test evaluation. This is a representative checkpoint
+comparison rather than a cross-seed aggregate. Validation PGD-10 selects
+checkpoints but does not trigger the online monitor. The immediate-switch
+seed-101 checkpoint was fixed before
+any result in Tables~\ref{tab:test}--\ref{tab:aa} was observed; no alternative
+seed or checkpoint was tested for replacement.
+The $46.93\%$ PGD-10 entry in Table~\ref{tab:test} is from this single
+pre-fixed seed-101 checkpoint. Table~\ref{tab:timing}'s $47.05\pm0.74\%$ is
+instead the mean and sample standard deviation across five intervention seeds;
+the two summaries need not match.
+
+For the primary immediate-switch method, PGD-50 and five-restart PGD-20 give 45.52\%
+and 45.66\%. Their agreement, and the analogous agreement for immediate-replay and the
+training references, does not reveal an obvious weak-iterative-attack failure.
+On the same fixed 1,000 images, the full standard AutoAttack suite gives
+42.30\% for immediate-switch, 42.60\% for immediate-replay, 41.30\%
+for next-epoch escalation, 43.00\%
+for ordinary FGSM-RS, 48.70\% for PGD-10 training, 42.40\% for FastAdv+, and
+44.40\% for GradAlign. The two controlled baselines use their seed-101
+checkpoints selected by the same validation rule. AA-1k is a subset estimate,
+so it complements the full-test PGD results without ruling out gradient masking.
+
+\begin{table}[t]
+\centering
+\caption{Full-test strong CIFAR-10 accuracy (\%)}
+\label{tab:test}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lrrrr}
+\toprule
+Method & Clean & PGD-10 & PGD-50 & PGD$\times5$ \\
+\midrule
+Immediate-switch (ours) & 82.95 & 46.93 & 45.52 & 45.66 \\
+Immediate-replay (ablation) & 82.97 & 47.20 & 45.46 & 45.65 \\
+Next epoch & 82.57 & 46.38 & 44.75 & 44.91 \\
+Fast FGSM-RS & 82.48 & 47.77 & 46.24 & 46.36 \\
+PGD-10 training & 82.47 & 51.76 & 50.77 & 50.84 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{AutoAttack-standard accuracy on the fixed first 1,000 CIFAR-10 test
+images (\%), $\ell_\infty$, $\epsilon=8/255$}
+\label{tab:aa}
+\scriptsize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lr}
+\toprule
+Method & AA-1k \\
+\midrule
+Immediate-switch (ours) & 42.30 \\
+Immediate-replay (ablation) & 42.60 \\
+Next epoch & 41.30 \\
+Fast FGSM-RS & 43.00 \\
+PGD-10 training & 48.70 \\
+FastAdv+ & 42.40 \\
+GradAlign & 44.40 \\
+\bottomrule
+\end{tabular}
+\end{table}

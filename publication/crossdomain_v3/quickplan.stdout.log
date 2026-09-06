@@ -1,0 +1,247 @@
+skip=v3_resnet18_collapse_seed303
+skip=v3_resnet18_collapse_seed404
+skip=v3_resnet18_collapse_seed505
+skip=v3_resnet18_collapse_seed606
+skip=v3_resnet18_collapse_seed707
+skip=v3_resnet18_stable_seed17
+skip=v3_resnet18_stable_seed23
+skip=v3_resnet18_stable_seed42
+{
+  "threshold": 0.16632988750934596,
+  "planned_collapse_runs": 5,
+  "observed_events": 5,
+  "detected_events": 4,
+  "event_recall_any_lead": 0.8,
+  "detected_within_60_updates": 2,
+  "recall_within_60_updates": 0.4,
+  "median_first_lead_windows": 4.0,
+  "stable_runs": 3,
+  "stable_false_alarm_episodes": 0,
+  "stable_false_alarms_per_run": 0.0
+}
+skip=v3_resnet18_intervention_seed303
+skip=v3_resnet18_intervention_seed404
+skip=v3_resnet18_intervention_seed505
+skip=v3_cifar100_collapse_dev_seed17
+skip=v3_cifar100_stable_dev_seed17
+skip=v3_cifar100_collapse_dev_seed23
+skip=v3_cifar100_stable_dev_seed23
+skip=v3_cifar100_collapse_dev_seed42
+start=v3_cifar100_stable_dev_seed42 time=2026-09-05T16:42:15.5673837+08:00
+epoch=001 mode=fgsm_random_uniform clean=0.0788 pgd10=0.0500 trigger=0 abandoned=0 train_s=34.9
+epoch=002 mode=fgsm_random_uniform clean=0.1520 pgd10=0.0922 trigger=0 abandoned=0 train_s=34.5
+epoch=003 mode=fgsm_random_uniform clean=0.1666 pgd10=0.0883 trigger=0 abandoned=0 train_s=34.7
+epoch=004 mode=fgsm_random_uniform clean=0.2088 pgd10=0.1055 trigger=0 abandoned=0 train_s=35.6
+epoch=005 mode=fgsm_random_uniform clean=0.2520 pgd10=0.1242 trigger=0 abandoned=0 train_s=34.2
+epoch=006 mode=fgsm_random_uniform clean=0.2770 pgd10=0.1352 trigger=0 abandoned=0 train_s=34.9
+epoch=007 mode=fgsm_random_uniform clean=0.2926 pgd10=0.1375 trigger=0 abandoned=0 train_s=34.6
+epoch=008 mode=fgsm_random_uniform clean=0.3062 pgd10=0.1516 trigger=0 abandoned=0 train_s=33.9
+epoch=009 mode=fgsm_random_uniform clean=0.3154 pgd10=0.1461 trigger=0 abandoned=0 train_s=34.0
+epoch=010 mode=fgsm_random_uniform clean=0.3254 pgd10=0.1578 trigger=0 abandoned=0 train_s=34.3
+epoch=011 mode=fgsm_random_uniform clean=0.3356 pgd10=0.1672 trigger=0 abandoned=0 train_s=34.0
+epoch=012 mode=fgsm_random_uniform clean=0.3440 pgd10=0.1648 trigger=0 abandoned=0 train_s=34.4
+epoch=013 mode=fgsm_random_uniform clean=0.3346 pgd10=0.1602 trigger=0 abandoned=0 train_s=34.6
+epoch=014 mode=fgsm_random_uniform clean=0.3310 pgd10=0.1375 trigger=0 abandoned=0 train_s=34.1
+epoch=015 mode=fgsm_random_uniform clean=0.3342 pgd10=0.1641 trigger=0 abandoned=0 train_s=33.9
+epoch=016 mode=fgsm_random_uniform clean=0.3472 pgd10=0.1648 trigger=0 abandoned=0 train_s=33.4
+epoch=017 mode=fgsm_random_uniform clean=0.3746 pgd10=0.1734 trigger=0 abandoned=0 train_s=34.5
+epoch=018 mode=fgsm_random_uniform clean=0.3802 pgd10=0.1883 trigger=0 abandoned=0 train_s=33.7
+epoch=019 mode=fgsm_random_uniform clean=0.3880 pgd10=0.1867 trigger=0 abandoned=0 train_s=34.2
+epoch=020 mode=fgsm_random_uniform clean=0.4100 pgd10=0.1914 trigger=0 abandoned=0 train_s=33.8
+epoch=021 mode=fgsm_random_uniform clean=0.4242 pgd10=0.2016 trigger=0 abandoned=0 train_s=33.5
+epoch=022 mode=fgsm_random_uniform clean=0.4180 pgd10=0.1805 trigger=0 abandoned=0 train_s=33.8
+epoch=023 mode=fgsm_random_uniform clean=0.4350 pgd10=0.2094 trigger=0 abandoned=0 train_s=33.7
+epoch=024 mode=fgsm_random_uniform clean=0.4572 pgd10=0.2109 trigger=0 abandoned=0 train_s=34.1
+epoch=025 mode=fgsm_random_uniform clean=0.4696 pgd10=0.2211 trigger=0 abandoned=0 train_s=33.9
+epoch=026 mode=fgsm_random_uniform clean=0.4858 pgd10=0.2328 trigger=0 abandoned=0 train_s=33.6
+epoch=027 mode=fgsm_random_uniform clean=0.5056 pgd10=0.2305 trigger=0 abandoned=0 train_s=34.2
+epoch=028 mode=fgsm_random_uniform clean=0.5084 pgd10=0.2437 trigger=0 abandoned=0 train_s=33.6
+epoch=029 mode=fgsm_random_uniform clean=0.5504 pgd10=0.2398 trigger=0 abandoned=0 train_s=33.9
+epoch=030 mode=fgsm_random_uniform clean=0.5848 pgd10=0.0320 trigger=1 abandoned=0 train_s=36.4
+finish=v3_cifar100_stable_dev_seed42 time=2026-09-05T17:10:00.9170436+08:00
+{
+  "threshold": 0.6332649834303036,
+  "planned_collapse_runs": 3,
+  "observed_events": 1,
+  "detected_events": 1,
+  "event_recall_any_lead": 1.0,
+  "detected_within_60_updates": 1,
+  "recall_within_60_updates": 1.0,
+  "median_first_lead_windows": 1.0,
+  "stable_runs": 3,
+  "stable_false_alarm_episodes": 1,
+  "stable_false_alarms_per_run": 0.3333333333333333
+}
+start=v3_cifar100_collapse_holdout_seed101 time=2026-09-05T17:10:02.3754373+08:00
+epoch=001 mode=fgsm_zero clean=0.0780 pgd10=0.0547 trigger=0 abandoned=0 train_s=34.6
+epoch=002 mode=fgsm_zero clean=0.1294 pgd10=0.0766 trigger=0 abandoned=0 train_s=35.1
+epoch=003 mode=fgsm_zero clean=0.1652 pgd10=0.0945 trigger=0 abandoned=0 train_s=34.9
+epoch=004 mode=fgsm_zero clean=0.2134 pgd10=0.1148 trigger=0 abandoned=0 train_s=35.4
+epoch=005 mode=fgsm_zero clean=0.2318 pgd10=0.1258 trigger=0 abandoned=0 train_s=35.3
+epoch=006 mode=fgsm_zero clean=0.2566 pgd10=0.1367 trigger=0 abandoned=0 train_s=37.8
+epoch=007 mode=fgsm_zero clean=0.2530 pgd10=0.1437 trigger=0 abandoned=0 train_s=35.1
+epoch=008 mode=fgsm_zero clean=0.2860 pgd10=0.1539 trigger=0 abandoned=0 train_s=35.4
+epoch=009 mode=fgsm_zero clean=0.2816 pgd10=0.1461 trigger=0 abandoned=0 train_s=34.3
+epoch=010 mode=fgsm_zero clean=0.3002 pgd10=0.1547 trigger=0 abandoned=0 train_s=33.9
+epoch=011 mode=fgsm_zero clean=0.2936 pgd10=0.1469 trigger=0 abandoned=0 train_s=34.3
+epoch=012 mode=fgsm_zero clean=0.2846 pgd10=0.1383 trigger=0 abandoned=0 train_s=34.9
+epoch=013 mode=fgsm_zero clean=0.2606 pgd10=0.0000 trigger=1 abandoned=0 train_s=36.9
+epoch=014 mode=fgsm_zero clean=0.2466 pgd10=0.0000 trigger=0 abandoned=0 train_s=34.9
+epoch=015 mode=fgsm_zero clean=0.2144 pgd10=0.0172 trigger=0 abandoned=0 train_s=35.2
+epoch=016 mode=fgsm_zero clean=0.2636 pgd10=0.0023 trigger=0 abandoned=0 train_s=34.6
+epoch=017 mode=fgsm_zero clean=0.2402 pgd10=0.0008 trigger=0 abandoned=0 train_s=34.0
+epoch=018 mode=fgsm_zero clean=0.2892 pgd10=0.0008 trigger=0 abandoned=0 train_s=33.7
+epoch=019 mode=fgsm_zero clean=0.2896 pgd10=0.0023 trigger=0 abandoned=0 train_s=33.8
+epoch=020 mode=fgsm_zero clean=0.2834 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.7
+epoch=021 mode=fgsm_zero clean=0.3374 pgd10=0.0000 trigger=0 abandoned=0 train_s=34.2
+epoch=022 mode=fgsm_zero clean=0.2930 pgd10=0.0000 trigger=0 abandoned=0 train_s=34.4
+epoch=023 mode=fgsm_zero clean=0.3502 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.2
+epoch=024 mode=fgsm_zero clean=0.3570 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.8
+epoch=025 mode=fgsm_zero clean=0.3502 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.9
+epoch=026 mode=fgsm_zero clean=0.3074 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.5
+epoch=027 mode=fgsm_zero clean=0.3418 pgd10=0.0000 trigger=0 abandoned=0 train_s=34.2
+epoch=028 mode=fgsm_zero clean=0.3694 pgd10=0.0000 trigger=0 abandoned=0 train_s=34.0
+epoch=029 mode=fgsm_zero clean=0.4408 pgd10=0.0008 trigger=0 abandoned=0 train_s=33.7
+epoch=030 mode=fgsm_zero clean=0.4538 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.9
+finish=v3_cifar100_collapse_holdout_seed101 time=2026-09-05T17:38:13.1504243+08:00
+start=v3_cifar100_collapse_holdout_seed202 time=2026-09-05T17:38:13.1584159+08:00
+epoch=001 mode=fgsm_zero clean=0.0790 pgd10=0.0555 trigger=0 abandoned=0 train_s=34.3
+epoch=002 mode=fgsm_zero clean=0.1332 pgd10=0.0906 trigger=0 abandoned=0 train_s=34.1
+epoch=003 mode=fgsm_zero clean=0.1710 pgd10=0.1008 trigger=0 abandoned=0 train_s=34.2
+epoch=004 mode=fgsm_zero clean=0.2072 pgd10=0.1289 trigger=0 abandoned=0 train_s=35.4
+epoch=005 mode=fgsm_zero clean=0.2184 pgd10=0.1297 trigger=0 abandoned=0 train_s=35.2
+epoch=006 mode=fgsm_zero clean=0.2478 pgd10=0.1352 trigger=0 abandoned=0 train_s=33.6
+epoch=007 mode=fgsm_zero clean=0.2732 pgd10=0.1562 trigger=0 abandoned=0 train_s=33.8
+epoch=008 mode=fgsm_zero clean=0.2778 pgd10=0.1609 trigger=0 abandoned=0 train_s=33.5
+epoch=009 mode=fgsm_zero clean=0.3002 pgd10=0.1617 trigger=0 abandoned=0 train_s=34.2
+epoch=010 mode=fgsm_zero clean=0.2938 pgd10=0.1570 trigger=0 abandoned=0 train_s=34.3
+epoch=011 mode=fgsm_zero clean=0.2796 pgd10=0.1430 trigger=0 abandoned=0 train_s=34.1
+epoch=012 mode=fgsm_zero clean=0.2658 pgd10=0.1453 trigger=0 abandoned=0 train_s=33.9
+epoch=013 mode=fgsm_zero clean=0.2786 pgd10=0.1391 trigger=1 abandoned=0 train_s=34.4
+epoch=014 mode=fgsm_zero clean=0.2754 pgd10=0.1422 trigger=0 abandoned=0 train_s=34.2
+epoch=015 mode=fgsm_zero clean=0.2746 pgd10=0.1445 trigger=0 abandoned=0 train_s=34.0
+epoch=016 mode=fgsm_zero clean=0.2920 pgd10=0.1555 trigger=0 abandoned=0 train_s=33.8
+epoch=017 mode=fgsm_zero clean=0.2448 pgd10=0.0430 trigger=1 abandoned=0 train_s=35.7
+epoch=018 mode=fgsm_zero clean=0.3204 pgd10=0.1805 trigger=0 abandoned=0 train_s=34.4
+epoch=019 mode=fgsm_zero clean=0.3094 pgd10=0.1609 trigger=0 abandoned=0 train_s=33.8
+epoch=020 mode=fgsm_zero clean=0.2740 pgd10=0.1281 trigger=1 abandoned=0 train_s=35.2
+epoch=021 mode=fgsm_zero clean=0.3378 pgd10=0.1656 trigger=0 abandoned=0 train_s=34.2
+epoch=022 mode=fgsm_zero clean=0.3606 pgd10=0.1812 trigger=0 abandoned=0 train_s=33.8
+epoch=023 mode=fgsm_zero clean=0.3580 pgd10=0.2008 trigger=0 abandoned=0 train_s=33.6
+epoch=024 mode=fgsm_zero clean=0.3784 pgd10=0.1922 trigger=0 abandoned=0 train_s=35.3
+epoch=025 mode=fgsm_zero clean=0.4400 pgd10=0.0109 trigger=1 abandoned=0 train_s=35.8
+epoch=026 mode=fgsm_zero clean=0.4194 pgd10=0.0008 trigger=0 abandoned=0 train_s=33.7
+epoch=027 mode=fgsm_zero clean=0.3896 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.7
+epoch=028 mode=fgsm_zero clean=0.4256 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.6
+epoch=029 mode=fgsm_zero clean=0.4964 pgd10=0.0000 trigger=0 abandoned=0 train_s=34.3
+epoch=030 mode=fgsm_zero clean=0.5462 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.7
+finish=v3_cifar100_collapse_holdout_seed202 time=2026-09-05T18:05:58.2849616+08:00
+start=v3_cifar100_collapse_holdout_seed303 time=2026-09-05T18:05:58.2889886+08:00
+epoch=001 mode=fgsm_zero clean=0.0658 pgd10=0.0453 trigger=0 abandoned=0 train_s=35.4
+epoch=002 mode=fgsm_zero clean=0.1160 pgd10=0.0625 trigger=0 abandoned=0 train_s=33.9
+epoch=003 mode=fgsm_zero clean=0.1586 pgd10=0.0844 trigger=0 abandoned=0 train_s=33.7
+epoch=004 mode=fgsm_zero clean=0.2068 pgd10=0.1031 trigger=0 abandoned=0 train_s=33.9
+epoch=005 mode=fgsm_zero clean=0.2270 pgd10=0.1250 trigger=0 abandoned=0 train_s=34.0
+epoch=006 mode=fgsm_zero clean=0.2536 pgd10=0.1242 trigger=0 abandoned=0 train_s=33.7
+epoch=007 mode=fgsm_zero clean=0.2634 pgd10=0.1344 trigger=0 abandoned=0 train_s=34.2
+epoch=008 mode=fgsm_zero clean=0.2658 pgd10=0.1477 trigger=0 abandoned=0 train_s=34.3
+epoch=009 mode=fgsm_zero clean=0.2870 pgd10=0.1391 trigger=0 abandoned=0 train_s=33.6
+epoch=010 mode=fgsm_zero clean=0.2744 pgd10=0.1352 trigger=0 abandoned=0 train_s=33.8
+epoch=011 mode=fgsm_zero clean=0.2924 pgd10=0.1414 trigger=0 abandoned=0 train_s=33.4
+epoch=012 mode=fgsm_zero clean=0.2882 pgd10=0.0813 trigger=1 abandoned=0 train_s=34.2
+epoch=013 mode=fgsm_zero clean=0.2600 pgd10=0.0094 trigger=1 abandoned=0 train_s=36.1
+epoch=014 mode=fgsm_zero clean=0.1790 pgd10=0.0156 trigger=0 abandoned=0 train_s=33.9
+epoch=015 mode=fgsm_zero clean=0.2220 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.7
+epoch=016 mode=fgsm_zero clean=0.1802 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.2
+epoch=017 mode=fgsm_zero clean=0.2948 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.8
+epoch=018 mode=fgsm_zero clean=0.2584 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.7
+epoch=019 mode=fgsm_zero clean=0.3218 pgd10=0.0000 trigger=0 abandoned=0 train_s=34.5
+epoch=020 mode=fgsm_zero clean=0.2856 pgd10=0.0000 trigger=0 abandoned=0 train_s=34.1
+epoch=021 mode=fgsm_zero clean=0.2678 pgd10=0.0008 trigger=0 abandoned=0 train_s=33.6
+epoch=022 mode=fgsm_zero clean=0.3200 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.5
+epoch=023 mode=fgsm_zero clean=0.3246 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.3
+epoch=024 mode=fgsm_zero clean=0.3162 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.8
+epoch=025 mode=fgsm_zero clean=0.3804 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.8
+epoch=026 mode=fgsm_zero clean=0.3966 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.3
+epoch=027 mode=fgsm_zero clean=0.4162 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.8
+epoch=028 mode=fgsm_zero clean=0.4012 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.4
+epoch=029 mode=fgsm_zero clean=0.4388 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.8
+epoch=030 mode=fgsm_zero clean=0.4910 pgd10=0.0000 trigger=0 abandoned=0 train_s=33.6
+finish=v3_cifar100_collapse_holdout_seed303 time=2026-09-05T18:33:32.4871742+08:00
+start=v3_cifar100_stable_holdout_seed101 time=2026-09-05T18:33:32.4921742+08:00
+epoch=001 mode=fgsm_random_uniform clean=0.0758 pgd10=0.0523 trigger=0 abandoned=0 train_s=34.6
+epoch=002 mode=fgsm_random_uniform clean=0.1318 pgd10=0.0750 trigger=0 abandoned=0 train_s=33.7
+epoch=003 mode=fgsm_random_uniform clean=0.1682 pgd10=0.0930 trigger=0 abandoned=0 train_s=33.8
+epoch=004 mode=fgsm_random_uniform clean=0.2196 pgd10=0.1133 trigger=0 abandoned=0 train_s=34.0
+epoch=005 mode=fgsm_random_uniform clean=0.2440 pgd10=0.1242 trigger=0 abandoned=0 train_s=34.0
+epoch=006 mode=fgsm_random_uniform clean=0.2776 pgd10=0.1398 trigger=0 abandoned=0 train_s=33.5
+epoch=007 mode=fgsm_random_uniform clean=0.2858 pgd10=0.1469 trigger=0 abandoned=0 train_s=34.0
+epoch=008 mode=fgsm_random_uniform clean=0.3092 pgd10=0.1555 trigger=0 abandoned=0 train_s=33.3
+epoch=009 mode=fgsm_random_uniform clean=0.3292 pgd10=0.1633 trigger=0 abandoned=0 train_s=35.0
+epoch=010 mode=fgsm_random_uniform clean=0.3508 pgd10=0.1680 trigger=0 abandoned=0 train_s=33.7
+epoch=011 mode=fgsm_random_uniform clean=0.3396 pgd10=0.1609 trigger=0 abandoned=0 train_s=33.6
+epoch=012 mode=fgsm_random_uniform clean=0.3180 pgd10=0.1477 trigger=0 abandoned=0 train_s=33.9
+epoch=013 mode=fgsm_random_uniform clean=0.3414 pgd10=0.1594 trigger=0 abandoned=0 train_s=33.3
+epoch=014 mode=fgsm_random_uniform clean=0.3248 pgd10=0.1375 trigger=0 abandoned=0 train_s=33.5
+epoch=015 mode=fgsm_random_uniform clean=0.3492 pgd10=0.1664 trigger=0 abandoned=0 train_s=33.7
+epoch=016 mode=fgsm_random_uniform clean=0.3424 pgd10=0.1562 trigger=0 abandoned=0 train_s=34.0
+epoch=017 mode=fgsm_random_uniform clean=0.3516 pgd10=0.1633 trigger=0 abandoned=0 train_s=34.2
+epoch=018 mode=fgsm_random_uniform clean=0.3672 pgd10=0.1680 trigger=0 abandoned=0 train_s=33.6
+epoch=019 mode=fgsm_random_uniform clean=0.3846 pgd10=0.1945 trigger=0 abandoned=0 train_s=33.7
+epoch=020 mode=fgsm_random_uniform clean=0.4006 pgd10=0.1836 trigger=0 abandoned=0 train_s=34.1
+epoch=021 mode=fgsm_random_uniform clean=0.4132 pgd10=0.1938 trigger=0 abandoned=0 train_s=33.6
+epoch=022 mode=fgsm_random_uniform clean=0.4210 pgd10=0.1953 trigger=0 abandoned=0 train_s=33.8
+epoch=023 mode=fgsm_random_uniform clean=0.4296 pgd10=0.2031 trigger=0 abandoned=0 train_s=33.8
+epoch=024 mode=fgsm_random_uniform clean=0.4538 pgd10=0.2117 trigger=0 abandoned=0 train_s=34.3
+epoch=025 mode=fgsm_random_uniform clean=0.4626 pgd10=0.2016 trigger=0 abandoned=0 train_s=33.9
+epoch=026 mode=fgsm_random_uniform clean=0.4918 pgd10=0.2258 trigger=0 abandoned=0 train_s=33.8
+epoch=027 mode=fgsm_random_uniform clean=0.5060 pgd10=0.2164 trigger=0 abandoned=0 train_s=34.1
+epoch=028 mode=fgsm_random_uniform clean=0.5228 pgd10=0.2273 trigger=0 abandoned=0 train_s=33.5
+epoch=029 mode=fgsm_random_uniform clean=0.5474 pgd10=0.2352 trigger=0 abandoned=0 train_s=34.1
+epoch=030 mode=fgsm_random_uniform clean=0.5682 pgd10=0.2305 trigger=0 abandoned=0 train_s=34.1
+finish=v3_cifar100_stable_holdout_seed101 time=2026-09-05T19:01:01.0701661+08:00
+start=v3_cifar100_stable_holdout_seed202 time=2026-09-05T19:01:01.0751656+08:00
+epoch=001 mode=fgsm_random_uniform clean=0.0836 pgd10=0.0531 trigger=0 abandoned=0 train_s=34.2
+epoch=002 mode=fgsm_random_uniform clean=0.1398 pgd10=0.0898 trigger=0 abandoned=0 train_s=34.0
+epoch=003 mode=fgsm_random_uniform clean=0.1810 pgd10=0.0992 trigger=0 abandoned=0 train_s=33.8
+epoch=004 mode=fgsm_random_uniform clean=0.2128 pgd10=0.1273 trigger=0 abandoned=0 train_s=34.6
+epoch=005 mode=fgsm_random_uniform clean=0.2416 pgd10=0.1258 trigger=0 abandoned=0 train_s=34.7
+epoch=006 mode=fgsm_random_uniform clean=0.2688 pgd10=0.1422 trigger=0 abandoned=0 train_s=33.3
+epoch=007 mode=fgsm_random_uniform clean=0.3010 pgd10=0.1703 trigger=0 abandoned=0 train_s=33.8
+epoch=008 mode=fgsm_random_uniform clean=0.3140 pgd10=0.1641 trigger=0 abandoned=0 train_s=33.6
+epoch=009 mode=fgsm_random_uniform clean=0.3332 pgd10=0.1703 trigger=0 abandoned=0 train_s=33.7
+epoch=010 mode=fgsm_random_uniform clean=0.3412 pgd10=0.1703 trigger=0 abandoned=0 train_s=34.4
+epoch=011 mode=fgsm_random_uniform clean=0.3212 pgd10=0.1484 trigger=0 abandoned=0 train_s=33.5
+epoch=012 mode=fgsm_random_uniform clean=0.3154 pgd10=0.1586 trigger=0 abandoned=0 train_s=34.8
+epoch=013 mode=fgsm_random_uniform clean=0.3392 pgd10=0.1531 trigger=0 abandoned=0 train_s=33.9
+epoch=014 mode=fgsm_random_uniform clean=0.3426 pgd10=0.1586 trigger=0 abandoned=0 train_s=33.9
+epoch=015 mode=fgsm_random_uniform clean=0.3248 pgd10=0.1539 trigger=0 abandoned=0 train_s=33.8
+epoch=016 mode=fgsm_random_uniform clean=0.3382 pgd10=0.1625 trigger=0 abandoned=0 train_s=33.6
+epoch=017 mode=fgsm_random_uniform clean=0.3518 pgd10=0.1766 trigger=0 abandoned=0 train_s=34.1
+epoch=018 mode=fgsm_random_uniform clean=0.3536 pgd10=0.1859 trigger=0 abandoned=0 train_s=33.7
+epoch=019 mode=fgsm_random_uniform clean=0.3704 pgd10=0.1695 trigger=0 abandoned=0 train_s=34.0
+epoch=020 mode=fgsm_random_uniform clean=0.4132 pgd10=0.1844 trigger=0 abandoned=0 train_s=33.9
+epoch=021 mode=fgsm_random_uniform clean=0.3970 pgd10=0.1766 trigger=0 abandoned=0 train_s=33.4
+epoch=022 mode=fgsm_random_uniform clean=0.4040 pgd10=0.1875 trigger=0 abandoned=0 train_s=34.0
+epoch=023 mode=fgsm_random_uniform clean=0.4220 pgd10=0.2109 trigger=0 abandoned=0 train_s=33.5
+epoch=024 mode=fgsm_random_uniform clean=0.4342 pgd10=0.1984 trigger=0 abandoned=0 train_s=34.3
+epoch=025 mode=fgsm_random_uniform clean=0.4408 pgd10=0.2109 trigger=0 abandoned=0 train_s=34.0
+epoch=026 mode=fgsm_random_uniform clean=0.4886 pgd10=0.2188 trigger=0 abandoned=0 train_s=33.5
+epoch=027 mode=fgsm_random_uniform clean=0.5004 pgd10=0.2211 trigger=0 abandoned=0 train_s=34.0
+epoch=028 mode=fgsm_random_uniform clean=0.5194 pgd10=0.2188 trigger=0 abandoned=0 train_s=33.6
+epoch=029 mode=fgsm_random_uniform clean=0.5358 pgd10=0.2414 trigger=0 abandoned=0 train_s=34.1
+epoch=030 mode=fgsm_random_uniform clean=0.5504 pgd10=0.2469 trigger=0 abandoned=0 train_s=33.9
+finish=v3_cifar100_stable_holdout_seed202 time=2026-09-05T19:28:31.1246886+08:00
+{
+  "threshold": 0.6332649834303036,
+  "planned_collapse_runs": 3,
+  "observed_events": 2,
+  "detected_events": 2,
+  "event_recall_any_lead": 1.0,
+  "detected_within_60_updates": 2,
+  "recall_within_60_updates": 1.0,
+  "median_first_lead_windows": 2.0,
+  "stable_runs": 2,
+  "stable_false_alarm_episodes": 0,
+  "stable_false_alarms_per_run": 0.0
+}

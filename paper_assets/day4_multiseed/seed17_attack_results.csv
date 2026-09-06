@@ -1,0 +1,4 @@
+﻿checkpoint,attack,accuracy,epsilon,seconds
+best_robust.pt,clean,0.7926,0.0,9.074507699930109
+best_robust.pt,fgsm_8_255,0.4986,0.03137254901960784,11.632303099962883
+best_robust.pt,pgd10_8_255,0.4489,0.03137254901960784,35.47808040003292

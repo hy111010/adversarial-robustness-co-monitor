@@ -1,0 +1,2 @@
+﻿checkpoint,checkpoint_epoch,architecture,attack,accuracy,clean_accuracy,epsilon,samples,batch_size,seed,completed_attacks,expected_attacks,complete,seconds_this_invocation,package_version,package_url,package_sha256
+best_robust.pt,30,preact_resnet18,official_autoattack_standard,0.426,0.838,0.03137254901960784,1000,128,17,apgd-ce;apgd-t;fab-t;square,apgd-ce;apgd-t;fab-t;square,True,0.00021819991525262594,0.1,https://github.com/fra31/auto-attack/archive/refs/heads/master.zip,87d423ee2794814fd003697ed1bec29b28416b6d048678a3f0983c27df5c2b1f

@@ -1,0 +1,6 @@
+{
+  "status": "frozen_after_domain_development",
+  "feature": "rolling-5 median cosine drop",
+  "threshold": 0.6332649834303036,
+  "selection": "event coverage, stable false alarms, proximity, threshold"
+}

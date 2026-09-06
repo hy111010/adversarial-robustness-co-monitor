@@ -1,0 +1,2 @@
+﻿epoch,train_adv_loss,train_adv_acc,epoch_seconds,lr_start,lr_end,val_clean_acc,val_pgd10_acc,diag_rs_prediction_disagreement,diag_gradient_cosine,diag_gradient_sign_agreement,diag_clean_rs_jsd,diag_rs1_accuracy,diag_rs2_accuracy,clean_eval_seconds,diagnostic_seconds,pgd_monitor_seconds,diagnostic_batches,pgd_monitor_batches,monitor_seed
+1,2.7262470722198486,0.0,0.2678673000773415,0.0,0.0,0.25,0.0,0.0,0.8179938793182373,0.7886556386947632,3.988587195635773e-06,0.0,0.0,0.018220700090751052,0.13489459990523756,0.04777760000433773,1,1,1700001

@@ -1,0 +1,5 @@
+Model checkpoint,Clean Accuracy (%),FGSM Accuracy (%),PGD-10 Accuracy (%),Training Time (min)
+Standard ResNet-18,94.72,38.58,0.06,30.79
+Fast AT early-stop (epoch 2),37.57,23.45,18.55,1.03
+Fast AT final (epoch 15),55.12,85.98,0.00,7.62
+

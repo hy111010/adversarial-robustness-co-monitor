@@ -1,0 +1,8 @@
+# Install the CUDA-enabled torch packages first (see README.md), then install this file.
+numpy>=2.2,<3
+matplotlib>=3.10,<4
+pandas>=2.2,<3
+scipy>=1.18,<2
+torchattacks==3.5.1
+autoattack @ https://github.com/fra31/auto-attack/archive/refs/heads/master.zip#sha256=87d423ee2794814fd003697ed1bec29b28416b6d048678a3f0983c27df5c2b1f
+tqdm>=4.67,<5

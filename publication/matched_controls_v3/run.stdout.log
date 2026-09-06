@@ -1,0 +1,3 @@
+start=v2_fixed_early13_seed23 time=2026-09-04T21:11:22.4231908+08:00
+epoch=001 mode=fgsm_zero clean=0.3466 pgd10=0.2297 trigger=0 abandoned=0 train_s=35.9
+epoch=002 mode=fgsm_zero clean=0.3852 pgd10=0.2391 trigger=0 abandoned=0 train_s=32.6

@@ -1,0 +1,3 @@
+﻿epoch,attack_mode,train_adv_loss,train_adv_acc,epoch_seconds,lr_start,lr_end,val_clean_acc,val_fgsm_acc,val_pgd10_acc,collapse_triggered,rolled_back_to_epoch,monitor_batches
+1,fgsm_rs,3.337373971939087,0.009765625,0.8485102999256924,0.0,0.15000000000000002,0.09375,0.0234375,0.0,0,,1
+2,fgsm_rs,7.741217851638794,0.076171875,0.3635966000147164,0.2,0.05,0.09375,0.0859375,0.0859375,1,disabled,1

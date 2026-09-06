@@ -1,0 +1,102 @@
+starting=adaptive_rollback_pgd2_dev_seed17 at=2026-09-03T13:43:32.6437617+08:00
+epoch=001 mode=fgsm_zero clean=0.3424 pgd10=0.2383 trigger=0 abandoned=0 train_s=32.7
+epoch=002 mode=fgsm_zero clean=0.3828 pgd10=0.2727 trigger=0 abandoned=0 train_s=32.0
+epoch=003 mode=fgsm_zero clean=0.4518 pgd10=0.2984 trigger=0 abandoned=0 train_s=31.7
+epoch=004 mode=fgsm_zero clean=0.5066 pgd10=0.3164 trigger=0 abandoned=0 train_s=36.3
+epoch=005 mode=fgsm_zero clean=0.5292 pgd10=0.3383 trigger=0 abandoned=0 train_s=31.3
+epoch=006 mode=fgsm_zero clean=0.5674 pgd10=0.3531 trigger=0 abandoned=0 train_s=31.7
+epoch=007 mode=fgsm_zero clean=0.5820 pgd10=0.3656 trigger=0 abandoned=0 train_s=31.9
+epoch=008 mode=fgsm_zero clean=0.5658 pgd10=0.3352 trigger=0 abandoned=0 train_s=32.2
+epoch=009 mode=fgsm_zero clean=0.5842 pgd10=0.3477 trigger=0 abandoned=0 train_s=32.2
+epoch=010 mode=fgsm_zero clean=0.5680 pgd10=0.3594 trigger=0 abandoned=0 train_s=31.5
+epoch=011 mode=fgsm_zero clean=0.5658 pgd10=0.3117 trigger=0 abandoned=0 train_s=32.0
+epoch=012 mode=fgsm_zero clean=0.5834 pgd10=0.3516 trigger=0 abandoned=0 train_s=32.0
+epoch=013 mode=fgsm_zero clean=0.6032 pgd10=0.3641 trigger=0 abandoned=0 train_s=32.0
+epoch=014 mode=fgsm_zero clean=0.5420 pgd10=0.3156 trigger=0 abandoned=0 train_s=32.6
+epoch=015 mode=fgsm_zero clean=0.5878 pgd10=0.3242 trigger=0 abandoned=0 train_s=33.0
+epoch=016 mode=fgsm_zero clean=0.6050 pgd10=0.3438 trigger=0 abandoned=0 train_s=32.0
+epoch=017 mode=pgd2_after_warning clean=0.6260 pgd10=0.3695 trigger=1 abandoned=352 train_s=75.0
+epoch=018 mode=pgd2 clean=0.6266 pgd10=0.3383 trigger=0 abandoned=0 train_s=42.9
+epoch=019 mode=pgd2 clean=0.6750 pgd10=0.3758 trigger=0 abandoned=0 train_s=43.3
+epoch=020 mode=pgd2 clean=0.6784 pgd10=0.3617 trigger=0 abandoned=0 train_s=43.0
+epoch=021 mode=pgd2 clean=0.6780 pgd10=0.3688 trigger=0 abandoned=0 train_s=43.3
+epoch=022 mode=pgd2 clean=0.7054 pgd10=0.3734 trigger=0 abandoned=0 train_s=43.2
+epoch=023 mode=pgd2 clean=0.7050 pgd10=0.3961 trigger=0 abandoned=0 train_s=43.2
+epoch=024 mode=pgd2 clean=0.7254 pgd10=0.4070 trigger=0 abandoned=0 train_s=43.1
+epoch=025 mode=pgd2 clean=0.7090 pgd10=0.3930 trigger=0 abandoned=0 train_s=43.2
+epoch=026 mode=pgd2 clean=0.7516 pgd10=0.4141 trigger=0 abandoned=0 train_s=43.0
+epoch=027 mode=pgd2 clean=0.7734 pgd10=0.4242 trigger=0 abandoned=0 train_s=43.1
+epoch=028 mode=pgd2 clean=0.7850 pgd10=0.4539 trigger=0 abandoned=0 train_s=42.7
+epoch=029 mode=pgd2 clean=0.8002 pgd10=0.4602 trigger=0 abandoned=0 train_s=42.8
+epoch=030 mode=pgd2 clean=0.8234 pgd10=0.4734 trigger=0 abandoned=0 train_s=43.1
+starting=adaptive_rollback_pgd2_dev_seed23 at=2026-09-03T14:12:50.5326699+08:00
+epoch=001 mode=fgsm_zero clean=0.3466 pgd10=0.2297 trigger=0 abandoned=0 train_s=32.7
+epoch=002 mode=fgsm_zero clean=0.3852 pgd10=0.2391 trigger=0 abandoned=0 train_s=32.0
+epoch=003 mode=fgsm_zero clean=0.4548 pgd10=0.2805 trigger=0 abandoned=0 train_s=32.0
+epoch=004 mode=fgsm_zero clean=0.5032 pgd10=0.2977 trigger=0 abandoned=0 train_s=31.6
+epoch=005 mode=fgsm_zero clean=0.4944 pgd10=0.3102 trigger=0 abandoned=0 train_s=31.5
+epoch=006 mode=fgsm_zero clean=0.5692 pgd10=0.3305 trigger=0 abandoned=0 train_s=32.1
+epoch=007 mode=fgsm_zero clean=0.5590 pgd10=0.3344 trigger=0 abandoned=0 train_s=31.2
+epoch=008 mode=fgsm_zero clean=0.5372 pgd10=0.3352 trigger=0 abandoned=0 train_s=31.7
+epoch=009 mode=fgsm_zero clean=0.6122 pgd10=0.3375 trigger=0 abandoned=0 train_s=31.8
+epoch=010 mode=fgsm_zero clean=0.5772 pgd10=0.3297 trigger=0 abandoned=0 train_s=31.8
+epoch=011 mode=fgsm_zero clean=0.5730 pgd10=0.3516 trigger=0 abandoned=0 train_s=32.1
+epoch=012 mode=fgsm_zero clean=0.5986 pgd10=0.3305 trigger=0 abandoned=0 train_s=31.6
+epoch=013 mode=fgsm_zero clean=0.5734 pgd10=0.3391 trigger=0 abandoned=0 train_s=31.4
+epoch=014 mode=fgsm_zero clean=0.5738 pgd10=0.3312 trigger=0 abandoned=0 train_s=31.7
+epoch=015 mode=fgsm_zero clean=0.6138 pgd10=0.3555 trigger=0 abandoned=0 train_s=31.4
+epoch=016 mode=fgsm_zero clean=0.5872 pgd10=0.3734 trigger=0 abandoned=0 train_s=32.0
+epoch=017 mode=fgsm_zero clean=0.6426 pgd10=0.3836 trigger=0 abandoned=0 train_s=31.5
+epoch=018 mode=fgsm_zero clean=0.6198 pgd10=0.3555 trigger=0 abandoned=0 train_s=31.9
+epoch=019 mode=pgd2_after_warning clean=0.6320 pgd10=0.3859 trigger=1 abandoned=140 train_s=60.0
+epoch=020 mode=pgd2 clean=0.7054 pgd10=0.3789 trigger=0 abandoned=0 train_s=43.2
+epoch=021 mode=pgd2 clean=0.6890 pgd10=0.3758 trigger=0 abandoned=0 train_s=43.4
+epoch=022 mode=pgd2 clean=0.7098 pgd10=0.3633 trigger=0 abandoned=0 train_s=43.4
+epoch=023 mode=pgd2 clean=0.7018 pgd10=0.3703 trigger=0 abandoned=0 train_s=43.3
+epoch=024 mode=pgd2 clean=0.7186 pgd10=0.3852 trigger=0 abandoned=0 train_s=43.0
+epoch=025 mode=pgd2 clean=0.7426 pgd10=0.3922 trigger=0 abandoned=0 train_s=43.1
+epoch=026 mode=pgd2 clean=0.7488 pgd10=0.3789 trigger=0 abandoned=0 train_s=43.5
+epoch=027 mode=pgd2 clean=0.7686 pgd10=0.4297 trigger=0 abandoned=0 train_s=43.2
+epoch=028 mode=pgd2 clean=0.7860 pgd10=0.4430 trigger=0 abandoned=0 train_s=43.2
+epoch=029 mode=pgd2 clean=0.8102 pgd10=0.4477 trigger=0 abandoned=0 train_s=42.7
+epoch=030 mode=pgd2 clean=0.8282 pgd10=0.4734 trigger=0 abandoned=0 train_s=42.9
+starting=adaptive_rollback_pgd2_dev_seed42 at=2026-09-03T14:41:18.7731745+08:00
+epoch=001 mode=fgsm_zero clean=0.3504 pgd10=0.2570 trigger=0 abandoned=0 train_s=32.5
+epoch=002 mode=fgsm_zero clean=0.4052 pgd10=0.2672 trigger=0 abandoned=0 train_s=32.2
+epoch=003 mode=fgsm_zero clean=0.4332 pgd10=0.2727 trigger=0 abandoned=0 train_s=32.0
+epoch=004 mode=fgsm_zero clean=0.4576 pgd10=0.2859 trigger=0 abandoned=0 train_s=31.9
+epoch=005 mode=fgsm_zero clean=0.5328 pgd10=0.3266 trigger=0 abandoned=0 train_s=31.4
+epoch=006 mode=fgsm_zero clean=0.5700 pgd10=0.3445 trigger=0 abandoned=0 train_s=31.5
+epoch=007 mode=fgsm_zero clean=0.5642 pgd10=0.3375 trigger=0 abandoned=0 train_s=31.7
+epoch=008 mode=fgsm_zero clean=0.6228 pgd10=0.3484 trigger=0 abandoned=0 train_s=31.8
+epoch=009 mode=fgsm_zero clean=0.5990 pgd10=0.3500 trigger=0 abandoned=0 train_s=32.2
+epoch=010 mode=fgsm_zero clean=0.5978 pgd10=0.3500 trigger=0 abandoned=0 train_s=31.6
+epoch=011 mode=fgsm_zero clean=0.5972 pgd10=0.3406 trigger=0 abandoned=0 train_s=32.5
+epoch=012 mode=fgsm_zero clean=0.5470 pgd10=0.3281 trigger=0 abandoned=0 train_s=31.7
+epoch=013 mode=fgsm_zero clean=0.6210 pgd10=0.3742 trigger=0 abandoned=0 train_s=31.9
+epoch=014 mode=fgsm_zero clean=0.6302 pgd10=0.3508 trigger=0 abandoned=0 train_s=32.0
+epoch=015 mode=fgsm_zero clean=0.6090 pgd10=0.3273 trigger=0 abandoned=0 train_s=32.1
+epoch=016 mode=fgsm_zero clean=0.5256 pgd10=0.2883 trigger=0 abandoned=0 train_s=31.8
+epoch=017 mode=fgsm_zero clean=0.6382 pgd10=0.3680 trigger=0 abandoned=0 train_s=32.0
+epoch=018 mode=fgsm_zero clean=0.5896 pgd10=0.3453 trigger=0 abandoned=0 train_s=31.9
+epoch=019 mode=pgd2_after_warning clean=0.6724 pgd10=0.3273 trigger=1 abandoned=120 train_s=58.8
+epoch=020 mode=pgd2 clean=0.7088 pgd10=0.3438 trigger=0 abandoned=0 train_s=42.8
+epoch=021 mode=pgd2 clean=0.6876 pgd10=0.3500 trigger=0 abandoned=0 train_s=42.8
+epoch=022 mode=pgd2 clean=0.6992 pgd10=0.3633 trigger=0 abandoned=0 train_s=43.0
+epoch=023 mode=pgd2 clean=0.7124 pgd10=0.3883 trigger=0 abandoned=0 train_s=43.3
+epoch=024 mode=pgd2 clean=0.7044 pgd10=0.3648 trigger=0 abandoned=0 train_s=43.0
+epoch=025 mode=pgd2 clean=0.7542 pgd10=0.4000 trigger=0 abandoned=0 train_s=43.0
+epoch=026 mode=pgd2 clean=0.7478 pgd10=0.4219 trigger=0 abandoned=0 train_s=43.4
+epoch=027 mode=pgd2 clean=0.7826 pgd10=0.3953 trigger=0 abandoned=0 train_s=43.2
+epoch=028 mode=pgd2 clean=0.8046 pgd10=0.4266 trigger=0 abandoned=0 train_s=43.7
+epoch=029 mode=pgd2 clean=0.8262 pgd10=0.4391 trigger=0 abandoned=0 train_s=42.9
+epoch=030 mode=pgd2 clean=0.8400 pgd10=0.4617 trigger=0 abandoned=0 train_s=42.8
+ seed  triggered  trigger_epoch  trigger_global_step  abandoned_fgsm_batches  best_epoch  best_clean_acc  best_pgd10_acc  final_clean_acc  final_pgd10_acc  baseline_final_clean_acc  baseline_final_pgd10_acc  intervention_training_seconds                                                               intervention_path                                                            baseline_path
+   17          1             17                 5984                     352          30          0.8234        0.473438           0.8234         0.473438                    0.8276                  0.003906                    1152.172148               outputs_publication\adaptive_rollback_pgd2_dev_seed17\metrics.csv  outputs_publication\dev_collapse_full_zero_eps8_lr03_seed17\metrics.csv
+   23          1             19                 6476                     140          30          0.8282        0.473438           0.8282         0.473438                    0.8458                  0.000000                    1106.674617               outputs_publication\adaptive_rollback_pgd2_dev_seed23\metrics.csv  outputs_publication\dev_collapse_full_zero_eps8_lr03_seed23\metrics.csv
+   42          1             19                 6456                     120          30          0.8400        0.461719           0.8400         0.461719                    0.8538                  0.000000                    1107.331570               outputs_publication\adaptive_rollback_pgd2_dev_seed42\metrics.csv  outputs_publication\dev_collapse_full_zero_eps8_lr03_seed42\metrics.csv
+  101          1             21                 7100                      60          30          0.8312        0.469531           0.8312         0.469531                    0.8276                  0.003125                    1065.317506 outputs_publication\adaptive_rollback_pgd2_holdout_seed101\metrics_repaired.csv outputs_publication\dev_collapse_full_zero_eps8_lr03_seed101\metrics.csv
+  202          1             13                 4524                     300          30          0.8340        0.463281           0.8340         0.463281                    0.8086                  0.000000                    1171.028867 outputs_publication\adaptive_rollback_pgd2_holdout_seed202\metrics_repaired.csv outputs_publication\dev_collapse_full_zero_eps8_lr03_seed202\metrics.csv
+output=publication\adaptive_intervention_five_seed_summary.csv
+output=paper_assets\publication\adaptive_intervention_five_seed.png
+queue_completed=2026-09-03T15:09:51.7858265+08:00

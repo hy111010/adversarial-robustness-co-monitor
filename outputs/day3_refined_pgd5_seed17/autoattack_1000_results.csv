@@ -1,0 +1,2 @@
+﻿checkpoint,attack,accuracy,epsilon,batch_size,max_batches,evaluated_samples_upper_bound,seconds
+epoch09.pt,torchattacks_autoattack_standard,0.409,0.03137254901960784,50,20,1000,579.2384920000331

@@ -1,0 +1,6 @@
+﻿horizon_updates,events,detected_events,recall,near_events,near_recall,non_event_runs,non_event_runs_with_alarm,false_alarm_episodes,median_first_lead_updates
+20,7,7,1.0,6,0.8571428571428571,3,0,0,60.0
+40,7,7,1.0,7,1.0,3,0,0,60.0
+60,7,7,1.0,7,1.0,3,0,0,60.0
+80,7,7,1.0,7,1.0,3,0,0,60.0
+100,7,7,1.0,7,1.0,3,0,0,60.0

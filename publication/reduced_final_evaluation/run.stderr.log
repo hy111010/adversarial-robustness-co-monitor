@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "E:\人工智能导论论文\eval_official_autoattack.py", line 127, in <module>
+    main()
+    ~~~~^^
+  File "E:\人工智能导论论文\eval_official_autoattack.py", line 104, in main
+    "accuracy": state.robust_accuracy,
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\人工智能导论论文\.venv\Lib\site-packages\autoattack\state.py", line 87, in robust_accuracy
+    if self.attacks_to_run - self.run_attacks:
+       ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'str' and 'list'
+AutoAttack evaluation failed: outputs_publication\adaptive_rollback_pgd2_holdout_seed101\best_robust.pt
+所在位置 E:\人工智能导论论文\publication\run_reduced_final_evaluation.ps1:35 字符: 36
++ ... EXITCODE -ne 0) { throw "AutoAttack evaluation failed: $checkpoint" }
++                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (AutoAttack eval...\best_robust.pt:String) [], RuntimeException
+    + FullyQualifiedErrorId : AutoAttack evaluation failed: outputs_publication\adaptive_rollback_pgd2_holdout_seed101 
+   \best_robust.pt
+ 

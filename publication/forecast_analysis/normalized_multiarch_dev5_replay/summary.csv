@@ -1,0 +1,2 @@
+feature,threshold,auroc,auprc,events,detected_events,event_recall,false_alarms,false_alarms_per_run,median_lead_windows
+mad_normalized_drop,8.016784233230872,0.9386224590487467,0.24059985160089867,5,4,0.8,7,1.4,1.0

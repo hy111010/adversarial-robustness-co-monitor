@@ -1,0 +1,3 @@
+run,event_index,detected,lead_windows,false_alarm_episodes,alarm_episodes
+resnet18_unprotected_fgsm_holdout_seed101,388,0,,6,6
+resnet18_unprotected_fgsm_holdout_seed202,349,0,,3,4

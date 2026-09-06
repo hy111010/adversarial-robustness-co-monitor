@@ -1,0 +1,6 @@
+run,kind,event_index,detected_before_event,detected_within_near_horizon,first_lead_windows,alarm_episodes
+v3_cifar100_collapse_holdout_seed101,collapse,220.0,1,1,3.0,1
+v3_cifar100_collapse_holdout_seed202,collapse,303.0,1,1,1.0,3
+v3_cifar100_collapse_holdout_seed303,collapse,,0,0,,1
+v3_cifar100_stable_holdout_seed101,stable,,0,0,,0
+v3_cifar100_stable_holdout_seed202,stable,,0,0,,0

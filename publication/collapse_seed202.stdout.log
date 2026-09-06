@@ -1,0 +1,36 @@
+starting_run=dev_collapse_full_zero_eps8_lr03_seed202
+started_at=2026-09-03T10:28:21.0598221+08:00
+epoch=001 loss=2.2145 clean=0.3490 pgd10=0.2359 diag_cos=0.9828 diag_disagree=0.0000 free_cos=0.7098 train_s=39.6 diag_s=7.8 pgd_s=11.1
+epoch=002 loss=1.9855 clean=0.3854 pgd10=0.2469 diag_cos=0.9814 diag_disagree=0.0039 free_cos=0.9002 train_s=37.3 diag_s=8.2 pgd_s=11.1
+epoch=003 loss=1.9111 clean=0.4716 pgd10=0.2844 diag_cos=0.9738 diag_disagree=0.0117 free_cos=0.8991 train_s=37.3 diag_s=8.0 pgd_s=11.4
+epoch=004 loss=1.8273 clean=0.5090 pgd10=0.2938 diag_cos=0.9757 diag_disagree=0.0117 free_cos=0.8862 train_s=37.5 diag_s=8.0 pgd_s=11.3
+epoch=005 loss=1.7635 clean=0.5122 pgd10=0.3148 diag_cos=0.9734 diag_disagree=0.0039 free_cos=0.8730 train_s=37.4 diag_s=7.8 pgd_s=11.1
+epoch=006 loss=1.7097 clean=0.5576 pgd10=0.3367 diag_cos=0.9712 diag_disagree=0.0039 free_cos=0.8590 train_s=37.3 diag_s=7.6 pgd_s=11.0
+epoch=007 loss=1.6652 clean=0.5624 pgd10=0.3250 diag_cos=0.9720 diag_disagree=0.0078 free_cos=0.8445 train_s=37.1 diag_s=7.8 pgd_s=11.2
+epoch=008 loss=1.6427 clean=0.6116 pgd10=0.3578 diag_cos=0.9614 diag_disagree=0.0117 free_cos=0.8329 train_s=37.3 diag_s=7.8 pgd_s=11.4
+epoch=009 loss=1.6210 clean=0.5850 pgd10=0.3438 diag_cos=0.9479 diag_disagree=0.0234 free_cos=0.8200 train_s=37.5 diag_s=7.6 pgd_s=11.0
+epoch=010 loss=1.6178 clean=0.5980 pgd10=0.3672 diag_cos=0.9448 diag_disagree=0.0039 free_cos=0.8114 train_s=37.4 diag_s=7.6 pgd_s=11.0
+epoch=011 loss=1.6093 clean=0.5838 pgd10=0.3406 diag_cos=0.9499 diag_disagree=0.0234 free_cos=0.8024 train_s=37.1 diag_s=7.8 pgd_s=11.4
+epoch=012 loss=1.6203 clean=0.6030 pgd10=0.3609 diag_cos=0.9160 diag_disagree=0.0000 free_cos=0.7978 train_s=37.1 diag_s=7.8 pgd_s=11.1
+epoch=013 loss=1.6103 clean=0.5852 pgd10=0.3312 diag_cos=0.9604 diag_disagree=0.0117 free_cos=0.7012 train_s=37.4 diag_s=8.2 pgd_s=11.4
+epoch=014 loss=1.6294 clean=0.6018 pgd10=0.3609 diag_cos=0.9433 diag_disagree=0.0117 free_cos=0.8030 train_s=37.8 diag_s=8.2 pgd_s=11.3
+epoch=015 loss=1.6333 clean=0.5910 pgd10=0.3195 diag_cos=0.9372 diag_disagree=0.0000 free_cos=0.7967 train_s=37.2 diag_s=8.0 pgd_s=11.6
+epoch=016 loss=1.6291 clean=0.5788 pgd10=0.3625 diag_cos=0.9141 diag_disagree=0.0117 free_cos=0.7917 train_s=37.6 diag_s=7.6 pgd_s=11.0
+epoch=017 loss=1.6017 clean=0.6128 pgd10=0.3391 diag_cos=0.9022 diag_disagree=0.0039 free_cos=0.7766 train_s=37.2 diag_s=7.6 pgd_s=11.1
+epoch=018 loss=1.3754 clean=0.5828 pgd10=0.0031 diag_cos=0.0572 diag_disagree=0.1094 free_cos=0.3993 train_s=37.1 diag_s=7.8 pgd_s=11.3
+epoch=019 loss=0.5809 clean=0.4348 pgd10=0.0008 diag_cos=0.0877 diag_disagree=0.1367 free_cos=0.0188 train_s=37.0 diag_s=7.8 pgd_s=11.2
+epoch=020 loss=0.5738 clean=0.4916 pgd10=0.2594 diag_cos=0.8308 diag_disagree=0.0352 free_cos=0.0262 train_s=37.5 diag_s=7.8 pgd_s=11.4
+epoch=021 loss=1.6612 clean=0.6128 pgd10=0.3563 diag_cos=0.9604 diag_disagree=0.0117 free_cos=0.7956 train_s=37.3 diag_s=8.0 pgd_s=11.0
+epoch=022 loss=1.5747 clean=0.6332 pgd10=0.3758 diag_cos=0.9414 diag_disagree=0.0078 free_cos=0.7831 train_s=37.0 diag_s=7.6 pgd_s=11.2
+epoch=023 loss=1.5319 clean=0.6446 pgd10=0.3836 diag_cos=0.9404 diag_disagree=0.0117 free_cos=0.7660 train_s=37.2 diag_s=7.5 pgd_s=11.1
+epoch=024 loss=1.5005 clean=0.6780 pgd10=0.3727 diag_cos=0.9281 diag_disagree=0.0234 free_cos=0.7587 train_s=37.1 diag_s=7.8 pgd_s=11.2
+epoch=025 loss=1.4591 clean=0.6958 pgd10=0.3930 diag_cos=0.9035 diag_disagree=0.0117 free_cos=0.7458 train_s=37.1 diag_s=8.2 pgd_s=11.6
+epoch=026 loss=0.8547 clean=0.5624 pgd10=0.0227 diag_cos=0.0916 diag_disagree=0.0898 free_cos=0.1777 train_s=37.5 diag_s=7.8 pgd_s=11.2
+epoch=027 loss=0.4042 clean=0.7140 pgd10=0.0000 diag_cos=0.0475 diag_disagree=0.0938 free_cos=0.0153 train_s=37.4 diag_s=7.6 pgd_s=11.2
+epoch=028 loss=0.3925 clean=0.7126 pgd10=0.0000 diag_cos=0.0418 diag_disagree=0.1250 free_cos=0.0171 train_s=37.3 diag_s=7.8 pgd_s=11.0
+epoch=029 loss=0.2005 clean=0.7934 pgd10=0.0000 diag_cos=0.0464 diag_disagree=0.0625 free_cos=0.0216 train_s=37.2 diag_s=7.8 pgd_s=11.0
+epoch=030 loss=0.1479 clean=0.8086 pgd10=0.0000 diag_cos=0.0576 diag_disagree=0.0977 free_cos=0.0139 train_s=37.1 diag_s=7.8 pgd_s=11.2
+starting_analysis=E:\人工智能导论论文\publication\forecast_analysis\collapse_full_zero_eps8_lr03_seed202
+runs=1 features=9 mode=describe
+output=E:\人工智能导论论文\publication\forecast_analysis\collapse_full_zero_eps8_lr03_seed202
+completed_at=2026-09-03T11:00:59.5180747+08:00

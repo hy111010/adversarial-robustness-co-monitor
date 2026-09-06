@@ -1,0 +1,7 @@
+run,kind,event_index,detected_before_event,detected_within_near_horizon,first_lead_windows,alarm_episodes
+v3_cifar100_collapse_dev_seed17,collapse,,0,0,,1
+v3_cifar100_collapse_dev_seed23,collapse,,0,0,,1
+v3_cifar100_collapse_dev_seed42,collapse,200.0,1,1,1.0,1
+v3_cifar100_stable_dev_seed17,stable,,0,0,,0
+v3_cifar100_stable_dev_seed23,stable,,0,0,,1
+v3_cifar100_stable_dev_seed42,stable,,0,0,,0

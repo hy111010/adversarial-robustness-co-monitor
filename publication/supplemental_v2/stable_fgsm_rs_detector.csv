@@ -1,0 +1,4 @@
+﻿seed,collapse_epoch,collapse_step,detected_within_60_updates,lead_updates,false_alarm_episodes,total_warning_windows,total_alarm_episodes,final_pgd10,terminal_below_10pct,folder
+17,,,0,nan,0,0,0,0.4625,0,outputs_publication\fast_fgsm_rs_preact_seed17
+23,,,0,nan,0,0,0,0.478125,0,outputs_publication\v2_stable_fgsm_rs_observe_seed23
+42,,,0,nan,0,0,0,0.46796875,0,outputs_publication\v2_stable_fgsm_rs_observe_seed42

@@ -1,0 +1,46 @@
+{
+  "status": "frozen_after_development",
+  "selection_rule": "event recall, false alarms, median lead, AUPRC",
+  "horizon_windows": 3,
+  "selected_feature": "mad_normalized_drop",
+  "threshold": 8.016784233230872,
+  "persistence": 1,
+  "candidate_results": [
+    {
+      "feature": "raw_drop",
+      "threshold": 0.31895326226949694,
+      "auroc": 0.9471683770429494,
+      "auprc": 0.3461867966905348,
+      "events": 5,
+      "detected_events": 3,
+      "event_recall": 0.6,
+      "false_alarms": 5,
+      "false_alarms_per_run": 1.0,
+      "median_lead_windows": 1.0
+    },
+    {
+      "feature": "mad_normalized_drop",
+      "threshold": 8.016784233230872,
+      "auroc": 0.9386224590487467,
+      "auprc": 0.24059985160089867,
+      "events": 5,
+      "detected_events": 4,
+      "event_recall": 0.8,
+      "false_alarms": 7,
+      "false_alarms_per_run": 1.4,
+      "median_lead_windows": 1.0
+    },
+    {
+      "feature": "online_percentile_persistent",
+      "threshold": 0.975,
+      "auroc": 0.8789649744195199,
+      "auprc": 0.05730020751869344,
+      "events": 5,
+      "detected_events": 4,
+      "event_recall": 0.8,
+      "false_alarms": 19,
+      "false_alarms_per_run": 3.8,
+      "median_lead_windows": 1.5
+    }
+  ]
+}

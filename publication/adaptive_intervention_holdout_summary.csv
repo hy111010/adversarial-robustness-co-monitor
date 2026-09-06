@@ -1,0 +1,3 @@
+seed,triggered,trigger_epoch,trigger_global_step,abandoned_fgsm_batches,best_epoch,best_clean_acc,best_pgd10_acc,final_clean_acc,final_pgd10_acc,baseline_final_clean_acc,baseline_final_pgd10_acc,intervention_training_seconds,intervention_path,baseline_path
+101,0,,,0,8,0.5914,0.36796875,11.149674499989487,0.0,0.8276,0.003125,626.6090705000097,outputs_publication\adaptive_rollback_pgd2_holdout_seed101\metrics.csv,outputs_publication\dev_collapse_full_zero_eps8_lr03_seed101\metrics.csv
+202,0,,,0,10,0.598,0.3671875,11.253764200024309,0.0,0.8086,0.0,375.48107859981246,outputs_publication\adaptive_rollback_pgd2_holdout_seed202\metrics.csv,outputs_publication\dev_collapse_full_zero_eps8_lr03_seed202\metrics.csv

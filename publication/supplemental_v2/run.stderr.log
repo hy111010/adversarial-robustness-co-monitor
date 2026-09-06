@@ -1,0 +1,7 @@
+Training failed: v2_full_pgd2_seed101
+所在位置 E:\人工智能导论论文\publication\run_supplemental_v2.ps1:38 字符: 32
++     if ($LASTEXITCODE -ne 0) { throw "Training failed: $Name" }
++                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Training failed: v2_full_pgd2_seed101:String) [], RuntimeException
+    + FullyQualifiedErrorId : Training failed: v2_full_pgd2_seed101
+ 

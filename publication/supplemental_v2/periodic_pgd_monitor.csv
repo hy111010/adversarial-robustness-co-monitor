@@ -1,0 +1,8 @@
+﻿seed,event_step,detected,detection_step,delay_updates,pgd10_calls_until_detection_or_end,pgd10_calls_before_event,terminal_event
+101,7160,1,7240,80,74,73,1
+202,6204,1,6264,60,64,63,1
+303,4264,0,,,108,43,0
+404,7712,1,7732,20,79,78,1
+505,7040,1,7040,0,72,71,1
+606,7784,1,7924,140,81,79,1
+707,8216,1,8216,0,84,83,1

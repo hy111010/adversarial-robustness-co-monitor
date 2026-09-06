@@ -1,0 +1,6 @@
+run,kind,event_index,detected_before_event,detected_within_near_horizon,first_lead_windows,alarm_episodes
+resnet18_unprotected_fgsm_holdout_seed101,collapse,388.0,1,0,110.0,4
+resnet18_unprotected_fgsm_holdout_seed202,collapse,349.0,1,0,17.0,3
+fast_fgsm_rs_preact_seed17,stable,,0,0,,0
+v2_stable_fgsm_rs_observe_seed23,stable,,0,0,,0
+v2_stable_fgsm_rs_observe_seed42,stable,,0,0,,0

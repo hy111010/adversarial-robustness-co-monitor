@@ -1,0 +1,22 @@
+﻿model,attack,accuracy,evaluation_scope,checkpoint
+Adaptive intervention,clean,0.8297,full_test_10000,best_robust.pt
+Adaptive intervention,fgsm_8_255,0.5312,full_test_10000,best_robust.pt
+Adaptive intervention,pgd10_8_255,0.472,full_test_10000,best_robust.pt
+Adaptive intervention,pgd20_r1_8_255,0.4589,full_test_10000,best_robust.pt
+Adaptive intervention,pgd50_r1_8_255,0.4546,full_test_10000,best_robust.pt
+Adaptive intervention,pgd20_r5_8_255,0.4565,full_test_10000,best_robust.pt
+Adaptive intervention,official_autoattack_standard,0.426,fixed_test_subset_1000,best_robust.pt
+PGD-10 adversarial training,clean,0.8247,full_test_10000,best_robust.pt
+PGD-10 adversarial training,fgsm_8_255,0.5636,full_test_10000,best_robust.pt
+PGD-10 adversarial training,pgd10_8_255,0.5176,full_test_10000,best_robust.pt
+PGD-10 adversarial training,pgd20_r1_8_255,0.5098,full_test_10000,best_robust.pt
+PGD-10 adversarial training,pgd50_r1_8_255,0.5077,full_test_10000,best_robust.pt
+PGD-10 adversarial training,pgd20_r5_8_255,0.5084,full_test_10000,best_robust.pt
+PGD-10 adversarial training,official_autoattack_standard,0.487,fixed_test_subset_1000,best_robust.pt
+Fast FGSM-RS,clean,0.8248,full_test_10000,best_robust.pt
+Fast FGSM-RS,fgsm_8_255,0.5415,full_test_10000,best_robust.pt
+Fast FGSM-RS,pgd10_8_255,0.4777,full_test_10000,best_robust.pt
+Fast FGSM-RS,pgd20_r1_8_255,0.4649,full_test_10000,best_robust.pt
+Fast FGSM-RS,pgd50_r1_8_255,0.4624,full_test_10000,best_robust.pt
+Fast FGSM-RS,pgd20_r5_8_255,0.4636,full_test_10000,best_robust.pt
+Fast FGSM-RS,official_autoattack_standard,0.43,fixed_test_subset_1000,best_robust.pt

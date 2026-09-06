@@ -1,0 +1,3 @@
+﻿epoch,attack_mode,train_adv_loss,train_adv_acc,epoch_seconds,lr_start,lr_end,val_clean_acc,val_pgd10_acc,intervention_triggered,trigger_epoch,trigger_global_step,rolled_back_to_global_step,abandoned_fgsm_batches,clean_eval_seconds,pgd_monitor_seconds,pgd_monitor_used_for_trigger
+1,pgd2_after_warning,3.122974395751953,0.0,0.49219009990338236,0.0,0.015,0.1640625,0.0,1,1,4,0,4,0.06478209991473705,0.394848300027661,0
+2,pgd2,2.5419111251831055,0.060546875,0.47713969997130334,0.02,0.005,0.19140625,0.1015625,0,1,4,,0,0.04854150000028312,0.3891957000596449,0

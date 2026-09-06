@@ -1,0 +1,41 @@
+\section{Related Work}
+\subsection{Adversarial Attacks and Training}
+FGSM follows the sign of the input loss gradient in one step
+\cite{goodfellow2015explaining}. PGD iterates gradient steps with projection
+onto a prescribed threat set and is central to the robust-optimization view of
+adversarial training \cite{madry2018towards}. TRADES separates natural error
+from a boundary-related robustness term and makes the clean--robust trade-off
+explicit \cite{zhang2019trades}. Although these methods are effective, their
+multi-step inner loops increase training cost. Free adversarial training reuses
+gradients across repeated mini-batches \cite{shafahi2019adversarial}, whereas
+fast training uses a single randomized FGSM step \cite{wong2020fast}.
+
+Robustness evaluation itself must be sufficiently strong. PGD results can be
+sensitive to iterations, restarts, and objectives. AutoAttack combines
+complementary parameter-free attacks to reduce evaluator bias and expose
+gradient masking \cite{croce2020reliable}. In the controlled study below, we
+use progressively stronger full-test PGD variants and multiple restarts rather
+than treating FGSM accuracy as a robustness estimate.
+
+\subsection{Catastrophic Overfitting}
+Wong \emph{et al.} identified CO as a failure mode of fast adversarial
+training \cite{wong2020fast}. Andriushchenko and Flammarion connected it to
+local nonlinearity and proposed GradAlign, which regularizes gradient alignment
+inside the perturbation set \cite{andriushchenko2020understanding}. Li
+\emph{et al.} showed that recovery from weak-attack overfitting is important
+and proposed FastAdv+ and FastAdvW, which use periodic PGD validation to decide
+when to introduce PGD updates \cite{li2020towards}. Our response mechanism is
+related in spirit, but the detector differs operationally: the endpoint input
+gradient is obtained from the same parameter-backward pass, without an
+additional forward or backward pass. The monitor does not execute a validation
+attack. We also separate prediction from mitigation by freezing the detector
+before held-out evaluation.
+
+\subsection{Empirical and Certified Robustness}
+Empirical defenses are evaluated against known attacks but do not guarantee
+correctness for every allowed perturbation. Certified methods instead compute a
+provable lower bound, for example through convex outer approximations
+\cite{wong2018provable} or randomized smoothing under an $\ell_2$ threat model
+\cite{cohen2019certified}. This paper targets efficient empirical training in
+the $\linf$ setting. The distinction is important: the attack results reported
+below measure resistance to a strong test suite, not certified radii.

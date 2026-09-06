@@ -1,0 +1,2 @@
+﻿epoch,method,train_adv_loss,train_adv_acc,gradalign_loss,val_clean_acc,val_pgd10_acc,core_training_seconds,online_monitor_seconds,clean_eval_seconds,pgd_monitor_seconds,lr_start,lr_end,fastadv_triggers_epoch,fastadv_triggers_total,pgd_training_batches_epoch,pgd_training_batches_total,pgd_remaining
+1,gradalign,2.7635879516601562,0.0,0.1305624395608902,0.0,0.0,1.3271758999981103,0.0,0.08826330000010785,0.833503900001233,0.0,0.3,0,0,0,0,0

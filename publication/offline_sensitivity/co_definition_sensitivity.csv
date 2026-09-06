@@ -1,0 +1,5 @@
+﻿definition,peak_drop,accuracy_ceiling,events,detected_events,recall,near_events,near_recall,non_event_runs,non_event_runs_with_alarm,false_alarm_episodes,median_first_lead_updates
+relaxed,0.15,0.15,7,7,1.0,7,1.0,3,0,0,40.0
+original,0.2,0.1,7,7,1.0,7,1.0,3,0,0,60.0
+same_drop_higher_ceiling,0.2,0.15,7,7,1.0,7,1.0,3,0,0,40.0
+strict,0.25,0.05,7,7,1.0,5,0.7142857142857143,3,0,0,80.0

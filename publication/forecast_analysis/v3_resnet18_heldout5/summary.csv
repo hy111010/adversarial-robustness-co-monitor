@@ -1,0 +1,2 @@
+threshold,planned_collapse_runs,observed_events,detected_events,event_recall_any_lead,detected_within_60_updates,recall_within_60_updates,median_first_lead_windows,stable_runs,stable_false_alarm_episodes,stable_false_alarms_per_run
+0.16632988750934596,5,5,4,0.8,2,0.4,4.0,3,0,0.0

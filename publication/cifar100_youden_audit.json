@@ -1,0 +1,28 @@
+{
+  "scope": "CIFAR-100 development traces only",
+  "seeds": [
+    17,
+    23,
+    42
+  ],
+  "runs": 6,
+  "positive_definition": "registered CO is the next 20-update window",
+  "selection": "maximize Youden J over unique finite rolling-cosine-drop scores",
+  "eligible_windows": 2877,
+  "positive_windows": 1,
+  "threshold": 0.6332649834303036,
+  "youden_j": 0.9982614742698191,
+  "development_event_summary": {
+    "threshold": 0.6332649834303036,
+    "planned_collapse_runs": 3,
+    "observed_events": 1,
+    "detected_events": 1,
+    "event_recall_any_lead": 1.0,
+    "detected_within_60_updates": 1,
+    "recall_within_60_updates": 1.0,
+    "median_first_lead_windows": 1.0,
+    "stable_runs": 3,
+    "stable_false_alarm_episodes": 1,
+    "stable_false_alarms_per_run": 0.3333333333333333
+  }
+}

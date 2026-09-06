@@ -1,0 +1,2 @@
+implementation,version,norm,epsilon,test_samples,accuracy,seconds
+torchattacks_3.5.1,standard,Linf,0.03137254901960784,1000,0.4090,579.2

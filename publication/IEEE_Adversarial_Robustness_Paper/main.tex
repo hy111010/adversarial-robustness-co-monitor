@@ -1,0 +1,40 @@
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\IEEEoverridecommandlockouts
+\overrideIEEEmargins
+\pdfminorversion=4
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{xcolor}
+
+\graphicspath{{figures/}}
+\newcommand{\linf}{\ell_\infty}
+\newcommand{\eps}{\varepsilon}
+
+\title{\huge \bf
+Attack-Free Early Warning and Timely PGD Escalation\\
+for Catastrophic Overfitting}
+
+\author{Heng Zhang%
+\thanks{Heng Zhang is with the School of Electronic Information, Wuhan University, Wuhan, Hubei 430072, China. Email: zhang\_heng@whu.edu.com.}}
+
+\begin{document}
+\maketitle
+
+\input{sections/abstract}
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/method}
+\input{sections/experiments}
+\input{sections/comparison_scope}
+\input{sections/conclusion}
+\appendix
+\input{sections/appendix}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

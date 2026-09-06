@@ -1,0 +1,6 @@
+run,event_index,detected,lead_windows,false_alarm_episodes,alarm_episodes,alarm_indices
+dev_collapse_full_zero_eps8_lr03_seed17,307,1,1.0,0,1,306
+dev_collapse_full_zero_eps8_lr03_seed23,410,0,,1,2,330;410
+dev_collapse_full_zero_eps8_lr03_seed42,330,1,1.0,0,1,329
+resnet18_unprotected_fgsm_holdout_seed101,388,1,2.0,4,5,278;310;315;384;386
+resnet18_unprotected_fgsm_holdout_seed202,349,1,1.0,2,3,327;332;348

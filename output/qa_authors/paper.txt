@@ -1,0 +1,351 @@
+           An Attack-Free Safety Monitor for Catastrophic Overfitting
+                         in Fast Adversarial Training
+                                        Heng Zhang, Ruicheng Liu, and Wenhao Zheng
+
+
+    Abstract— Fast adversarial training is efficient but can            early enough to support conditional escalation? An FGSM
+abruptly lose multi-step robustness through catastrophic over-          update computes an input gradient at the attack starting
+fitting (CO). A standard randomized FGSM recipe is often                point, evaluates the network at the perturbed endpoint, and
+stable, so a useful safeguard should stay inactive in that case
+and escalate only when training becomes unsafe. We propose an           backpropagates the endpoint loss to update model param-
+attack-free online monitor based on the drop in cosine similarity       eters. By retaining the endpoint input gradient, the cosine
+between two input gradients already produced by an FGSM                 similarity of the two input gradients is available without
+parameter update. A threshold selected on three development             another forward or backward pass. We use a local drop in this
+seeds is frozen before all subsequent tests. Across seven held-out      cosine as a warning score. If it crosses a frozen threshold,
+CIFAR-10 failure events, the monitor warns within 60 optimizer
+updates in 7/7 cases, with a median lead of 40 updates and              the current FGSM epoch finishes and subsequent epochs use
+0.143 early false alarms per run; six events become terminal            two-step PGD (PGD-2). Stable training is left unchanged.
+CO and one is transient. On three stable FGSM-RS runs it                This positioning matters: FGSM-RS is already a strong and
+produces no alarms. On the identical traces, a fixed-cadence            faster reference in our experiments, whereas the monitor is
+PGD-10 monitor detects 6/7 events with a median delay of 40             intended to expose unsafe trajectories caused by recipe or
+updates after making a median of 73 PGD calls before failure.
+Triggering a switch to two-step PGD raises final validation             configuration changes.
+PGD-10 accuracy in a deliberately collapse-prone regime from               The contribution is threefold:
+0.14 ± 0.19% to 46.72 ± 1.05% across five seeds while retaining            • We formulate an attack-free monitor based on an adap-
+83.09 ± 0.57% clean accuracy. A matched rollback ablation
+                                                                             tive drop of within-update gradient consistency. After
+changes PGD-10 by only +0.11 percentage points on average,
+is beneficial on 3/5 seeds, and adds 0.53 minutes, so rollback is            selection on three development seeds, its threshold is
+not part of the simplified policy. Strong evaluation gives 44.75%            frozen and evaluated on seven held-out failure events
+full-test PGD-50 accuracy and 41.30% AutoAttack accuracy on                  plus three stable FGSM-RS runs. A direct replay against
+1,000 examples. The method is therefore a conditional safety                 fixed-cadence PGD-10 monitoring separates forecasting
+monitor, not a replacement for a well-tuned FGSM-RS recipe
+                                                                             lead from attack-based detection.
+or full PGD training.
+                                                                           • We separate detection from mitigation through matched
+                       I. I NTRODUCTION                                      controls: detector-guided PGD-2 with and without roll-
+   Deep classifiers can change their predictions under small,                back, fixed switches at epochs 13 and 21, and PGD-2
+deliberately chosen input perturbations [1], [2]. This failure is            from the first epoch. The results remove rollback from
+particularly concerning when a model is deployed in a safety-                the final policy rather than attributing its effect to the
+or security-sensitive pipeline. Adversarial training addresses               detector.
+                                                                           • We evaluate forecasting, clean and robust accuracy,
+the problem by optimizing against perturbed examples and
+remains one of the strongest empirical defenses [3]. Its main                and measured training time separately, then test frozen
+obstacle is cost: a multi-step inner maximization is solved                  checkpoints with PGD-10, PGD-20, PGD-50, five-
+for nearly every parameter update.                                           restart PGD, and the official AutoAttack implementation
+   Fast adversarial training replaces this inner loop with a                 [5].
+single fast gradient sign method (FGSM) step. With an                      The proposed method is an empirical monitor and training
+appropriate initialization and schedule, it can approach the            safeguard. It neither claims a formal robustness certificate nor
+robustness of PGD training at a fraction of the computation             claims higher robustness than every fixed fast-training recipe.
+[4]. However, the same procedure can exhibit catastrophic               Certified defenses bound worst-case behavior by other means
+overfitting (CO): accuracy against iterative attacks drops              and are complementary to the present objective.
+from a useful value to almost zero over a short part of
+training, even when accuracy against the training attack                                    II. R ELATED W ORK
+remains high. Monitoring the model with a separate PGD                  A. Adversarial Attacks and Training
+attack can identify the failure, but repeated validation attacks           FGSM follows the sign of the input loss gradient in one
+partly offset the efficiency that motivates fast training.              step [2]. PGD iterates gradient steps with projection onto a
+   This paper investigates a narrower question: can the ge-             prescribed threat set and is central to the robust-optimization
+ometry already exposed by an FGSM update forecast CO                    view of adversarial training [3]. TRADES separates natural
+  Heng Zhang, Ruicheng Liu, and Wenhao Zheng are with the School of     error from a boundary-related robustness term and makes the
+Electronic Information, Wuhan University, Wuhan, Hubei 430072, China.   clean–robust trade-off explicit [6]. Although these methods
+are effective, their multi-step inner loops increase training     B. Free Gradient-Consistency Signal
+cost. Free adversarial training reuses gradients across re-         The endpoint backward pass also gives the retained gradi-
+peated mini-batches [7], whereas fast training uses a single      ent g 1 = ∇xadv ℓ(fθ (xadv ), y). For each example, the local
+randomized FGSM step [4].                                         consistency is
+   Robustness evaluation itself must be sufficiently strong.                                     ⟨g 0 , g 1 ⟩
+                                                                                      c(x) = 0                .             (3)
+PGD results can be sensitive to iterations, restarts, and                                      ∥g ∥2 ∥g 1 ∥2
+objectives. AutoAttack combines complementary parameter-          The batch values are averaged over non-overlapping win-
+free attacks to reduce evaluator bias and expose gradient         dows of 20 optimizer updates, producing ct . This statistic
+masking [5]. We therefore report progressively stronger PGD       adds reductions and storage but no model evaluation: g 0 is
+variants and AutoAttack rather than treating FGSM accuracy        required to construct FGSM, while g 1 is produced by the
+as a robustness estimate.                                         same backward pass that calculates the parameter gradient.
+                                                                    Absolute cosine values vary through training. We therefore
+B. Catastrophic Overfitting                                       compare the current window with its recent history. Let
+   Wong et al. identified CO as a failure mode of fast                  bt = median(ct−5 , . . . , ct−1 ),   st = bt − ct ,   (4)
+adversarial training [4]. Andriushchenko and Flammarion
+                                                                  using all available history after at least three prior windows.
+connected it to local nonlinearity and proposed GradAlign,
+                                                                  The detector fires when st ≥ τ . Development runs with seeds
+which regularizes gradient alignment inside the perturbation
+                                                                  17, 23, and 42 determine τ = 0.1663298875; the window,
+set [8]. Li et al. showed that recovery from weak-attack
+                                                                  history rule, and threshold are then frozen.
+overfitting is important and proposed FastAdv+ and Fas-
+tAdvW, which use periodic PGD validation to decide when           C. Conditional PGD-2 Escalation
+to introduce PGD updates [9]. Our response mechanism is              The simplified policy performs three operations when a
+related in spirit, but the detector differs operationally: it     warning occurs:
+consumes the two input gradients already present in the              1) record the first warning time;
+ordinary FGSM parameter update and does not execute a                2) finish the current epoch with the original FGSM up-
+validation attack. We also separate prediction from mitigation           date; and
+by freezing the detector before held-out evaluation.                 3) train all subsequent epochs with PGD-2 using step size
+                                                                         4/255.
+C. Empirical and Certified Robustness                             PGD-2 is a moderate-cost recovery adversary. The design
+                                                                  is asymmetric: FGSM is used while its local geometry is
+   Empirical defenses are evaluated against known attacks but
+                                                                  stable, and computation increases only after evidence of
+do not guarantee correctness for every allowed perturbation.
+                                                                  instability. An initially proposed rollback variant snapshots
+Certified methods instead compute a provable lower bound,
+                                                                  and restores the model, optimizer, mixed-precision scaler,
+for example through convex outer approximations [10] or
+                                                                  data-loader state, and random states at the start of an affected
+randomized smoothing under an ℓ2 threat model [11]. This
+                                                                  epoch before replaying it with PGD-2. Because the matched
+paper targets efficient empirical training in the ℓ∞ setting.
+                                                                  ablation in Section IV does not show a consistent benefit,
+The distinction is important: the attack results reported below
+                                                                  rollback is retained only as an ablation and not as part of
+measure resistance to a strong test suite, not certified radii.
+                                                                  the final policy.
+
+                        III. M ETHOD                              D. Forecasting Protocol
+                                                                     A collapse event is defined before detector evaluation.
+A. Threat Model and Fast Update                                   On a fixed validation batch, PGD-10 accuracy must fall by
+   Let fθ be a classifier, ℓ the cross-entropy loss, and (x, y)   at least 20 percentage points from its previous peak and
+a training example. Under the untargeted ℓ∞ threat model,         reach at most 10% within one 20-update window. Windows
+adversarial training approximates                                 in the three-window interval preceding the first event are
+                                                                  positive forecast targets. We report event recall, false alarms
+                                                                  per run, median warning lead, AUROC, and AUPRC. The
+                        [︃                       ]︃
+           min E(x,y) max ℓ(fθ (x + δ), y) .                (1)   threshold and event definition are selected using seeds 17,
+             θ           ∥δ∥∞ ≤ε
+                                                                  23, and 42. They remain frozen for held-out seeds 101, 202,
+FGSM constructs one endpoint                                      303, 404, 505, 606, and 707. For the five new held-out
+                                                                  runs, a fixed validation batch is labeled by PGD-10 every
+           g 0 = ∇x0 ℓ(fθ (x0 ), y),                              five trace windows and for three windows after a warning.
+                                                            (2)
+         xadv = Π[0,1]∩B∞ (x,ε) x0 + α sign(g 0 ) .
+                                  (︁             )︁
+                                                                  These attacks are used only for retrospective event labels
+                                                                  and never affect training or the detector. We additionally
+where x0 is either the clean input or a random point in the       apply the frozen detector in observation-only mode to three
+perturbation set. The endpoint loss is then backpropagated        stable FGSM-RS runs; every warning in a non-collapsing run
+for the parameter update.                                         counts as a false alarm.
+                           TABLE I                                                           TABLE II
+    F ROZEN D ETECTOR ON S EVEN H ELD -O UT FAILURE E VENTS        D IRECT O NLINE -M ONITORING BASELINE ON I DENTICAL T RACES
+
+           Seed   Event epoch   Lead   Early FA   Outcome          Monitor                       Event recall Median timing        PGD calls
+
+           101            21     60          0    terminal         Periodic PGD-10/100 updates          6/7         40 after 73 before event
+           202            18     40          1    terminal         Frozen gradient-drop (ours)          7/7        40 before               0
+           303            13     40          0    transient
+           404            22     20          0    terminal                                        TABLE III
+           505            20     52          0    terminal
+           606            23     40          0    terminal        M ATCHED T HREE -S EED C OMPONENT C ONTROLS (M EAN ± S AMPLE
+           707            24     60          0    terminal                                    S TD .)
+
+                                                                     Policy                          Clean         PGD-10         Core min
+
+                      IV. E XPERIMENTS                               Detector + rollback      82.95 ± 0.55    46.88 ± 0.51    18.83 ± 0.94
+                                                                     Detector, no rollback    82.92 ± 0.49    47.16 ± 0.12    18.31 ± 0.75
+A. Setup                                                             Fixed switch, epoch 13   83.19 ± 0.69    46.51 ± 0.25    19.23 ± 0.05
+                                                                     Fixed switch, epoch 21   81.97 ± 1.23    45.83 ± 1.06    17.70 ± 0.02
+   We use CIFAR-10 [12] and PreActResNet-18 [13]. A                  PGD-2 from epoch 1       83.40 ± 1.02    47.21 ± 0.47    21.58 ± 0.18
+
+deterministic 45,000/5,000 training/validation split is used
+for development and checkpoint selection. The threat radius
+is ε = 8/255. All methods use SGD with momentum 0.9,             the detector emits zero alarms across all three runs. Their
+weight decay 5 × 10−4 , batch size 128, mixed precision, and     final validation PGD-10 accuracies are 46.25%, 47.81%, and
+the same GPU.                                                    46.80% (mean 46.95%). Hence the frozen rule is inactive on
+   Collapse and intervention runs last 30 epochs with a          the stable recipe tested here; no training-time attack is used
+triangular learning-rate schedule peaking at 0.3. Before es-     either to trigger or suppress it.
+calation, FGSM starts at the clean input and uses step              As a direct attack-based monitoring baseline, we replay
+size 8/255; this deliberately challenging recipe exposes CO.     the same saved trajectories with one PGD-10 validation batch
+Escalation uses PGD-2 with step size 4/255. Fixed-switch         every five trace windows (100 updates). The baseline applies
+controls use exactly the same code and tracing, but ignore       the same 20-point/10% event rule and ignores the extra labels
+detector warnings and switch only at the specified epoch. The    collected after our warnings. This is a controlled analogue of
+stable Fast FGSM-RS reference uses random initialization         periodic-PGD monitoring used by recovery methods such as
+and a maximum learning rate of 0.2. The reference PGD-10         FastAdv+ [9], rather than a reimplementation of its complete
+model is trained for 110 epochs with step size 2/255.            training policy. Table II shows the operational difference. The
+   Final checkpoints are selected by validation PGD-10 ac-       periodic monitor detects all six terminal events but misses the
+curacy. Clean, FGSM, PGD-10, PGD-20, PGD-50, and five-           transient seed 303 event between probes. Its median detection
+restart PGD-20 are evaluated on all 10,000 test examples.        delay is 40 updates, whereas the proposed signal has 40
+Standard AutoAttack (APGD-CE, targeted APGD, targeted            updates of median lead. Before an event, periodic monitoring
+FAB, and Square Attack) uses the official implementation         has already invoked PGD-10 a median of 73 times per run;
+and the same fixed first 1,000 test examples for every model.    the proposed online decision invokes it zero times.
+Thus AutoAttack values are comparable within Table IV, but
+are not full-test estimates.                                     C. Mitigation and Matched Component Controls
+                                                                    Across five seeds, unprotected FGSM retains 83.27 ±
+B. Frozen-Detector Evaluation                                    1.77% clean accuracy but finishes at only 0.14 ± 0.19%
+   Figure 1 illustrates the forecasting mechanism on five        validation PGD-10 accuracy. The simplified detector-guided
+unprotected traces. PGD-10 accuracy deteriorates near the        policy without rollback raises these values to 83.09 ± 0.57%
+registered event, whereas the cosine-drop score rises be-        clean and 46.72 ± 1.05% PGD-10, with core training time
+forehand. This temporal ordering is the basis for using the      18.14 ± 0.58 min versus 15.53 ± 0.16 min. Thus clean
+statistic as a warning rather than a post-collapse test.         accuracy alone would not reveal the failure, while conditional
+   The frozen detector is then applied to seven held-out seeds   escalation prevents terminal CO in all five intervention runs.
+(101, 202, 303, 404, 505, 606, and 707). Table I reports every      Table III holds seeds fixed at 17, 101, and 202 to separate
+event, rather than only an aggregate percentage. All seven       the detector, rollback, and PGD-2. The no-rollback policy is
+events are warned within the predeclared 60-update horizon.      slightly stronger than rollback in this matched subset. Over
+Lead time ranges from 20 to 60 updates, with a median of         the complete five paired seeds, rollback changes PGD-10 by
+40. There is one early false-alarm episode in total (0.143 per   only +0.11 percentage points on average, wins on 3/5 seeds,
+run). Six trajectories end below 10% PGD-10; seed 303 is a       and adds 0.53 min; it is therefore excluded from the final
+transient event that subsequently recovers, and is identified    method.
+separately to avoid equating an event warning with terminal         The detector switches at epochs 17, 21, and 13 for these
+failure.                                                         three seeds. An early fixed switch spends more PGD-2
+   We also test the detector in observation-only mode on         computation yet is 0.65 points weaker than the detector
+stable FGSM-RS seeds 17, 23, and 42. None collapses and          policy. A late epoch-21 switch permits transient near-zero
+Fig. 1. FGSM traces aligned at the first registered collapse. Left: validation PGD-10 accuracy. Right: adaptive cosine-drop score; the dotted line is the
+threshold frozen on three development seeds. One window is 20 optimizer updates.
+
+
+                            TABLE IV
+                                                                              E. Discussion
+   U NIFIED CIFAR-10 T EST ACCURACY (%). AUTOATTACK U SES A
+   F IXED 1,000-I MAGE S UBSET; OTHER C OLUMNS U SE A LL 10,000                   The evidence supports two bounded conclusions. First,
+                              I MAGES .                                       a frozen local gradient-consistency rule forecasts all seven
+                                                                              observed held-out events and does not fire in three stable con-
+         Method               Clean PGD-10 PGD-50 PGD×5       AA              trol runs. Second, the matched intervention study attributes
+         Detector, no rollback 82.57   46.38   44.75   44.91 41.30            recovery to PGD-2 escalation, not rollback; the detector’s
+         Detector + rollback 82.97     47.20   45.46   45.65 42.60            role is to choose when to pay that cost. The agreement
+         Fast FGSM-RS          82.48   47.77   46.24   46.36 43.00
+         PGD-10 training       82.47   51.76   50.77   50.84 48.70            among iterative PGD attacks and AutoAttack also rules out
+                                                                              conclusions based solely on the weak training attack. Cer-
+                                                                              tification remains complementary: the present experiments
+                                                                              measure empirical robustness and do not establish a formal
+PGD-10 accuracy in two runs and gives the weakest final                       guarantee.
+result. Full PGD-2 is only 0.05 points stronger than the
+detector policy but costs 3.27 additional minutes on average.                       V. C OMPARISON , C OST, AND T RANSFER S COPE
+These controls do not imply universal superiority over fixed                  A. Direct Baselines under One Evaluator
+recipes; they show that the warning provides useful timing                       The strongest comparison is the one that holds architec-
+information within the collapse-prone regime.                                 ture, data split, threat radius, checkpoint rule, and evaluator
+                                                                              fixed. Table IV does so for the proposed policy, Fast FGSM-
+                                                                              RS, and PGD-10 training. Relative to Fast FGSM-RS, the
+D. Strong Test-Set Evaluation                                                 no-rollback policy is 1.39 points lower under PGD-10, 1.49
+                                                                              points lower under PGD-50, and 1.70 points lower under
+   Table IV uses one evaluator for frozen checkpoints. The                    AutoAttack. It also takes 9.1% more core training time
+final no-rollback policy retains 44.75% accuracy under PGD-                   (17.50 versus 16.04 min). These numbers rule out a claim
+50 and 44.91% under five-restart PGD-20. Their small gap                      that monitoring improves an already well-tuned FGSM-
+indicates convergence of the tested PGD configurations.                       RS run. Relative to PGD-10 training, the policy is 7.40
+AutoAttack gives the more conservative 41.30% estimate.                       points lower under AutoAttack, but PGD-10 training is
+   Fast FGSM-RS is both stronger and faster than the sim-                     approximately 15 times slower (262.48 versus 17.50 min).
+plified monitored model in this experiment: its AutoAttack                    The useful comparison is therefore not “best robustness at
+accuracy is 1.70 points higher and its representative core                    any cost,” but whether an unsafe fast-training trajectory can
+time is 16.04 min versus 17.50 min. PGD-10 training is                        be detected without adding a second validation attack and
+strongest but takes 262.48 min. These results determine the                   stabilized with conditional computation.
+scope of the contribution: the monitor is not a new robustness                   Within that target regime, the paired comparison is de-
+optimum or a reason to avoid a well-tuned FGSM-RS recipe.                     cisive: unprotected zero-start FGSM ends at 0.14 ± 0.19%
+It is an attack-free online safety mechanism that stays silent                validation PGD-10, whereas monitored training ends at
+on the stable recipe and conditionally protects fast-training                 46.72 ± 1.05%. The stable FGSM-RS control establishes
+configurations when their local geometry becomes unsafe.                      the other required behavior: when the fast recipe is already
+Fig. 2. Component controls. Detector variants use five seeds; fixed schedules and full PGD-2 use the matched three-seed subset. Error bars are sample
+standard deviations. The table provides the strictly matched comparison.
+
+
+
+safe, the detector produces no alarms in three runs and there-              rule is also transferred without adjustment to three stable
+fore requests no PGD-2 escalation. Together, these controls                 FGSM-RS runs, where it remains silent. Thus the current
+distinguish a safety mechanism from a generally stronger                    evidence supports seed-level and trajectory-level transfer
+adversarial-training algorithm.                                             within CIFAR-10/PreActResNet-18. It does not by itself
+                                                                            establish transfer to a new dataset or architecture. We keep
+B. Relationship to CO Countermeasures                                       this boundary explicit because retuning the threshold on a
+   Table V compares the operating assumptions of the closest                second setting and calling the result generalization would
+families. Fast FGSM-RS combines randomized initialization                   weaken the central frozen-detector claim.
+with a cyclic schedule and commonly uses PGD-based
+early stopping [4]. FastAdv+ and FastAdvW explicitly mon-                   D. Reproducibility and Audit Trail
+itor robustness with periodic PGD validation and introduce                     All detector choices are made before held-out evalua-
+PGD updates when weak-attack overfitting is observed [9].                   tion: 20-update windows, a five-window median history, at
+GradAlign instead penalizes disagreement between input                      least three history windows, threshold τ = 0.1663298875,
+gradients at different points in the perturbation set, directly             a 60-update forecast horizon, and the event definition in
+regularizing the local nonlinearity associated with CO [8].                 Section III-D. The seven held-out event rows are reported
+Our method shares GradAlign’s geometric motivation and                      individually, and the stable controls count every warning
+FastAdv+’s conditional response, but has a different systems                as a false alarm. Fixed-switch ablations explicitly disable
+contract: its online evidence comes from gradients already                  detector-triggered switching, preventing the nominal fixed
+generated by the ordinary FGSM update, and the signal is                    schedules from silently becoming adaptive. Training time
+frozen and assessed separately from the PGD-2 response.                     sums only core update time; validation and retrospective
+   This table is a mechanism-level comparison rather than a                 label attacks are excluded for all methods. Finally, all frozen
+cross-paper accuracy ranking. Published numbers use dif-                    checkpoints are evaluated with the same full-test PGD imple-
+ferent networks, schedules, attack settings, and hardware,                  mentations, while the smaller AutoAttack scope is marked
+so copying them beside our measurements would create                        in the table rather than mixed with the 10,000-example
+false precision. The quantitative baselines in Table IV are                 estimates. These choices make the detector, intervention, and
+rerun under our evaluator; Table V states what is and                       evaluator independently auditable.
+is not shared with earlier CO countermeasures. A fully
+controlled numerical comparison with the official FastAdv+                                           VI. C ONCLUSION
+and GradAlign implementations remains distinct from the                        This work presented an attack-free safety monitor for
+evidence presented here.                                                    catastrophic overfitting in fast adversarial training. The input
+                                                                            gradient used to construct FGSM and the endpoint gradient
+C. What Generalizes in the Present Evidence?                                created by the ordinary parameter backward pass expose a
+   The detector is not evaluated only on the two original                   predictive local-geometry signal without a validation attack.
+collapse traces. Its threshold is chosen once on seeds 17, 23,              With its threshold frozen after three development seeds,
+and 42, then held fixed across seven new failure seeds whose                the monitor warns before all seven held-out failure events
+event epochs range from 13 to 24. This tests transfer across                and remains silent in three stable FGSM-RS runs. On the
+optimization noise, substantially different failure times, a                same traces, fixed-cadence PGD-10 monitoring detects only
+transient event, and six terminal collapses. The same frozen                6/7 events and does so after rather than before the event,
+                                                                TABLE V
+                                    O PERATIONAL C OMPARISON WITH C LOSELY R ELATED FAST-AT S TRATEGIES
+
+   Method                 Primary purpose           Online evidence                Extra online computation     Action on instability
+   Fast FGSM-RS [4]       Stable fast training      PGD checkpoint/early-stop      Validation attack            Stop/select checkpoint
+                                                    test
+   FastAdv+/W [9]         Detect and recover        Periodic PGD robustness        Validation attack            Temporary/permanent PGD
+   GradAlign [8]          Prevent CO                Random-point gradient align-   Extra gradient regularizer   Modify every FGSM update
+                                                    ment
+   Ours                   Forecast and safeguard    Within-update gradient drop    Reductions and trace state   Conditional PGD-2 switch
+
+
+
+while requiring repeated validation attacks. Matched inter-
+ventions show that switching to PGD-2 prevents terminal
+collapse, whereas rollback contributes no consistent average
+improvement and is removed from the final policy. The
+resulting model reaches 44.75% PGD-50 accuracy on the full
+CIFAR-10 test set and 41.30% standard AutoAttack accuracy
+on a fixed 1,000-image subset. These results support the
+monitor as a low-cost conditional safeguard, not as a claim
+to supersede the stable FGSM-RS reference or full PGD
+training. Evaluation on additional architectures and datasets,
+and the integration of empirical monitoring with certified
+defenses, remain important next steps.
+                            R EFERENCES
+ [1] C. Szegedy, W. Zaremba, I. Sutskever, J. Bruna, D. Erhan, I. Good-
+     fellow, and R. Fergus, “Intriguing properties of neural networks,” in
+     International Conference on Learning Representations, 2014.
+ [2] I. J. Goodfellow, J. Shlens, and C. Szegedy, “Explaining and harness-
+     ing adversarial examples,” in International Conference on Learning
+     Representations, 2015.
+ [3] A. Madry, A. Makelov, L. Schmidt, D. Tsipras, and A. Vladu,
+     “Towards deep learning models resistant to adversarial attacks,” in
+     International Conference on Learning Representations, 2018.
+ [4] E. Wong, L. Rice, and J. Z. Kolter, “Fast is better than free: Revis-
+     iting adversarial training,” in International Conference on Learning
+     Representations, 2020.
+ [5] F. Croce and M. Hein, “Reliable evaluation of adversarial robustness
+     with an ensemble of diverse parameter-free attacks,” in Proceedings
+     of the 37th International Conference on Machine Learning, 2020, pp.
+     2206–2216.
+ [6] H. Zhang, Y. Yu, J. Jiao, E. P. Xing, L. El Ghaoui, and M. I. Jordan,
+     “Theoretically principled trade-off between robustness and accuracy,”
+     in Proceedings of the 36th International Conference on Machine
+     Learning, 2019, pp. 7472–7482.
+ [7] A. Shafahi, M. Najibi, M. A. Ghiasi, Z. Xu, J. Dickerson, C. Studer,
+     L. S. Davis, G. Taylor, and T. Goldstein, “Adversarial training for
+     free!” in Advances in Neural Information Processing Systems, vol. 32,
+     2019.
+ [8] M. Andriushchenko and N. Flammarion, “Understanding and im-
+     proving fast adversarial training,” in Advances in Neural Information
+     Processing Systems, vol. 33, 2020, pp. 16 048–16 059.
+ [9] B. Li, S. Wang, S. Jana, and L. Carin, “Towards understanding fast
+     adversarial training,” arXiv preprint arXiv:2006.03089, 2020.
+[10] E. Wong and J. Z. Kolter, “Provable defenses against adversarial
+     examples via the convex outer adversarial polytope,” in Proceedings
+     of the 35th International Conference on Machine Learning, 2018, pp.
+     5286–5295.
+[11] J. M. Cohen, E. Rosenfeld, and J. Z. Kolter, “Certified adversarial
+     robustness via randomized smoothing,” in Proceedings of the 36th
+     International Conference on Machine Learning, 2019, pp. 1310–1320.
+[12] A. Krizhevsky, “Learning multiple layers of features from tiny im-
+     ages,” University of Toronto, Tech. Rep., 2009.
+[13] K. He, X. Zhang, S. Ren, and J. Sun, “Identity mappings in deep
+     residual networks,” in European Conference on Computer Vision,
+     2016, pp. 630–645.
+

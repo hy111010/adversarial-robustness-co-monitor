@@ -1,0 +1,35 @@
+waiting_for_pid=26424
+starting=pgd_monitor_rollback_pgd2_holdout_seed101 at=2026-09-03T15:09:51.8847023+08:00
+epoch=001 mode=fgsm_zero clean=0.3438 pgd10=0.2375 trigger=0 abandoned=0 train_s=38.2
+epoch=002 mode=pgd2_after_warning clean=0.3992 pgd10=0.2547 trigger=1 abandoned=260 train_s=72.9
+epoch=003 mode=pgd2 clean=0.4522 pgd10=0.2812 trigger=0 abandoned=0 train_s=44.2
+epoch=004 mode=pgd2 clean=0.5264 pgd10=0.2695 trigger=0 abandoned=0 train_s=43.4
+epoch=005 mode=pgd2 clean=0.5540 pgd10=0.3102 trigger=0 abandoned=0 train_s=43.0
+epoch=006 mode=pgd2 clean=0.6172 pgd10=0.3219 trigger=0 abandoned=0 train_s=42.8
+epoch=007 mode=pgd2 clean=0.6442 pgd10=0.3266 trigger=0 abandoned=0 train_s=43.0
+epoch=008 mode=pgd2 clean=0.6438 pgd10=0.3344 trigger=0 abandoned=0 train_s=43.3
+epoch=009 mode=pgd2 clean=0.6630 pgd10=0.3453 trigger=0 abandoned=0 train_s=43.4
+epoch=010 mode=pgd2 clean=0.6560 pgd10=0.3430 trigger=0 abandoned=0 train_s=42.9
+epoch=011 mode=pgd2 clean=0.6144 pgd10=0.3320 trigger=0 abandoned=0 train_s=42.9
+epoch=012 mode=pgd2 clean=0.6324 pgd10=0.3359 trigger=0 abandoned=0 train_s=42.8
+epoch=013 mode=pgd2 clean=0.6368 pgd10=0.3336 trigger=0 abandoned=0 train_s=43.1
+epoch=014 mode=pgd2 clean=0.6272 pgd10=0.3523 trigger=0 abandoned=0 train_s=43.0
+epoch=015 mode=pgd2 clean=0.6396 pgd10=0.3398 trigger=0 abandoned=0 train_s=43.3
+epoch=016 mode=pgd2 clean=0.6474 pgd10=0.3258 trigger=0 abandoned=0 train_s=42.8
+epoch=017 mode=pgd2 clean=0.6456 pgd10=0.3453 trigger=0 abandoned=0 train_s=42.8
+epoch=018 mode=pgd2 clean=0.6708 pgd10=0.3320 trigger=0 abandoned=0 train_s=42.9
+epoch=019 mode=pgd2 clean=0.6586 pgd10=0.3523 trigger=0 abandoned=0 train_s=43.0
+epoch=020 mode=pgd2 clean=0.6664 pgd10=0.3719 trigger=0 abandoned=0 train_s=43.2
+epoch=021 mode=pgd2 clean=0.7104 pgd10=0.3414 trigger=0 abandoned=0 train_s=44.0
+epoch=022 mode=pgd2 clean=0.7198 pgd10=0.3828 trigger=0 abandoned=0 train_s=43.2
+epoch=023 mode=pgd2 clean=0.6880 pgd10=0.3766 trigger=0 abandoned=0 train_s=42.8
+epoch=024 mode=pgd2 clean=0.7378 pgd10=0.3883 trigger=0 abandoned=0 train_s=42.7
+epoch=025 mode=pgd2 clean=0.7506 pgd10=0.3953 trigger=0 abandoned=0 train_s=42.9
+epoch=026 mode=pgd2 clean=0.7560 pgd10=0.4234 trigger=0 abandoned=0 train_s=42.7
+epoch=027 mode=pgd2 clean=0.7738 pgd10=0.4313 trigger=0 abandoned=0 train_s=42.8
+epoch=028 mode=pgd2 clean=0.7998 pgd10=0.4461 trigger=0 abandoned=0 train_s=42.9
+epoch=029 mode=pgd2 clean=0.8262 pgd10=0.4602 trigger=0 abandoned=0 train_s=42.9
+epoch=030 mode=pgd2 clean=0.8412 pgd10=0.4688 trigger=0 abandoned=0 train_s=42.9
+starting=pgd_monitor_rollback_pgd2_holdout_seed202 at=2026-09-03T15:42:00.9846053+08:00
+epoch=001 mode=fgsm_zero clean=0.3490 pgd10=0.2367 trigger=0 abandoned=0 train_s=38.6
+epoch=002 mode=pgd2_after_warning clean=0.4006 pgd10=0.2437 trigger=1 abandoned=120 train_s=61.2

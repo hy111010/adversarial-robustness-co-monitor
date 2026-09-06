@@ -1,0 +1,4 @@
+﻿checkpoint,architecture,attack,accuracy,epsilon,seconds
+best_robust.pt,preact_resnet18,clean,0.8248,0.0,8.84153679991141
+best_robust.pt,preact_resnet18,fgsm_8_255,0.5415,0.03137254901960784,11.475316300056875
+best_robust.pt,preact_resnet18,pgd10_8_255,0.4777,0.03137254901960784,35.08967200003099

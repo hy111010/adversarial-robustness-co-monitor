@@ -1,0 +1,3 @@
+run,input,windows,collapse_detected,collapse_window_index,collapse_global_step
+dev_collapse_full_zero_eps8_lr03_seed101,outputs_publication\dev_collapse_full_zero_eps8_lr03_seed101\batch_metrics.csv,540,True,365,7160
+dev_collapse_full_zero_eps8_lr03_seed202,outputs_publication\dev_collapse_full_zero_eps8_lr03_seed202\batch_metrics.csv,540,True,316,6204

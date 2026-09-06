@@ -1,0 +1,4 @@
+﻿recipe,runs,collapse_events,detected_events,alarm_episodes,immediate_interventions,intervention_before_collapse,intervention_clean_mean,intervention_clean_sample_std,intervention_pgd10_mean,intervention_pgd10_sample_std
+standard,3,0,0,0,0,0,nan,nan,nan,nan
+highlr,5,0,0,0,0,0,nan,nan,nan,nan
+eps16,3,3,3,5,3,3,0.7104666666666667,0.004272391992003243,0.26484375,0.008267972847076838

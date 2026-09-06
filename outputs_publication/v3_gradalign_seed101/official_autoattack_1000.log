@@ -1,0 +1,28 @@
+Created state in outputs_publication\v3_gradalign_seed101\official_autoattack_1000_state.json
+using standard version including apgd-ce, apgd-t, fab-t, square.
+initial accuracy: 80.30%
+apgd-ce - 1/7 - 50 out of 128 successfully perturbed
+apgd-ce - 2/7 - 61 out of 128 successfully perturbed
+apgd-ce - 3/7 - 52 out of 128 successfully perturbed
+apgd-ce - 4/7 - 45 out of 128 successfully perturbed
+apgd-ce - 5/7 - 60 out of 128 successfully perturbed
+apgd-ce - 6/7 - 43 out of 128 successfully perturbed
+apgd-ce - 7/7 - 16 out of 35 successfully perturbed
+robust accuracy after APGD-CE: 47.60% (total time 24.6 s)
+apgd-t - 1/4 - 10 out of 128 successfully perturbed
+apgd-t - 2/4 - 5 out of 128 successfully perturbed
+apgd-t - 3/4 - 8 out of 128 successfully perturbed
+apgd-t - 4/4 - 9 out of 92 successfully perturbed
+robust accuracy after APGD-T: 44.40% (total time 153.1 s)
+fab-t - 1/4 - 0 out of 128 successfully perturbed
+fab-t - 2/4 - 0 out of 128 successfully perturbed
+fab-t - 3/4 - 0 out of 128 successfully perturbed
+fab-t - 4/4 - 0 out of 60 successfully perturbed
+robust accuracy after FAB-T: 44.40% (total time 417.9 s)
+square - 1/4 - 0 out of 128 successfully perturbed
+square - 2/4 - 0 out of 128 successfully perturbed
+square - 3/4 - 0 out of 128 successfully perturbed
+square - 4/4 - 0 out of 60 successfully perturbed
+robust accuracy after SQUARE: 44.40% (total time 743.7 s)
+max Linf perturbation: 0.03137, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 44.40%

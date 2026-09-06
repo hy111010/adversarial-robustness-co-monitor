@@ -1,0 +1,16 @@
+﻿method,metric,mean,sample_std,seeds
+Adaptive + rollback,final_clean,0.83136,0.006224789153055681,5
+Adaptive + rollback,final_pgd10,0.46828125,0.005540819758280365,5
+Adaptive + rollback,training_minutes,18.675082360998882,0.6955187736695587,5
+"Adaptive, no rollback",final_clean,0.83088,0.005652610016620642,5
+"Adaptive, no rollback",final_pgd10,0.4671875,0.010525151238521473,5
+"Adaptive, no rollback",training_minutes,18.144129984664808,0.5780064306848255,5
+Fixed switch epoch 13,final_clean,0.83324,0.007033349131103882,5
+Fixed switch epoch 13,final_pgd10,0.4640625,0.0049718445552179155,5
+Fixed switch epoch 13,training_minutes,19.371245379666345,0.21261566124993272,5
+Fixed switch epoch 21,final_clean,0.82348,0.011196070739326373,5
+Fixed switch epoch 21,final_pgd10,0.4575,0.009384760544028288,5
+Fixed switch epoch 21,training_minutes,17.847078540000037,0.20678382764486694,5
+Full PGD-2,final_clean,0.83572,0.010243632168327781,5
+Full PGD-2,final_pgd10,0.468125,0.00903349344972641,5
+Full PGD-2,training_minutes,21.60350171633329,0.13202383556727687,5

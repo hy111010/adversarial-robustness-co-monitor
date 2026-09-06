@@ -1,0 +1,51 @@
+\section{Introduction}
+Deep classifiers can change their predictions under small adversarial
+perturbations \cite{szegedy2014intriguing,goodfellow2015explaining}.
+Adversarial training addresses this failure by optimizing against perturbed
+examples and remains a strong empirical defense \cite{madry2018towards}. Its
+main obstacle is cost because multi-step training attacks require several
+forward-backward passes for nearly every parameter update.
+
+Fast adversarial training replaces the inner loop with a single FGSM step.
+With randomized initialization and a suitable schedule, it can approach the
+robustness of PGD training at much lower cost \cite{wong2020fast}. Yet
+single-step training can exhibit \emph{catastrophic overfitting} (CO):
+iterative-attack accuracy falls sharply toward zero while clean or FGSM
+accuracy remains high. FastAdv+ responds using periodic PGD validation
+\cite{li2020towards}; GradAlign regularizes local input-gradient geometry at
+every update \cite{andriushchenko2020understanding}. These approaches improve
+reliability but add attack or gradient computation.
+
+We ask whether the FGSM update itself provides an early warning. It computes an
+input gradient at the attack starting point, and the endpoint input gradient is
+obtained from the same parameter-backward pass without an additional forward or
+backward pass. Their cosine similarity therefore requires no additional model
+evaluation. We use ``attack-free monitor'' to mean that the monitor itself does
+not run an auxiliary validation attack. The base training still generates FGSM
+adversarial examples, and validation PGD-10 is still used to select
+\emph{best\_robust.pt}. When the cosine-drop score crosses a frozen threshold,
+the primary \emph{immediate-switch} response retains the completed update,
+switches the next mini-batch to PGD-2, and continues with PGD-2. The matched
+\emph{immediate-replay} ablation instead rolls back to the epoch-start state
+before recovery.
+
+The contributions are:
+\begin{itemize}
+    \item A gradient-consistency safety trigger calibrated on three CIFAR-10
+    development seeds and audited on seven disjoint held-out events. We also
+    test unchanged-threshold architecture transfer and protocol transfer after
+    one CIFAR-100-specific calibration.
+    \item An event-level timing study that records warning, unprotected CO,
+    and actual PGD-2 start times. Immediate-switch and immediate-replay act
+    before collapse in 5/5 matched events, compared with 3/5 for next-epoch
+    escalation; five seeds do not establish a clear proportional advantage.
+    \item Five-seed component controls and controlled FastAdv+/GradAlign
+    reimplementations under one harness, with paired bootstrap intervals.
+    \item A random-start stress test: the monitor stays silent on eight stable
+    $8/255$ runs but detects 3/3 natural CO events at $16/255$; the tested
+    immediate-replay ablation restores non-trivial robustness.
+\end{itemize}
+
+The study concerns empirical $\ell_\infty$ robustness. Certified defenses
+provide formal guarantees through different mechanisms and are complementary
+to the training-time monitor studied here.

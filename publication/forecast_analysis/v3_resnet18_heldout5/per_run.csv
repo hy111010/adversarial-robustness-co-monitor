@@ -1,0 +1,9 @@
+run,kind,event_index,detected_before_event,detected_within_near_horizon,first_lead_windows,alarm_episodes
+v3_resnet18_collapse_seed303,collapse,405.0,1,1,3.0,1
+v3_resnet18_collapse_seed404,collapse,460.0,1,1,2.0,1
+v3_resnet18_collapse_seed505,collapse,154.0,0,0,,0
+v3_resnet18_collapse_seed606,collapse,387.0,1,0,5.0,1
+v3_resnet18_collapse_seed707,collapse,389.0,1,0,24.0,2
+v3_resnet18_stable_seed17,stable,,0,0,,0
+v3_resnet18_stable_seed23,stable,,0,0,,0
+v3_resnet18_stable_seed42,stable,,0,0,,0

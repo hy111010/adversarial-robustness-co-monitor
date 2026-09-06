@@ -1,0 +1,26 @@
+﻿method,seed,final_clean,final_pgd10,training_minutes,trigger_epoch,folder
+Adaptive + rollback,17,0.8234,0.4734375,19.202869129993875,17,outputs_publication\adaptive_rollback_pgd2_dev_seed17
+"Adaptive, no rollback",17,0.8236,0.4703125,18.42813761999714,17,outputs_publication\v2_adaptive_no_rollback_seed17
+Adaptive + rollback,23,0.8282,0.4734375,18.444576950006496,19,outputs_publication\adaptive_rollback_pgd2_dev_seed23
+"Adaptive, no rollback",23,0.828,0.47265625,17.860254673331898,19,outputs_publication\v2_adaptive_no_rollback_seed23
+Adaptive + rollback,42,0.84,0.46171875,18.45552615999865,19,outputs_publication\adaptive_rollback_pgd2_dev_seed42
+"Adaptive, no rollback",42,0.8388,0.4484375,17.938526715002567,19,outputs_publication\v2_adaptive_no_rollback_seed42
+Adaptive + rollback,101,0.8312,0.46953125,17.75529177333034,21,outputs_publication\adaptive_rollback_pgd2_holdout_seed101
+"Adaptive, no rollback",101,0.8312,0.471875,17.501299113335943,21,outputs_publication\v2_adaptive_no_rollback_seed101
+Adaptive + rollback,202,0.834,0.46328125,19.517147791665046,13,outputs_publication\adaptive_rollback_pgd2_holdout_seed202
+"Adaptive, no rollback",202,0.8328,0.47265625,18.992431801656494,13,outputs_publication\v2_adaptive_no_rollback_seed202
+Fixed switch epoch 13,17,0.8242,0.4640625,19.222255284998877,13,outputs_publication\v2_fixed_early13_seed17
+Fixed switch epoch 21,17,0.8068,0.4484375,17.70882579500012,21,outputs_publication\v2_fixed_late21_seed17
+Full PGD-2,17,0.8222,0.47265625,21.41922401000047,,outputs_publication\v2_full_pgd2_seed17
+Fixed switch epoch 13,23,0.8286,0.46875,19.689281823333296,13,outputs_publication\v2_fixed_early13_seed23
+Fixed switch epoch 21,23,0.8222,0.4640625,18.13328192166688,21,outputs_publication\v2_fixed_late21_seed23
+Full PGD-2,23,0.8286,0.47109375,21.643069196666087,,outputs_publication\v2_full_pgd2_seed23
+Fixed switch epoch 13,42,0.842,0.45625,19.48593520833383,13,outputs_publication\v2_fixed_early13_seed42
+Fixed switch epoch 21,42,0.836,0.4484375,18.001471298333005,21,outputs_publication\v2_fixed_late21_seed42
+Full PGD-2,42,0.848,0.453125,21.64685213833339,,outputs_publication\v2_full_pgd2_seed42
+Fixed switch epoch 13,101,0.8374,0.46796875,19.184268623332414,13,outputs_publication\v2_fixed_early13_seed101
+Fixed switch epoch 21,101,0.8312,0.46953125,17.711222198333477,21,outputs_publication\v2_fixed_late21_seed101
+Full PGD-2,101,0.8404,0.4765625,21.77076023999986,,outputs_publication\v2_full_pgd2_seed101
+Fixed switch epoch 13,202,0.834,0.46328125,19.274485958333297,13,outputs_publication\v2_fixed_early13_seed202
+Fixed switch epoch 21,202,0.8212,0.45703125,17.680591486666707,21,outputs_publication\v2_fixed_late21_seed202
+Full PGD-2,202,0.8394,0.4671875,21.537602996666646,,outputs_publication\v2_full_pgd2_seed202

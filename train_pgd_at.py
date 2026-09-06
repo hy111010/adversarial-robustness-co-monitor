@@ -1,0 +1,182 @@
+from __future__ import annotations
+
+import argparse
+from functools import partial
+from pathlib import Path
+
+import torch
+from torch import nn
+
+from robust_exp.attacks import pgd_linf
+from robust_exp.data import make_loaders
+from robust_exp.engine import evaluate, pgd_adversarial_train_fixed_lr_one_epoch
+from robust_exp.models import build_model
+from robust_exp.utils import (
+    append_csv,
+    capture_rng_state,
+    choose_device,
+    isolated_torch_rng,
+    restore_rng_state,
+    seed_everything,
+    write_json,
+)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Publication baseline: standard PGD adversarial training")
+    parser.add_argument("--data-root", default="data")
+    parser.add_argument("--output-root", default="outputs_publication")
+    parser.add_argument("--run-name", default="pgd10_preact_seed17")
+    parser.add_argument("--architecture", default="preact_resnet18", choices=["preact_resnet18", "resnet18"])
+    parser.add_argument("--device", default="auto")
+    parser.add_argument("--seed", type=int, default=17)
+    parser.add_argument("--epochs", type=int, default=110)
+    parser.add_argument("--batch-size", type=int, default=128)
+    parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--lr", type=float, default=0.1)
+    parser.add_argument("--momentum", type=float, default=0.9)
+    parser.add_argument("--weight-decay", type=float, default=5e-4)
+    parser.add_argument("--epsilon", type=float, default=8 / 255)
+    parser.add_argument("--train-step-size", type=float, default=2 / 255)
+    parser.add_argument("--train-steps", type=int, default=10)
+    parser.add_argument("--monitor-step-size", type=float, default=2 / 255)
+    parser.add_argument("--monitor-steps", type=int, default=10)
+    parser.add_argument("--monitor-batches", type=int, default=10)
+    parser.add_argument("--val-size", type=int, default=5000)
+    parser.add_argument("--limit-train", type=int)
+    parser.add_argument("--limit-val", type=int)
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Resume from <output-root>/<run-name>/last.pt without duplicating completed epochs",
+    )
+    return parser.parse_args()
+
+
+def epoch_lr(base_lr: float, epoch: int) -> float:
+    if epoch < 100:
+        return base_lr
+    if epoch < 105:
+        return base_lr * 0.1
+    return base_lr * 0.01
+
+
+def main() -> None:
+    args = parse_args()
+    seed_everything(args.seed)
+    device = choose_device(args.device)
+    run_dir = Path(args.output_root) / args.run_name
+    run_dir.mkdir(parents=True, exist_ok=True)
+    metrics_path = run_dir / "metrics.csv"
+    checkpoint_path = run_dir / "last.pt"
+    if metrics_path.exists() and not args.resume:
+        raise FileExistsError(
+            f"{metrics_path} already exists; choose a new run name or pass --resume"
+        )
+    if args.resume and not checkpoint_path.exists():
+        raise FileNotFoundError(f"Cannot resume because {checkpoint_path} does not exist")
+    write_json(
+        run_dir / "config.json",
+        {**vars(args), "resolved_device": str(device), "torch": torch.__version__, "method": "pgd_at"},
+    )
+    train_loader, val_loader = make_loaders(
+        args.data_root,
+        args.batch_size,
+        args.workers,
+        args.seed,
+        args.val_size,
+        args.limit_train,
+        args.limit_val,
+    )
+    model = build_model(architecture=args.architecture).to(device)
+    criterion = nn.CrossEntropyLoss()
+    optimizer = torch.optim.SGD(
+        model.parameters(), lr=args.lr, momentum=args.momentum, weight_decay=args.weight_decay
+    )
+    scaler = torch.amp.GradScaler(device.type, enabled=device.type == "cuda")
+    monitor_attack = partial(
+        pgd_linf,
+        epsilon=args.epsilon,
+        step_size=args.monitor_step_size,
+        steps=args.monitor_steps,
+        random_start=True,
+    )
+    best_pgd = -1.0
+    start_epoch = 1
+    if args.resume:
+        saved = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+        saved_args = saved.get("args", {})
+        for key in ("architecture", "seed", "epsilon", "train_steps", "train_step_size"):
+            if key in saved_args and saved_args[key] != getattr(args, key):
+                raise ValueError(
+                    f"Resume mismatch for {key}: checkpoint={saved_args[key]!r}, current={getattr(args, key)!r}"
+                )
+        model.load_state_dict(saved["model_state"])
+        optimizer.load_state_dict(saved["optimizer_state"])
+        if "scaler_state" in saved:
+            scaler.load_state_dict(saved["scaler_state"])
+        start_epoch = int(saved["epoch"]) + 1
+        best_pgd = float(saved.get("best_pgd", saved.get("val_pgd10_acc", -1.0)))
+        best_path = run_dir / "best_robust.pt"
+        if best_path.exists():
+            best_saved = torch.load(best_path, map_location="cpu", weights_only=False)
+            best_pgd = max(best_pgd, float(best_saved.get("val_pgd10_acc", -1.0)))
+        restore_rng_state(saved.get("rng_state"), train_loader.generator)
+        print(
+            f"resumed={checkpoint_path} next_epoch={start_epoch:03d} best_pgd={best_pgd:.4f}",
+            flush=True,
+        )
+
+    for epoch in range(start_epoch, args.epochs + 1):
+        lr = epoch_lr(args.lr, epoch)
+        for group in optimizer.param_groups:
+            group["lr"] = lr
+        metrics = pgd_adversarial_train_fixed_lr_one_epoch(
+            model,
+            train_loader,
+            optimizer,
+            criterion,
+            device,
+            scaler,
+            args.epsilon,
+            args.train_step_size,
+            args.train_steps,
+        )
+        with isolated_torch_rng(device, args.seed * 100_000 + epoch):
+            val_clean = evaluate(model, val_loader, device)
+            val_pgd = evaluate(
+                model, val_loader, device, attack=monitor_attack, max_batches=args.monitor_batches
+            )
+        row = {
+            "epoch": epoch,
+            **metrics,
+            "val_clean_acc": val_clean,
+            "val_pgd10_acc": val_pgd,
+            "monitor_batches": args.monitor_batches,
+        }
+        append_csv(metrics_path, row)
+        checkpoint = {
+            "epoch": epoch,
+            "architecture": args.architecture,
+            "model_state": model.state_dict(),
+            "optimizer_state": optimizer.state_dict(),
+            "scaler_state": scaler.state_dict(),
+            "val_clean_acc": val_clean,
+            "val_pgd10_acc": val_pgd,
+            "args": vars(args),
+            "best_pgd": max(best_pgd, val_pgd),
+            "rng_state": capture_rng_state(train_loader.generator),
+        }
+        torch.save(checkpoint, checkpoint_path)
+        if val_pgd > best_pgd:
+            best_pgd = val_pgd
+            torch.save(checkpoint, run_dir / "best_robust.pt")
+        print(
+            f"epoch={epoch:03d} lr={lr:.4g} loss={metrics['train_adv_loss']:.4f} "
+            f"clean={val_clean:.4f} pgd10={val_pgd:.4f} seconds={metrics['epoch_seconds']:.1f}",
+            flush=True,
+        )
+
+
+if __name__ == "__main__":
+    main()

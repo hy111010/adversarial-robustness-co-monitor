@@ -1,0 +1,5 @@
+method,checkpoint_epoch,clean_accuracy,fgsm_8_255_accuracy,pgd10_8_255_accuracy,training_minutes
+Standard ResNet-18,100,0.9472,0.3858,0.0006,30.79
+Fast AT early-stop,2,0.3757,0.2345,0.1855,1.03
+Fast AT final,15,0.5512,0.8598,0.0000,7.62
+Rollback + PGD-2,15,0.7885,0.4930,0.4439,10.18
